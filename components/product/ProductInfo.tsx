@@ -1,36 +1,22 @@
+import { ProductDetailsPage } from "apps/commerce/types.ts";
+import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { SendEventOnView } from "../../components/Analytics.tsx";
 import Breadcrumb from "../../components/ui/Breadcrumb.tsx";
-import AddToCartButtonLinx from "../../islands/AddToCartButton/linx.tsx";
-import AddToCartButtonShopify from "../../islands/AddToCartButton/shopify.tsx";
-import AddToCartButtonVNDA from "../../islands/AddToCartButton/vnda.tsx";
-import AddToCartButtonVTEX from "../../islands/AddToCartButton/vtex.tsx";
-import AddToCartButtonWake from "../../islands/AddToCartButton/wake.tsx";
-import AddToCartButtonNuvemshop from "../../islands/AddToCartButton/nuvemshop.tsx";
-import OutOfStock from "../../islands/OutOfStock.tsx";
-import ShippingSimulation from "../../islands/ShippingSimulation.tsx";
-import WishlistButtonVtex from "../../islands/WishlistButton/vtex.tsx";
-import WishlistButtonWake from "../../islands/WishlistButton/wake.tsx";
 import { formatPrice } from "../../sdk/format.ts";
 import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
 import { usePlatform } from "../../sdk/usePlatform.tsx";
-import { ProductDetailsPage } from "apps/commerce/types.ts";
-import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import ShippingSimulationForm from "../shipping/Form.tsx";
+import WishlistButton from "../wishlist/WishlistButton.tsx";
+import AddToCartButton from "./AddToCartButton.tsx";
+import OutOfStock from "./OutOfStock.tsx";
 import ProductSelector from "./ProductVariantSelector.tsx";
 
 interface Props {
   page: ProductDetailsPage | null;
-  layout?: {
-    /**
-     * @title Product Name
-     * @description How product title will be displayed. Concat to concatenate product and sku names.
-     * @default product
-     */
-    name?: "concat" | "productGroup" | "product";
-  };
 }
 
-function ProductInfo({ page, layout }: Props) {
+function ProductInfo({ page }: Props) {
   const platform = usePlatform();
   const id = useId();
 
@@ -39,15 +25,9 @@ function ProductInfo({ page, layout }: Props) {
   }
 
   const { breadcrumbList, product } = page;
-  const {
-    productID,
-    offers,
-    name = "",
-    gtin,
-    isVariantOf,
-    additionalProperty = [],
-  } = product;
+  const { productID, offers, gtin, isVariantOf } = product;
   const description = product.description || isVariantOf?.description;
+  const title = isVariantOf?.name ?? product.name;
   const {
     price = 0,
     listPrice,
@@ -78,13 +58,7 @@ function ProductInfo({ page, layout }: Props) {
           {gtin && <span class="text-sm text-base-300">Cod. {gtin}</span>}
         </div>
         <h1>
-          <span class="font-medium text-xl capitalize">
-            {layout?.name === "concat"
-              ? `${isVariantOf?.name} ${name}`
-              : layout?.name === "productGroup"
-              ? isVariantOf?.name
-              : name}
-          </span>
+          <span class="font-medium text-xl capitalize">{title}</span>
         </h1>
       </div>
       {/* Prices */}
@@ -110,60 +84,23 @@ function ProductInfo({ page, layout }: Props) {
         {availability === "https://schema.org/InStock"
           ? (
             <>
-              {platform === "vtex" && (
-                <>
-                  <AddToCartButtonVTEX
-                    eventParams={{ items: [eventItem] }}
-                    productID={productID}
-                    seller={seller}
-                  />
-                  <WishlistButtonVtex
-                    variant="full"
-                    productID={productID}
-                    productGroupID={productGroupID}
-                  />
-                </>
-              )}
-              {platform === "wake" && (
-                <>
-                  <AddToCartButtonWake
-                    eventParams={{ items: [eventItem] }}
-                    productID={productID}
-                  />
-                  <WishlistButtonWake
-                    variant="full"
-                    productID={productID}
-                    productGroupID={productGroupID}
-                  />
-                </>
-              )}
-              {platform === "linx" && (
-                <AddToCartButtonLinx
-                  eventParams={{ items: [eventItem] }}
-                  productID={productID}
-                  productGroupID={productGroupID}
+              {price && listPrice && (
+                <AddToCartButton
+                  listPrice={listPrice}
+                  product={product}
+                  seller={seller}
+                  price={price}
+                  class="btn-primary"
                 />
               )}
-              {platform === "vnda" && (
-                <AddToCartButtonVNDA
-                  eventParams={{ items: [eventItem] }}
-                  productID={productID}
-                  additionalProperty={additionalProperty}
-                />
-              )}
-              {platform === "shopify" && (
-                <AddToCartButtonShopify
-                  eventParams={{ items: [eventItem] }}
-                  productID={productID}
-                />
-              )}
-              {platform === "nuvemshop" && (
-                <AddToCartButtonNuvemshop
-                  productGroupID={productGroupID}
-                  eventParams={{ items: [eventItem] }}
-                  additionalProperty={additionalProperty}
-                />
-              )}
+
+              {/* todo @gimenes: add wishlist back */}
+              {/* @ts-expect-error todo @gimenes */}
+              <WishlistButton
+                isUserLoggedIn={true}
+                productID={productID}
+                productGroupID={productGroupID}
+              />
             </>
           )
           : <OutOfStock productID={productID} />}
@@ -171,14 +108,12 @@ function ProductInfo({ page, layout }: Props) {
       {/* Shipping Simulation */}
       <div class="mt-8">
         {platform === "vtex" && (
-          <ShippingSimulation
-            items={[
-              {
-                id: Number(product.sku),
-                quantity: 1,
-                seller: seller,
-              },
-            ]}
+          <ShippingSimulationForm
+            items={[{
+              id: Number(product.sku),
+              quantity: 1,
+              seller: seller,
+            }]}
           />
         )}
       </div>
