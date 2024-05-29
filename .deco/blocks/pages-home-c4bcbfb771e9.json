@@ -6,44 +6,77 @@
     },
     {
       "__resolveType": "site/sections/Images/Carousel.tsx",
-      "dots": false,
-      "arrows": true,
+      "dots": true,
+      "arrows": false,
       "images": [
         {
-          "alt": "Masculino",
           "action": {
-            "href": "/masculino",
-            "label": "Explore collection",
-            "title": "VTEX Store",
-            "subTitle": "Visit our site and start building now:"
+            "content": {
+              "href": "/",
+              "title": "<p>LOREM IPSUM</p>",
+              "subTitle": "<p>Lorem ipsum amet conse</p>",
+              "description": "<p>Lorem ipsumt amet, consectetur adipiscing.</p>"
+            },
+            "link": {
+              "firstCta": {
+                "label": "CTA1",
+                "href": "/CTA1"
+              },
+              "secondCta": {
+                "href": "/CTA2",
+                "label": "CTA2"
+              },
+              "thirdCta": {
+                "href": "/CTA3",
+                "label": "CTA3"
+              },
+              "fourthCta": {
+                "href": "/CTA4",
+                "label": "CTA4"
+              }
+            }
           },
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/c007e481-b1c6-4122-9761-5c3e554512c1",
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/d057fc10-5616-4f12-8d4c-201bb47a81f5"
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/454e1230-b14b-40b8-a7af-0fab6b47d662",
+          "alt": "image",
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/5361833d-c0e7-4774-bced-2fba7d319036"
         },
         {
-          "alt": "Feminino",
           "action": {
-            "href": "/feminino",
-            "label": "Explore collection",
-            "title": "VTEX Store",
-            "subTitle": "Visit our site and start building now:"
+            "content": {
+              "description": "<p>Lorem ipsumt amet, consectetur adipiscing.</p>",
+              "href": "/",
+              "title": "<p>LOREM IPSUM</p>",
+              "subTitle": "<p>Lorem ipsum amet conse</p>"
+            },
+            "link": {
+              "firstCta": {
+                "label": "CTA1",
+                "href": "/CTA1"
+              },
+              "secondCta": {
+                "href": "/CTA2",
+                "label": "CTA2"
+              },
+              "thirdCta": {
+                "href": "/CTA3",
+                "label": "CTA3"
+              },
+              "fourthCta": {
+                "href": "/CTA4",
+                "label": "CTA4"
+              }
+            }
           },
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/c007e481-b1c6-4122-9761-5c3e554512c1",
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/17d0a1f4-811f-4e64-ac68-585aa75625f2"
-        },
-        {
-          "alt": "Vestidos",
-          "action": {
-            "href": "/feminino/roupas/vestidos",
-            "label": "Explore collection",
-            "title": "VTEX Store",
-            "subTitle": "Visit our site and start building now:"
-          },
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/c007e481-b1c6-4122-9761-5c3e554512c1",
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/d057fc10-5616-4f12-8d4c-201bb47a81f5"
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/454e1230-b14b-40b8-a7af-0fab6b47d662",
+          "alt": "image",
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/5361833d-c0e7-4774-bced-2fba7d319036"
         }
       ],
-      "preload": true
+      "preload": true,
+      "interval": {
+        "activate": true,
+        "interval": 4
+      }
     },
     {
       "__resolveType": "site/sections/Miscellaneous/Slide.tsx",
