@@ -46,6 +46,23 @@
       "preload": true
     },
     {
+      "__resolveType": "site/sections/Images/MosaicsDouble.tsx",
+      "firstBanner": {
+        "text": {
+          "title": "Linho",
+          "description": "Leveza que combina com o azul do céu."
+        },
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/2ccd87c1-394c-4f34-b072-639a2e0391c5"
+      },
+      "secondBanner": {
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/0a506152-29e9-4c61-a05d-c1dd578a9057",
+        "text": {
+          "title": "Linho",
+          "description": "Leveza que combina com o azul do céu."
+        }
+      }
+    },
+    {
       "__resolveType": "site/sections/Miscellaneous/Slide.tsx",
       "content": [
         {
