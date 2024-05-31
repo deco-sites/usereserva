@@ -55,6 +55,41 @@
       ]
     },
     {
+      "__resolveType": "site/sections/Images/RangeOfBenefits.tsx",
+      "benefits": [
+        {
+          "icon": "PaymentByPix",
+          "description": "<p>Pagamento via Pix tem compra aprovada em minutos.</p>",
+          "title": "Pagamento por Pix",
+          "label": "PaymentByPix"
+        },
+        {
+          "icon": "PaymentByPix",
+          "description": "<p>Pagamento via Pix tem compra aprovada em minutos.</p>",
+          "title": "Receba Cashback",
+          "label": "ReceiveCashback"
+        },
+        {
+          "icon": "PaymentByPix",
+          "description": "<p>Pagamento via Pix tem compra aprovada em minutos.</p>",
+          "title": "Pagamento por Pix",
+          "label": "PaymentByPix"
+        },
+        {
+          "icon": "PaymentByPix",
+          "description": "<p>Pagamento via Pix tem compra aprovada em minutos.</p>",
+          "title": "Pagamento por Pix",
+          "label": "PaymentByPix"
+        },
+        {
+          "icon": "PaymentByPix",
+          "description": "<p>Pagamento via Pix tem compra aprovada em minutos.</p>",
+          "title": "Pagamento por Pix",
+          "label": "PaymentByPix"
+        }
+      ]
+    },
+    {
       "__resolveType": "site/sections/Miscellaneous/CampaignTimer.tsx",
       "link": {
         "href": "https://github.com/deco-cx",
