@@ -48,7 +48,10 @@ export type AvailableIcons =
   | "AlertError"
   | "share"
   | "PaymentByPix"
-  | "ReceiveCashback";
+  | "ReceiveCashback"
+  | "ReservaPrime"
+  | "SellerCoupon"
+  | "EasyExchange";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

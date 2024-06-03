@@ -61,31 +61,32 @@
           "icon": "PaymentByPix",
           "description": "<p>Pagamento via Pix tem compra aprovada em minutos.</p>",
           "title": "Pagamento por Pix",
-          "label": "PaymentByPix"
+          "label": "PaymentByPix",
+          "strokeWidth": 4
         },
         {
           "icon": "PaymentByPix",
-          "description": "<p>Pagamento via Pix tem compra aprovada em minutos.</p>",
+          "description": "<p>Compre e receba 20% de cashback nas suas compras.</p>",
           "title": "Receba Cashback",
           "label": "ReceiveCashback"
         },
         {
           "icon": "PaymentByPix",
-          "description": "<p>Pagamento via Pix tem compra aprovada em minutos.</p>",
-          "title": "Pagamento por Pix",
-          "label": "PaymentByPix"
+          "description": "<p>Descontos na Reserva e em marcas parceiras. <a href=\"/\" class=\"underline font-bold text-black\">Saiba mais</a></p>",
+          "title": "Reserva Prime",
+          "label": "ReservaPrime"
         },
         {
           "icon": "PaymentByPix",
-          "description": "<p>Pagamento via Pix tem compra aprovada em minutos.</p>",
-          "title": "Pagamento por Pix",
-          "label": "PaymentByPix"
+          "description": "<p>Ganhe 15% OFF em produtos sem desconto.</p>",
+          "title": "Cupom do vendedor",
+          "label": "SellerCoupon"
         },
         {
           "icon": "PaymentByPix",
-          "description": "<p>Pagamento via Pix tem compra aprovada em minutos.</p>",
-          "title": "Pagamento por Pix",
-          "label": "PaymentByPix"
+          "description": "<p>Compre no site ou app e troque em uma das lojas em até 7 dias.</p>",
+          "title": "Troca facilitada",
+          "label": "EasyExchange"
         }
       ]
     },
@@ -339,6 +340,36 @@
         },
         "variation": "Variation 3"
       }
+    },
+    {
+      "__resolveType": "site/sections/Images/RangeOfBenefits.tsx",
+      "benefits": [
+        {
+          "label": "PaymentByPix",
+          "title": "Pagamento por Pix",
+          "description": "<p style=\"color: #848484\">Pagamento via Pix tem compra aprovada em minutos.</p>\n"
+        },
+        {
+          "label": "ReceiveCashback",
+          "description": "<p style=\"color: #848484\">Pagamento via Pix tem compra aprovada em minutos.</p>\n",
+          "title": "Receba Cashback"
+        },
+        {
+          "label": "PaymentByPix",
+          "description": "<p style=\"color: #848484\">Pagamento via Pix tem compra aprovada em minutos.</p>\n",
+          "title": "Pagamento por Pix"
+        },
+        {
+          "label": "PaymentByPix",
+          "description": "<p style=\"color: #848484\">Pagamento via Pix tem compra aprovada em minutos.</p>\n",
+          "title": "Pagamento por Pix"
+        },
+        {
+          "label": "PaymentByPix",
+          "description": "<p style=\"color: #848484\">Pagamento via Pix tem compra  aprovada em minutos.</p>",
+          "title": "Pagamento por Pix"
+        }
+      ]
     }
   ],
   "__resolveType": "website/pages/Page.tsx",
