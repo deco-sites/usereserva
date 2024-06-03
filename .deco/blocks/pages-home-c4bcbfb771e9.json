@@ -160,6 +160,12 @@
     },
     {
       "__resolveType": "site/sections/Category/CategoryGrid.tsx",
+      "layout": {
+        "categoryCard": {
+          "textPosition": "bottom",
+          "textAlignment": "left"
+        }
+      },
       "list": [
         {
           "href": "/",
@@ -188,12 +194,6 @@
       ],
       "header": {
         "title": "Explore Our Categories"
-      },
-      "layout": {
-        "categoryCard": {
-          "textPosition": "bottom",
-          "textAlignment": "left"
-        }
       }
     },
     {
@@ -322,12 +322,12 @@
     },
     {
       "__resolveType": "site/sections/Newsletter/Newsletter.tsx",
+      "title": "Newsletter",
       "layout": {
         "content": {
           "alignment": "Center"
         }
-      },
-      "title": "Newsletter"
+      }
     },
     {
       "__resolveType": "site/sections/Footer/Footer.tsx",

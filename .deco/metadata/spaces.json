@@ -712,18 +712,18 @@
       }
     },
     {
-      "id": "deco-records",
+      "id": "deco-records-space",
       "name": "Records",
       "pinned": true,
       "icon": "database",
       "layout": [],
       "tabs": {
-        "deco-records::Deco%20Records::database::Deco%20Records::%7B%7D": {
+        "deco-records-space::Deco%20Records::database::Deco%20Records::%7B%7D": {
           "name": "Deco Records",
           "icon": "database",
           "render": "function",
           "viewId": "Deco Records",
-          "id": "deco-records::Deco%20Records::database::Deco%20Records::%7B%7D",
+          "id": "deco-records-space::Deco%20Records::database::Deco%20Records::%7B%7D",
           "state": {
             "__signal": null
           }

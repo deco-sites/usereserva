@@ -164,49 +164,24 @@ function BannerItem(
               >
               </span>
             )}
-            {links && (
-              <div class="flex items-center gap-4">
-                {links?.firstCta && (
+            { links && Object.keys(links).length > 0 && (          
+            <div class="flex items-center gap-4">
+              {Object.keys(links || {}).map((ctaKey, index) => (
+                links && links[ctaKey as keyof typeof links]?.href && (
                   <Button
+                    key={index}
                     as={"a"}
-                    href={links.firstCta.href}
+                    href={links[ctaKey as keyof typeof links]?.href}
                     class="text-base-200 flex border-0 p-0 bg-transparent text-sm hover:bg-transparent shadow-transparent h-[16px] gap-0 min-h-0 group"
+                    aria-label={links[ctaKey as keyof typeof links]?.label}
                   >
-                    {links.firstCta.label}
-                    <span class="block h-0.5 bg-base-200 w-full transition-transform duration-300 transform group-hover:translate-y-[-2px] h-[0.5px]"></span>
+                    {links[ctaKey as keyof typeof links]?.label}
+                    <span class="block h-0.5 bg-base-200 w-full transition-transform duration-300 transform group-hover:translate-y-[-2px] h-[0.5px]">
+                    </span>
                   </Button>
-                )}
-                {links?.secondCta && (
-                  <Button
-                    as={"a"}
-                    href={links.secondCta.href}
-                    class="text-base-200 flex border-0 p-0 bg-transparent text-sm hover:bg-transparent shadow-transparent h-[16px] gap-0 min-h-0 group"
-                  >
-                    {links.secondCta.label}
-                    <span class="block h-0.5 bg-base-200 w-full transition-transform duration-300 transform group-hover:translate-y-[-2px] h-[0.5px]"></span>
-                  </Button>
-                )}
-                {links?.thirdCta && (
-                  <Button
-                    as={"a"}
-                    href={links.thirdCta.href}
-                    class="text-base-200 flex border-0 p-0 bg-transparent text-sm hover:bg-transparent shadow-transparent h-[16px] gap-0 min-h-0 group"
-                  >
-                    {links.thirdCta.label}
-                    <span class="block h-0.5 bg-base-200 w-full transition-transform duration-300 transform group-hover:translate-y-[-2px] h-[0.5px]"></span>
-                  </Button>
-                )}
-                {links?.fourthCta && (
-                  <Button
-                    as={"a"}
-                    href={links.fourthCta.href}
-                    class="text-base-200 flex border-0 p-0 bg-transparent text-sm hover:bg-transparent shadow-transparent h-[16px] gap-0 min-h-0 group"
-                  >
-                    {links.fourthCta.label}
-                    <span class="block h-[0.5px] bg-base-200 w-full transition-transform duration-300 transform group-hover:translate-y-[-2px]"></span>
-                  </Button>
-                )}
-              </div>
+                )
+              ))}
+            </div>
             )}
           </div>
         )}
@@ -247,7 +222,7 @@ function Dots({ images, interval }: Props) {
           @property --dot-progress {
             syntax: '<percentage>';
             inherits: false;
-            initial-value: 0%;
+            initial-value: 1%;
           }
           `,
         }}
@@ -346,4 +321,3 @@ function BannerCarousel(props: Props) {
 }
 
 export default BannerCarousel;
-
