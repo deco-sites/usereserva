@@ -88,7 +88,7 @@ export interface Props {
    * @title Autoplay interval
    * @description time (in seconds) to start the carousel autoplay
    */
-  interval?: Autoplay;
+  autoplay?: Autoplay;
 }
 
 const DEFAULT_PROPS = {
@@ -213,7 +213,7 @@ function BannerItem(
   );
 }
 
-function Dots({ images, interval }: Props) {
+function Dots({ images, autoplay }: Props) {
   return (
     <>
       <style
@@ -231,10 +231,10 @@ function Dots({ images, interval }: Props) {
         {images?.map((_, index) => (
           <Slider.Dot index={index}>
             <li class="carousel-item">
-              <div
-                class="w-[86px] h-0.5 group-data-[dot-background]:bg-transparent group-data-[dot-background]:bg-white group-disabled:animate-progress bg-gradient-to-r from-white from-[length:var(--dot-progress)] to-[#FFFFFF14] to-[length:var(--dot-progress)]"
+            <div
+                class="sm:w-[86px] w-full h-0.5 group-data-[painted]:bg-none group-data-[painted]:bg-white group-disabled:animate-progress bg-gradient-to-r from-white from-[length:var(--dot-progress)] to-[#FFFFFF14] to-[length:var(--dot-progress)]"
                 style={{
-                  animationDuration: `${interval?.interval}s`,
+                  animationDuration: `${autoplay?.interval}s`,
                 }}
               />
             </li>
@@ -274,7 +274,7 @@ function Buttons() {
 
 function BannerCarousel(props: Props) {
   const id = useId();
-  const { images, preload, interval } = { ...DEFAULT_PROPS, ...props };
+  const { images, preload, autoplay } = { ...DEFAULT_PROPS, ...props };
 
   return (
     <div
@@ -309,11 +309,11 @@ function BannerCarousel(props: Props) {
 
       {props.arrows && <Buttons />}
 
-      {props.dots && <Dots images={images} interval={interval} />}
+      {props.dots && <Dots images={images} autoplay={autoplay} />}
 
       <Slider.JS
         rootId={id}
-        interval={interval?.interval && interval.interval * 1e3}
+        interval={autoplay?.interval && autoplay.interval * 1e3}
         infinite
       />
     </div>

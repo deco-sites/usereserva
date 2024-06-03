@@ -70,12 +70,44 @@
           "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/454e1230-b14b-40b8-a7af-0fab6b47d662",
           "alt": "image",
           "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/5361833d-c0e7-4774-bced-2fba7d319036"
+        },
+        {
+          "action": {
+            "content": {
+              "description": "<p>Lorem ipsumt amet, consectetur adipiscing.</p>",
+              "href": "/",
+              "title": "<p>LOREM IPSUM</p>",
+              "subTitle": "<p>Lorem ipsum amet conse</p>"
+            },
+            "link": {
+              "firstCta": {
+                "label": "CTA1",
+                "href": "/CTA1"
+              },
+              "secondCta": {
+                "href": "/CTA2",
+                "label": "CTA2"
+              },
+              "thirdCta": {
+                "href": "/CTA3",
+                "label": "CTA3"
+              },
+              "fourthCta": {
+                "href": "/CTA4",
+                "label": "CTA4"
+              }
+            }
+          },
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/454e1230-b14b-40b8-a7af-0fab6b47d662",
+          "alt": "image",
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/5361833d-c0e7-4774-bced-2fba7d319036"
         }
       ],
       "preload": true,
-      "interval": {
-        "activate": true,
-        "interval": 4
+      
+      "autoplay": {
+        "interval": 4,
+        "activate": true
       }
     },
     {
