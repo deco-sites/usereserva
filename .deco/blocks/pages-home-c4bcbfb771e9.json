@@ -36,9 +36,9 @@
               }
             }
           },
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/454e1230-b14b-40b8-a7af-0fab6b47d662",
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/6237a6b1-71f4-4110-9045-2d41bd7e4f60",
           "alt": "image",
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/5361833d-c0e7-4774-bced-2fba7d319036"
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/da9dfab1-2a73-4e89-b2f5-824ac5a742a4"
         },
         {
           "action": {
@@ -67,9 +67,9 @@
               }
             }
           },
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/454e1230-b14b-40b8-a7af-0fab6b47d662",
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/69d7898b-3cfe-4a4b-a57d-0063369c6b41",
           "alt": "image",
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/5361833d-c0e7-4774-bced-2fba7d319036"
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/dd96be39-72ba-4697-a497-3f1df6cd7435"
         },
         {
           "action": {
@@ -98,13 +98,12 @@
               }
             }
           },
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/454e1230-b14b-40b8-a7af-0fab6b47d662",
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/594b41f7-719c-405c-a67f-48205455c4de",
           "alt": "image",
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/5361833d-c0e7-4774-bced-2fba7d319036"
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/92e2f6bd-fb73-4ef2-a63f-609ec7a833b3"
         }
       ],
       "preload": true,
-      
       "autoplay": {
         "interval": 4,
         "activate": true

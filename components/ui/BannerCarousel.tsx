@@ -121,7 +121,6 @@ const DEFAULT_PROPS = {
   ],
   preload: true,
 };
-
 function BannerItem(
   { image, lcp, id }: { image: Banner; lcp?: boolean; id: string },
 ) {
@@ -138,11 +137,11 @@ function BannerItem(
       id={id}
       href={action?.content?.href ?? "#"}
       aria-label={action?.content?.href ?? "#"}
-      class="relative overflow-y-hidden flex flex-col items-center justify-center"
+      class="relative overflow-y-hidden w-full"
     >
-      <div class="flex flex-col absolute">
+      <div class="flex items-center justify-center absolute z-20 w-full h-full">
         {action?.content && (
-          <div class=" items-center mx-auto max-w-[465px] flex flex-col justify-center px-8 py-12 w-full bottom-1/2">
+          <div class="items-center mx-auto max-w-[465px] flex flex-col justify-center px-8 py-12 w-full">
             {action.content.title && (
               <span
                 class="text-xs text-base-200 mb-2.5 text-center"
@@ -164,24 +163,24 @@ function BannerItem(
               >
               </span>
             )}
-            { links && Object.keys(links).length > 0 && (          
-            <div class="flex items-center gap-4">
-              {Object.keys(links || {}).map((ctaKey, index) => (
-                links && links[ctaKey as keyof typeof links]?.href && (
-                  <Button
-                    key={index}
-                    as={"a"}
-                    href={links[ctaKey as keyof typeof links]?.href}
-                    class="text-base-200 flex border-0 p-0 bg-transparent text-sm hover:bg-transparent shadow-transparent h-[16px] gap-0 min-h-0 group"
-                    aria-label={links[ctaKey as keyof typeof links]?.label}
-                  >
-                    {links[ctaKey as keyof typeof links]?.label}
-                    <span class="block h-0.5 bg-base-200 w-full transition-transform duration-300 transform group-hover:translate-y-[-2px] h-[0.5px]">
-                    </span>
-                  </Button>
-                )
-              ))}
-            </div>
+            {links && Object.keys(links).length > 0 && (
+              <div class="flex items-center gap-4">
+                {Object.keys(links || {}).map((ctaKey, index) => (
+                  links && links[ctaKey as keyof typeof links]?.href && (
+                    <Button
+                      key={index}
+                      as={"a"}
+                      href={links[ctaKey as keyof typeof links]?.href}
+                      class="text-base-200 flex border-0 p-0 bg-transparent text-sm hover:bg-transparent shadow-transparent h-[16px] gap-0 min-h-0 group"
+                      aria-label={links[ctaKey as keyof typeof links]?.label}
+                    >
+                      {links[ctaKey as keyof typeof links]?.label}
+                      <span class="block h-0.5 bg-base-200 w-full transition-transform duration-300 transform group-hover:translate-y-[-2px] h-[0.5px]">
+                      </span>
+                    </Button>
+                  )
+                ))}
+              </div>
             )}
           </div>
         )}
@@ -208,10 +207,12 @@ function BannerItem(
           src={desktop}
           alt={alt}
         />
+        <span class="absolute mosaic-bg top-0 left-0 w-full h-full z-10"></span>
       </Picture>
     </a>
   );
 }
+
 
 function Dots({ images, autoplay }: Props) {
   return (
@@ -279,7 +280,7 @@ function BannerCarousel(props: Props) {
   return (
     <div
       id={id}
-      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] sm:grid-rows-[1fr_48px_1fr_64px] grid-rows-[1fr_48px_1fr_62px] sm:min-h-min min-h-[535px]"
+      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] sm:grid-rows-[1fr_48px_1fr_64px] grid-rows-[1fr_48px_1fr_62px] lg:min-h-min min-h-[535px]"
     >
       <Slider class="carousel carousel-center w-full col-span-full row-span-full">
         {images?.map((image, index) => {
