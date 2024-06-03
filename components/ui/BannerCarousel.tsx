@@ -207,7 +207,7 @@ function BannerItem(
           src={desktop}
           alt={alt}
         />
-        <span class="absolute mosaic-bg top-0 left-0 w-full h-full z-10"></span>
+        <span class="absolute bg-shadow top-0 left-0 w-full h-full z-10"></span>
       </Picture>
     </a>
   );
