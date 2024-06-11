@@ -53,10 +53,10 @@ export interface BannerContent {
 }
 
 export interface MosaicsProps {
-  /** @title Direita */
-  right?: Image | Video;
   /** @title Esquerda */
   left?: Image | Video;
+  /** @title Direita */
+  right?: Image | Video;
 }
 
 function Cta({ href, label }: Cta) {
@@ -118,11 +118,11 @@ const ImageOrVideo = ({ content }: { content?: Image | Video }) => {
             </p>
           </div>
         )}
-        {links?.map((cta) =>
-          <div class="flex items-center justify-center absolute z-20 gap-4 mt-24">
+        <div class="flex items-center justify-center absolute z-20 gap-4 mt-24">
+          {links?.map((cta) =>
             <Cta {...cta} />
-          </div>
-        )}
+          )}
+        </div>
       </>
     )}
   </div>

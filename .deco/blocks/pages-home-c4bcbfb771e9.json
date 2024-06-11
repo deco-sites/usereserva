@@ -370,7 +370,25 @@
               "label": "CTA4",
               "href": "/cta4"
             }
-          }
+          },
+          "links": [
+            {
+              "label": "CTA1",
+              "href": "/"
+            },
+            {
+              "label": "CTA2",
+              "href": "/"
+            },
+            {
+              "label": "CTA3",
+              "href": "/"
+            },
+            {
+              "label": "CTA4",
+              "href": "/"
+            }
+          ]
         }
       },
       "left": {
