@@ -136,9 +136,8 @@ function Action({ action }: { action: Banner["action"] }) {
           </span>
         )}
         {content?.subTitle && (
-          // text-5xl
           <span
-            class="text-[51px] text-base-200 mb-3 leading-none text-center"
+            class="text-5xl text-base-200 mb-3 leading-none text-center"
             dangerouslySetInnerHTML={{ __html: content.subTitle }}
           >
           </span>
