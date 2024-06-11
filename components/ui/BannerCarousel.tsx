@@ -10,60 +10,63 @@ import Slider from "../../components/ui/Slider.tsx";
 import { useId } from "../../sdk/useId.ts";
 
 export interface contentCta {
-  /** @description when user clicks on the image, go to this link */
+  /** @description Quando o usuario clickar na imagem, vai para esse link */
   href?: string;
-  /** @description Image text title */
-  /** @format rich-text */
+
+  /**
+   *  @title Título
+   *  @description Título da imagem 
+   *  @format rich-text
+   */
   title?: string;
-  /** @description Image text subtitle */
-  /** @format rich-text */
+  /**
+   * @title Sub-Título 
+   * @description Sub-Título da imagem
+   * @format rich-text
+   */
   subTitle?: string;
-  /** @description Image text description */
-  /** @format rich-text */
+  /**
+   * @title Descrição 
+   * @description Image text description 
+   * @format rich-text
+   */
   description?: string;
+}
+
+/** @titleBy label */
+export interface CTA {
+  /** @title Link */
+  href: string;
+  /** @description Texto que vai renderizar no botão de link */
+  label: string;
 }
 
 /**
  * @titleBy alt
  */
 export interface Banner {
-  /** @description title image */
+  /** @title Titulo */
   title?: string;
-  /** @description desktop otimized image */
+  /** @description Imagem otimizada para o desktop (1440X600) */
   desktop: ImageWidget;
-  /** @description mobile otimized image */
+  /** @description Imagem otimazada para o mobile (430x590) */
   mobile: ImageWidget;
-  /** @description Image's alt text */
+  /** @description Texto de acessibilidade da imagem (ALT)  */
   alt: string;
+  /** @title Ação */
   action?: {
+    /** @title Conteúdo */
     content?: contentCta;
-    link?: {
-      firstCta?: {
-        href?: string;
-        label?: string;
-      };
-      secondCta?: {
-        href?: string;
-        label?: string;
-      };
-      thirdCta?: {
-        href?: string;
-        label?: string;
-      };
-      fourthCta?: {
-        href?: string;
-        label?: string;
-      };
-    };
+    links?: CTA[];
   };
 }
 
 export interface Autoplay {
-  /** @description Activate or deactivate Carousel autoplay */
+  /** @title Ativar */
   activate?: boolean;
   /**
-   * @title Autoplay interval
-   * @description time (in seconds) to start the carousel autoplay
+   * @title Intervalo autoplay 
+   * @description Tempo (em segundos) para trocar de item no carousel autômaticamente.
    */
   interval?: number;
 }
@@ -71,23 +74,20 @@ export interface Autoplay {
 export interface Props {
   images?: Banner[];
   /**
-   * @description Check this option when this banner is the biggest image on the screen for image optimizations
+   * @title Preload
+   * @description Ative essa opção quando o banner for o maior do site e aparcer na primeira dobra. isso é para melhorar a performance.
    */
   preload?: boolean;
   /**
-   * @title Show arrows
-   * @description show arrows to navigate through the images
+   * @title Mostrar setas
+   * @description Mostra as setas para navegar.
    */
   arrows?: boolean;
   /**
-   * @title Show dots
-   * @description show dots to navigate through the images
+   * @title Mostrar os botões
+   * @description Mostra os botões para navegar.
    */
   dots?: boolean;
-  /**
-   * @title Autoplay interval
-   * @description time (in seconds) to start the carousel autoplay
-   */
   autoplay?: Autoplay;
 }
 
@@ -121,6 +121,58 @@ const DEFAULT_PROPS = {
   ],
   preload: true,
 };
+
+function Action({ action }: { action: Banner["action"] }) {
+  const content = action?.content;
+  const links = action?.links
+  return <div class="flex items-center justify-center absolute z-20 w-full h-full">
+    {content && (
+      <div class="items-center mx-auto max-w-[465px] flex flex-col justify-center px-8 py-12 w-full">
+        {content?.title && (
+          <span
+            class="text-xs text-base-200 mb-2.5 text-center"
+            dangerouslySetInnerHTML={{ __html: content.title }}
+          >
+          </span>
+        )}
+        {content?.subTitle && (
+          // text-5xl
+          <span
+            class="text-[51px] text-base-200 mb-3 leading-none text-center"
+            dangerouslySetInnerHTML={{ __html: content.subTitle }}
+          >
+          </span>
+        )}
+        {content?.description && (
+          <span
+            class="text-base text-base-200 mb-5 text-center"
+            dangerouslySetInnerHTML={{ __html: content.description }}
+          >
+          </span>
+        )}
+        {links && (
+          <div class="flex items-center gap-4">
+            {links?.map(({ href, label }, index) => (
+              links && href && (
+                <Button
+                  key={index}
+                  as={"a"}
+                  href={href}
+                  class="text-base-200 flex border-0 p-0 bg-transparent text-sm hover:bg-transparent shadow-transparent h-4 gap-0 min-h-0 group"
+                  aria-label={label}
+                >
+                  {label}
+                  <span class="block h-0.5 bg-base-200 w-full transition-transform duration-300 transform group-hover:translate-y-[-2px]">
+                  </span>
+                </Button>
+              )
+            ))}
+          </div>
+        )}
+      </div>
+    )}
+  </div>
+}
 function BannerItem(
   { image, lcp, id }: { image: Banner; lcp?: boolean; id: string },
 ) {
@@ -131,7 +183,6 @@ function BannerItem(
     desktop,
     action,
   } = image;
-  const links = action?.link;
   return (
     <a
       id={id}
@@ -139,52 +190,7 @@ function BannerItem(
       aria-label={action?.content?.href ?? "#"}
       class="relative overflow-y-hidden w-full"
     >
-      <div class="flex items-center justify-center absolute z-20 w-full h-full">
-        {action?.content && (
-          <div class="items-center mx-auto max-w-[465px] flex flex-col justify-center px-8 py-12 w-full">
-            {action.content.title && (
-              <span
-                class="text-xs text-base-200 mb-2.5 text-center"
-                dangerouslySetInnerHTML={{ __html: action.content.title }}
-              >
-              </span>
-            )}
-            {action.content.subTitle && (
-              <span
-                class="text-[51px] text-base-200 mb-3 leading-none text-center"
-                dangerouslySetInnerHTML={{ __html: action.content.subTitle }}
-              >
-              </span>
-            )}
-            {action.content.description && (
-              <span
-                class="lg:text-base text-[15px] text-base-200 mb-[21px] text-center"
-                dangerouslySetInnerHTML={{ __html: action.content.description }}
-              >
-              </span>
-            )}
-            {links && Object.keys(links).length > 0 && (
-              <div class="flex items-center gap-4">
-                {Object.keys(links || {}).map((ctaKey, index) => (
-                  links && links[ctaKey as keyof typeof links]?.href && (
-                    <Button
-                      key={index}
-                      as={"a"}
-                      href={links[ctaKey as keyof typeof links]?.href}
-                      class="text-base-200 flex border-0 p-0 bg-transparent text-sm hover:bg-transparent shadow-transparent h-[16px] gap-0 min-h-0 group"
-                      aria-label={links[ctaKey as keyof typeof links]?.label}
-                    >
-                      {links[ctaKey as keyof typeof links]?.label}
-                      <span class="block h-0.5 bg-base-200 w-full transition-transform duration-300 transform group-hover:translate-y-[-2px] h-[0.5px]">
-                      </span>
-                    </Button>
-                  )
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-      </div>
+      <Action action={action} />
       <Picture preload={lcp} class="flex-1">
         <Source
           media="(max-width: 767px)"
@@ -232,7 +238,7 @@ function Dots({ images, autoplay }: Props) {
         {images?.map((_, index) => (
           <Slider.Dot index={index}>
             <li class="carousel-item">
-            <div
+              <div
                 class="sm:w-[86px] w-full h-0.5 group-data-[painted]:bg-none group-data-[painted]:bg-white group-disabled:animate-progress bg-gradient-to-r from-white from-[length:var(--dot-progress)] to-[#FFFFFF14] to-[length:var(--dot-progress)]"
                 style={{
                   animationDuration: `${autoplay?.interval}s`,

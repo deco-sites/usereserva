@@ -34,7 +34,21 @@
                 "href": "/CTA4",
                 "label": "CTA4"
               }
-            }
+            },
+            "links": [
+              {
+                "label": "CTA1",
+                "href": "/"
+              },
+              {
+                "label": "CTA2",
+                "href": "/"
+              },
+              {
+                "label": "CTA3",
+                "href": "/"
+              }
+            ]
           },
           "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/6237a6b1-71f4-4110-9045-2d41bd7e4f60",
           "alt": "image",
