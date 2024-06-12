@@ -497,6 +497,42 @@
       ]
     },
     {
+      "__resolveType": "site/sections/Images/RangeOfBenefits.tsx",
+      "benefits": [
+        {
+          "icon": "PaymentByPix",
+          "description": "<p>Pagamento via Pix tem compra aprovada em minutos.</p>",
+          "title": "Pagamento por Pix",
+          "label": "PaymentByPix",
+          "strokeWidth": 4
+        },
+        {
+          "icon": "ReceiveCashback",
+          "description": "<p>Compre e receba 20% de cashback nas suas compras.</p>",
+          "title": "Receba Cashback",
+          "label": "ReceiveCashback"
+        },
+        {
+          "icon": "ReservaPrime",
+          "description": "<p>Descontos na Reserva e em marcas parceiras. <a href=\"/\" class=\"underline font-bold text-black\">Saiba mais</a></p>",
+          "title": "Reserva Prime",
+          "label": "ReservaPrime"
+        },
+        {
+          "icon": "SellerCoupon",
+          "description": "<p>Ganhe 15% OFF em produtos sem desconto.</p>",
+          "title": "Cupom do vendedor",
+          "label": "SellerCoupon"
+        },
+        {
+          "icon": "EasyExchange",
+          "description": "<p>Compre no site ou app e troque em uma das lojas em até 7 dias.</p>",
+          "title": "Troca facilitada",
+          "label": "EasyExchange"
+        }
+      ]
+    },
+    {
       "__resolveType": "site/sections/Miscellaneous/CampaignTimer.tsx",
       "link": {
         "href": "https://github.com/deco-cx",
@@ -746,6 +782,41 @@
         },
         "variation": "Variation 3"
       }
+    },
+    {
+      "__resolveType": "site/sections/Images/RangeOfBenefits.tsx",
+      "benefits": [
+        {
+          "label": "PaymentByPix",
+          "title": "Pagamento por Pix",
+          "description": "<p style=\"color: #848484\">Pagamento via Pix tem compra aprovada em minutos.</p>\n",
+          "icon": "PaymentByPix"
+        },
+        {
+          "label": "ReceiveCashback",
+          "description": "<p style=\"color: #848484\">Pagamento via Pix tem compra aprovada em minutos.</p>\n",
+          "title": "Receba Cashback",
+          "icon": "ReceiveCashback"
+        },
+        {
+          "label": "PaymentByPix",
+          "description": "<p style=\"color: #848484\">Pagamento via Pix tem compra aprovada em minutos.</p>\n",
+          "title": "Pagamento por Pix",
+          "icon": "ReservaPrime"
+        },
+        {
+          "label": "PaymentByPix",
+          "description": "<p style=\"color: #848484\">Pagamento via Pix tem compra aprovada em minutos.</p>\n",
+          "title": "Pagamento por Pix",
+          "icon": "SellerCoupon"
+        },
+        {
+          "label": "PaymentByPix",
+          "description": "<p style=\"color: #848484\">Pagamento via Pix tem compra  aprovada em minutos.</p>",
+          "title": "Pagamento por Pix",
+          "icon": "EasyExchange"
+        }
+      ]
     }
   ],
   "__resolveType": "website/pages/Page.tsx",
