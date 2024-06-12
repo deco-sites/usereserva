@@ -46,6 +46,448 @@
       "preload": true
     },
     {
+      "__resolveType": "site/sections/Images/MosaicsDouble.tsx",
+      "firstBanner": {
+        "text": {
+          "title": "Linho",
+          "description": "Leveza que combina com o azul do céu.d"
+        },
+        "image": {
+          "0": "h",
+          "1": "t",
+          "2": "t",
+          "3": "p",
+          "4": "s",
+          "5": ":",
+          "6": "/",
+          "7": "/",
+          "8": "o",
+          "9": "z",
+          "10": "k",
+          "11": "s",
+          "12": "g",
+          "13": "d",
+          "14": "m",
+          "15": "y",
+          "16": "r",
+          "17": "q",
+          "18": "c",
+          "19": "x",
+          "20": "c",
+          "21": "w",
+          "22": "h",
+          "23": "n",
+          "24": "b",
+          "25": "e",
+          "26": "p",
+          "27": "g",
+          "28": ".",
+          "29": "s",
+          "30": "u",
+          "31": "p",
+          "32": "a",
+          "33": "b",
+          "34": "a",
+          "35": "s",
+          "36": "e",
+          "37": ".",
+          "38": "c",
+          "39": "o",
+          "40": "/",
+          "41": "s",
+          "42": "t",
+          "43": "o",
+          "44": "r",
+          "45": "a",
+          "46": "g",
+          "47": "e",
+          "48": "/",
+          "49": "v",
+          "50": "1",
+          "51": "/",
+          "52": "o",
+          "53": "b",
+          "54": "j",
+          "55": "e",
+          "56": "c",
+          "57": "t",
+          "58": "/",
+          "59": "p",
+          "60": "u",
+          "61": "b",
+          "62": "l",
+          "63": "i",
+          "64": "c",
+          "65": "/",
+          "66": "a",
+          "67": "s",
+          "68": "s",
+          "69": "e",
+          "70": "t",
+          "71": "s",
+          "72": "/",
+          "73": "1",
+          "74": "0",
+          "75": "5",
+          "76": "2",
+          "77": "8",
+          "78": "/",
+          "79": "2",
+          "80": "c",
+          "81": "c",
+          "82": "d",
+          "83": "8",
+          "84": "7",
+          "85": "c",
+          "86": "1",
+          "87": "-",
+          "88": "3",
+          "89": "9",
+          "90": "4",
+          "91": "c",
+          "92": "-",
+          "93": "4",
+          "94": "f",
+          "95": "3",
+          "96": "4",
+          "97": "-",
+          "98": "b",
+          "99": "0",
+          "100": "7",
+          "101": "2",
+          "102": "-",
+          "103": "6",
+          "104": "3",
+          "105": "9",
+          "106": "a",
+          "107": "2",
+          "108": "e",
+          "109": "0",
+          "110": "3",
+          "111": "9",
+          "112": "1",
+          "113": "c",
+          "114": "5",
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/e436a197-4366-477d-8f6b-6f6e2991b5d2"
+        },
+        "link": {
+          "firstCta": {
+            "label": "CTA1",
+            "href": "/"
+          },
+          "secondCta": {
+            "label": "CTA2",
+            "href": "/"
+          },
+          "thirdCta": {
+            "label": "CTA3",
+            "href": "/"
+          },
+          "fourthCta": {
+            "label": "CTA4",
+            "href": "/"
+          }
+        },
+        "video": {
+          "controls": false
+        }
+      },
+      "secondBanner": {
+        "image": {
+          "0": "h",
+          "1": "t",
+          "2": "t",
+          "3": "p",
+          "4": "s",
+          "5": ":",
+          "6": "/",
+          "7": "/",
+          "8": "o",
+          "9": "z",
+          "10": "k",
+          "11": "s",
+          "12": "g",
+          "13": "d",
+          "14": "m",
+          "15": "y",
+          "16": "r",
+          "17": "q",
+          "18": "c",
+          "19": "x",
+          "20": "c",
+          "21": "w",
+          "22": "h",
+          "23": "n",
+          "24": "b",
+          "25": "e",
+          "26": "p",
+          "27": "g",
+          "28": ".",
+          "29": "s",
+          "30": "u",
+          "31": "p",
+          "32": "a",
+          "33": "b",
+          "34": "a",
+          "35": "s",
+          "36": "e",
+          "37": ".",
+          "38": "c",
+          "39": "o",
+          "40": "/",
+          "41": "s",
+          "42": "t",
+          "43": "o",
+          "44": "r",
+          "45": "a",
+          "46": "g",
+          "47": "e",
+          "48": "/",
+          "49": "v",
+          "50": "1",
+          "51": "/",
+          "52": "o",
+          "53": "b",
+          "54": "j",
+          "55": "e",
+          "56": "c",
+          "57": "t",
+          "58": "/",
+          "59": "p",
+          "60": "u",
+          "61": "b",
+          "62": "l",
+          "63": "i",
+          "64": "c",
+          "65": "/",
+          "66": "a",
+          "67": "s",
+          "68": "s",
+          "69": "e",
+          "70": "t",
+          "71": "s",
+          "72": "/",
+          "73": "1",
+          "74": "0",
+          "75": "5",
+          "76": "2",
+          "77": "8",
+          "78": "/",
+          "79": "0",
+          "80": "a",
+          "81": "5",
+          "82": "0",
+          "83": "6",
+          "84": "1",
+          "85": "5",
+          "86": "2",
+          "87": "-",
+          "88": "2",
+          "89": "9",
+          "90": "e",
+          "91": "9",
+          "92": "-",
+          "93": "4",
+          "94": "c",
+          "95": "6",
+          "96": "1",
+          "97": "-",
+          "98": "a",
+          "99": "0",
+          "100": "5",
+          "101": "d",
+          "102": "-",
+          "103": "c",
+          "104": "1",
+          "105": "d",
+          "106": "d",
+          "107": "5",
+          "108": "7",
+          "109": "8",
+          "110": "a",
+          "111": "9",
+          "112": "0",
+          "113": "5",
+          "114": "7"
+        },
+        "text": {
+          "title": "Linho",
+          "description": "Leveza que combina com o azul do céu."
+        },
+        "video": {
+          "width": 700,
+          "height": 500,
+          "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/15021c7e-0f97-4cb3-b955-138685096edc"
+        },
+        "link": {
+          "firstCta": {
+            "label": "CTA1",
+            "href": "/"
+          },
+          "secondCta": {
+            "label": "CTA2",
+            "href": "/"
+          },
+          "thirdCta": {
+            "label": "CTA3",
+            "href": "/"
+          },
+          "fourthCta": {
+            "label": "CTA4",
+            "href": "/"
+          }
+        }
+      },
+      "teste": 1,
+      "sectionWidth": "contentVideo",
+      "props": {
+        "right": {}
+      },
+      "right": {
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/4582f0d6-da79-4352-8768-4dae31a3493c",
+        "link": "/",
+        "title": "title",
+        "alt": "image",
+        "content": {
+          "text": {
+            "title": "Image",
+            "description": "Leveza que combina com o azul do céu."
+          },
+          "link": {
+            "firstCta": {
+              "label": "CTA1",
+              "href": "/cta1"
+            },
+            "secondCta": {
+              "label": "CTA2",
+              "href": "/cta2"
+            },
+            "thirdCta": {
+              "label": "CTA3",
+              "href": "/cta3"
+            },
+            "fourthCta": {
+              "label": "CTA4",
+              "href": "/cta4"
+            }
+          },
+          "links": [
+            {
+              "label": "CTA1",
+              "href": "/"
+            },
+            {
+              "label": "CTA2",
+              "href": "/"
+            },
+            {
+              "label": "CTA3",
+              "href": "/"
+            },
+            {
+              "label": "CTA4",
+              "href": "/"
+            }
+          ]
+        }
+      },
+      "left": {
+        "content": {
+          "text": {
+            "title": "Video",
+            "description": "Leveza que combina com o azul do céu."
+          },
+          "link": {
+            "firstCta": {
+              "label": "CTA1v",
+              "href": "/"
+            },
+            "secondCta": {
+              "label": "CTA2v",
+              "href": "/"
+            },
+            "thirdCta": {
+              "label": "CTA3v",
+              "href": "/"
+            },
+            "fourthCta": {
+              "label": "CTA4v",
+              "href": "/"
+            }
+          }
+        },
+        "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/40245bd6-70ae-4eaf-8010-fe59aa939adc",
+        "link": "/",
+        "loop": true,
+        "autoplay": true,
+        "controls": false,
+        "description": "video"
+      },
+      "sections": [
+        {
+          "items": [
+            {},
+            {},
+            {}
+          ]
+        }
+      ]
+    },
+    {
+      "__resolveType": "site/sections/Images/MosaicsDouble.tsx",
+      "right": {
+        "content": {
+          "text": {},
+          "link": {
+            "firstCta": {},
+            "secondCta": {},
+            "thirdCta": {},
+            "fourthCta": {}
+          }
+        },
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/c457a2e1-9e47-40db-b913-a5895a4de860"
+      },
+      "left": {
+        "content": {
+          "text": {},
+          "link": {
+            "firstCta": {},
+            "secondCta": {},
+            "thirdCta": {},
+            "fourthCta": {}
+          }
+        },
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/8dd40e2f-26a2-440b-b6a6-429f77c12478"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Images/MosaicsDouble.tsx",
+      "right": {
+        "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ef264337-1dc2-4ed7-a644-ecebc8c88180",
+        "content": {
+          "text": {},
+          "link": {
+            "firstCta": {},
+            "secondCta": {},
+            "thirdCta": {},
+            "fourthCta": {}
+          }
+        }
+      },
+      "left": {
+        "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/f01bf289-fcf3-4313-8306-94893ca1d979",
+        "content": {
+          "text": {},
+          "link": {
+            "firstCta": {},
+            "secondCta": {},
+            "thirdCta": {},
+            "fourthCta": {}
+          }
+        }
+      }
+    },
+    {
       "__resolveType": "site/sections/Miscellaneous/Slide.tsx",
       "content": [
         {

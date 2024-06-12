@@ -45,6 +45,10 @@
   animation: progress-frame ease normal
 }
 
+.mosaic-bg {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.38) 100%);
+}
+
 @keyframes progress-frame {
   0% {
     --dot-progress: 0%
