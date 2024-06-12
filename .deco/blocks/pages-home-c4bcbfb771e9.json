@@ -65,25 +65,25 @@
           "strokeWidth": 4
         },
         {
-          "icon": "PaymentByPix",
+          "icon": "ReceiveCashback",
           "description": "<p>Compre e receba 20% de cashback nas suas compras.</p>",
           "title": "Receba Cashback",
           "label": "ReceiveCashback"
         },
         {
-          "icon": "PaymentByPix",
+          "icon": "ReservaPrime",
           "description": "<p>Descontos na Reserva e em marcas parceiras. <a href=\"/\" class=\"underline font-bold text-black\">Saiba mais</a></p>",
           "title": "Reserva Prime",
           "label": "ReservaPrime"
         },
         {
-          "icon": "PaymentByPix",
+          "icon": "SellerCoupon",
           "description": "<p>Ganhe 15% OFF em produtos sem desconto.</p>",
           "title": "Cupom do vendedor",
           "label": "SellerCoupon"
         },
         {
-          "icon": "PaymentByPix",
+          "icon": "EasyExchange",
           "description": "<p>Compre no site ou app e troque em uma das lojas em até 7 dias.</p>",
           "title": "Troca facilitada",
           "label": "EasyExchange"

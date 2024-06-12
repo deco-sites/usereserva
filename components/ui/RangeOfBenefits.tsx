@@ -1,29 +1,46 @@
 import Icon, { AvailableIcons } from "./Icon.tsx";
 
+/** @titleBy icon */
 export interface Benefit {
-  /** @description id label */
-  label: AvailableIcons;
-  /** @description specifies the stroke width for the icon */
+  /**
+   * @title Ícone
+   * @format icon-select
+   * @options site/loaders/availableIcons.ts
+   */
+  icon: AvailableIcons;
+  /** 
+   * @title Largura do Traço.
+   * @description Especifique a largura do traço para o ícone. (O padrão é 1)
+   */
   strokeWidth?: number;
+  /** @title Título */
   title?: string;
-  /** @format rich-text */
+  /** 
+   * @title Descrição
+   * @format rich-text 
+   */
   description?: string;
 }
 
-export default function RangeOfBenefits({ benefits }: { benefits: Benefit[] }) {
+export interface Props {
+  /** @title Benefícios */
+  benefits: Benefit[];
+}
+
+export default function RangeOfBenefits({ benefits }: Props) {
   return (
-    <div class="flex md:flex-row flex-col justify-center max-w-screen-xl px-[44px] mx-auto w-full py-5 gap-9">
-      {benefits.map(({ label, title, description,strokeWidth }) => (
-        <div class="flex sm:flex-col items-center justify-start items-center w-full sm:gap-3.5 gap-[18px] md:max-w-none max-w-[300px] mx-auto">
-          {label &&
-            <Icon id={label} size={36} strokeWidth={strokeWidth || 1} /> }
+    <div class="flex lg:flex-row flex-col justify-center max-w-screen-xl px-11 mx-auto w-full py-5 gap-9">
+      {benefits.map(({ icon, title, description, strokeWidth }) => (
+        <div class="flex lg:flex-col justify-start sm:items-center w-full sm:gap-3.5 gap-4 lg:max-w-none max-w-[300px] mx-auto">
+          {icon &&
+            <Icon class="flex-shrink-0" id={icon} size={36} strokeWidth={strokeWidth || 1} />}
           {title &&
             (
               <div>
                 <h3 class="md:text-center text-base font-bold">{title}</h3>
                 {description && (
                   <span
-                    class="md:text-center sm:text-[15px] text-[14px] text-base-300 w-full flex md:max-w-none max-w-[247px]"
+                    class="md:text-center sm:text-base text-sm text-base-300 w-full flex md:max-w-64"
                     dangerouslySetInnerHTML={{ __html: description }}
                   />
                 )}
