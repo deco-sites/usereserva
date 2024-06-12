@@ -347,27 +347,32 @@
         {
           "label": "PaymentByPix",
           "title": "Pagamento por Pix",
-          "description": "<p style=\"color: #848484\">Pagamento via Pix tem compra aprovada em minutos.</p>\n"
+          "description": "<p style=\"color: #848484\">Pagamento via Pix tem compra aprovada em minutos.</p>\n",
+          "icon": "PaymentByPix"
         },
         {
           "label": "ReceiveCashback",
           "description": "<p style=\"color: #848484\">Pagamento via Pix tem compra aprovada em minutos.</p>\n",
-          "title": "Receba Cashback"
+          "title": "Receba Cashback",
+          "icon": "ReceiveCashback"
         },
         {
           "label": "PaymentByPix",
           "description": "<p style=\"color: #848484\">Pagamento via Pix tem compra aprovada em minutos.</p>\n",
-          "title": "Pagamento por Pix"
+          "title": "Pagamento por Pix",
+          "icon": "ReservaPrime"
         },
         {
           "label": "PaymentByPix",
           "description": "<p style=\"color: #848484\">Pagamento via Pix tem compra aprovada em minutos.</p>\n",
-          "title": "Pagamento por Pix"
+          "title": "Pagamento por Pix",
+          "icon": "SellerCoupon"
         },
         {
           "label": "PaymentByPix",
           "description": "<p style=\"color: #848484\">Pagamento via Pix tem compra  aprovada em minutos.</p>",
-          "title": "Pagamento por Pix"
+          "title": "Pagamento por Pix",
+          "icon": "EasyExchange"
         }
       ]
     }
