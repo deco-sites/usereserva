@@ -9,61 +9,96 @@ import Icon from "../../components/ui/Icon.tsx";
 import Slider from "../../components/ui/Slider.tsx";
 import { useId } from "../../sdk/useId.ts";
 
+export interface contentCta {
+  /** @description Quando o usuario clickar na imagem, vai para esse link */
+  href?: string;
+
+  /**
+   *  @title Título
+   *  @description Título da imagem 
+   *  @format rich-text
+   */
+  title?: string;
+  /**
+   * @title Sub-Título 
+   * @description Sub-Título da imagem
+   * @format rich-text
+   */
+  subTitle?: string;
+  /**
+   * @title Descrição 
+   * @description Image text description 
+   * @format rich-text
+   */
+  description?: string;
+}
+
+/** @titleBy label */
+export interface CTA {
+  /** @title Link */
+  href: string;
+  /** @description Texto que vai renderizar no botão de link */
+  label: string;
+}
+
 /**
  * @titleBy alt
  */
 export interface Banner {
-  /** @description desktop otimized image */
+  /** @title Titulo */
+  title?: string;
+  /** @description Imagem otimizada para o desktop (1440X600) */
   desktop: ImageWidget;
-  /** @description mobile otimized image */
+  /** @description Imagem otimazada para o mobile (430x590) */
   mobile: ImageWidget;
-  /** @description Image's alt text */
+  /** @description Texto de acessibilidade da imagem (ALT)  */
   alt: string;
+  /** @title Ação */
   action?: {
-    /** @description when user clicks on the image, go to this link */
-    href: string;
-    /** @description Image text title */
-    title: string;
-    /** @description Image text subtitle */
-    subTitle: string;
-    /** @description Button label */
-    label: string;
+    /** @title Conteúdo */
+    content?: contentCta;
+    links?: CTA[];
   };
+}
+
+export interface Autoplay {
+  /** @title Ativar */
+  activate?: boolean;
+  /**
+   * @title Intervalo autoplay 
+   * @description Tempo (em segundos) para trocar de item no carousel autômaticamente.
+   */
+  interval?: number;
 }
 
 export interface Props {
   images?: Banner[];
   /**
-   * @description Check this option when this banner is the biggest image on the screen for image optimizations
+   * @title Preload
+   * @description Ative essa opção quando o banner for o maior do site e aparcer na primeira dobra. isso é para melhorar a performance.
    */
   preload?: boolean;
   /**
-   * @title Show arrows
-   * @description show arrows to navigate through the images
+   * @title Mostrar setas
+   * @description Mostra as setas para navegar.
    */
   arrows?: boolean;
   /**
-   * @title Show dots
-   * @description show dots to navigate through the images
+   * @title Mostrar os botões
+   * @description Mostra os botões para navegar.
    */
   dots?: boolean;
-  /**
-   * @title Autoplay interval
-   * @description time (in seconds) to start the carousel autoplay
-   */
-  interval?: number;
+  autoplay?: Autoplay;
 }
 
 const DEFAULT_PROPS = {
   images: [
     {
+      title: "New collection",
+      subTitle: "Main title",
+      label: "Explore collection",
+      href: "/",
       alt: "/feminino",
-      action: {
-        title: "New collection",
-        subTitle: "Main title",
-        label: "Explore collection",
-        href: "/",
-      },
       mobile:
         "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/c007e481-b1c6-4122-9761-5c3e554512c1",
       desktop:
@@ -71,12 +106,6 @@ const DEFAULT_PROPS = {
     },
     {
       alt: "/feminino",
-      action: {
-        title: "New collection",
-        subTitle: "Main title",
-        label: "Explore collection",
-        href: "/",
-      },
       mobile:
         "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/c007e481-b1c6-4122-9761-5c3e554512c1",
       desktop:
@@ -84,12 +113,6 @@ const DEFAULT_PROPS = {
     },
     {
       alt: "/feminino",
-      action: {
-        title: "New collection",
-        subTitle: "Main title",
-        label: "Explore collection",
-        href: "/",
-      },
       mobile:
         "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/c007e481-b1c6-4122-9761-5c3e554512c1",
       desktop:
@@ -99,40 +122,75 @@ const DEFAULT_PROPS = {
   preload: true,
 };
 
+function Action({ action }: { action: Banner["action"] }) {
+  const content = action?.content;
+  const links = action?.links
+  return <div class="flex items-center justify-center absolute z-20 w-full h-full">
+    {content && (
+      <div class="items-center mx-auto max-w-[465px] flex flex-col justify-center px-8 py-12 w-full">
+        {content?.title && (
+          <span
+            class="text-xs text-base-200 mb-2.5 text-center"
+            dangerouslySetInnerHTML={{ __html: content.title }}
+          >
+          </span>
+        )}
+        {content?.subTitle && (
+          <span
+            class="text-5xl text-base-200 mb-3 leading-none text-center"
+            dangerouslySetInnerHTML={{ __html: content.subTitle }}
+          >
+          </span>
+        )}
+        {content?.description && (
+          <span
+            class="text-base text-base-200 mb-5 text-center"
+            dangerouslySetInnerHTML={{ __html: content.description }}
+          >
+          </span>
+        )}
+        {links && (
+          <div class="flex items-center gap-4">
+            {links?.map(({ href, label }, index) => (
+              links && href && (
+                <Button
+                  key={index}
+                  as={"a"}
+                  href={href}
+                  class="text-base-200 flex border-0 p-0 bg-transparent text-sm hover:bg-transparent shadow-transparent h-4 gap-0 min-h-0 group"
+                  aria-label={label}
+                >
+                  {label}
+                  <span class="block h-0.5 bg-base-200 w-full transition-transform duration-300 transform group-hover:translate-y-[-2px]">
+                  </span>
+                </Button>
+              )
+            ))}
+          </div>
+        )}
+      </div>
+    )}
+  </div>
+}
 function BannerItem(
   { image, lcp, id }: { image: Banner; lcp?: boolean; id: string },
 ) {
   const {
     alt,
+    title,
     mobile,
     desktop,
     action,
   } = image;
-
   return (
     <a
       id={id}
-      href={action?.href ?? "#"}
-      aria-label={action?.label}
+      href={action?.content?.href ?? "#"}
+      aria-label={action?.content?.href ?? "#"}
       class="relative overflow-y-hidden w-full"
     >
-      {action && (
-        <div class="absolute top-0 md:bottom-0 bottom-1/2 left-0 right-0 sm:right-auto max-w-[407px] flex flex-col justify-end gap-4 px-8 py-12">
-          <span class="text-2xl font-light text-base-100">
-            {action.title}
-          </span>
-          <span class="font-normal text-4xl text-base-100">
-            {action.subTitle}
-          </span>
-          <Button
-            class="bg-base-100 text-sm font-light py-4 px-6 w-fit"
-            aria-label={action.label}
-          >
-            {action.label}
-          </Button>
-        </div>
-      )}
-      <Picture preload={lcp}>
+      <Action action={action} />
+      <Picture preload={lcp} class="flex-1">
         <Source
           media="(max-width: 767px)"
           fetchPriority={lcp ? "high" : "auto"}
@@ -149,16 +207,19 @@ function BannerItem(
         />
         <img
           class="object-cover w-full h-full"
+          title={title}
           loading={lcp ? "eager" : "lazy"}
           src={desktop}
           alt={alt}
         />
+        <span class="absolute bg-shadow top-0 left-0 w-full h-full z-10"></span>
       </Picture>
     </a>
   );
 }
 
-function Dots({ images, interval = 0 }: Props) {
+
+function Dots({ images, autoplay }: Props) {
   return (
     <>
       <style
@@ -167,23 +228,23 @@ function Dots({ images, interval = 0 }: Props) {
           @property --dot-progress {
             syntax: '<percentage>';
             inherits: false;
-            initial-value: 0%;
+            initial-value: 1%;
           }
           `,
         }}
       />
-      <ul class="carousel justify-center col-span-full gap-6 z-10 row-start-4">
+      <ul class="carousel justify-center col-span-full gap-1.5 sm:mx-0 mx-5 z-10 row-start-4 items-start">
         {images?.map((_, index) => (
-          <li class="carousel-item">
-            <Slider.Dot index={index}>
-              <div class="py-5">
-                <div
-                  class="w-16 sm:w-20 h-0.5 rounded group-disabled:animate-progress bg-gradient-to-r from-base-100 from-[length:var(--dot-progress)] to-[rgba(255,255,255,0.4)] to-[length:var(--dot-progress)]"
-                  style={{ animationDuration: `${interval}s` }}
-                />
-              </div>
-            </Slider.Dot>
-          </li>
+          <Slider.Dot index={index}>
+            <li class="carousel-item">
+              <div
+                class="sm:w-[86px] w-full h-0.5 group-data-[painted]:bg-none group-data-[painted]:bg-white group-disabled:animate-progress bg-gradient-to-r from-white from-[length:var(--dot-progress)] to-[#FFFFFF14] to-[length:var(--dot-progress)]"
+                style={{
+                  animationDuration: `${autoplay?.interval}s`,
+                }}
+              />
+            </li>
+          </Slider.Dot>
         ))}
       </ul>
     </>
@@ -219,18 +280,21 @@ function Buttons() {
 
 function BannerCarousel(props: Props) {
   const id = useId();
-  const { images, preload, interval } = { ...DEFAULT_PROPS, ...props };
+  const { images, preload, autoplay } = { ...DEFAULT_PROPS, ...props };
 
   return (
     <div
       id={id}
-      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px] sm:min-h-min min-h-[660px]"
+      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] sm:grid-rows-[1fr_48px_1fr_64px] grid-rows-[1fr_48px_1fr_62px] lg:min-h-min min-h-[535px]"
     >
-      <Slider class="carousel carousel-center w-full col-span-full row-span-full gap-6">
+      <Slider class="carousel carousel-center w-full col-span-full row-span-full">
         {images?.map((image, index) => {
           const params = { promotion_name: image.alt };
           return (
-            <Slider.Item index={index} class="carousel-item w-full">
+            <Slider.Item
+              index={index}
+              class="carousel-item w-full flex justify-center"
+            >
               <BannerItem
                 image={image}
                 lcp={index === 0 && preload}
@@ -251,9 +315,13 @@ function BannerCarousel(props: Props) {
 
       {props.arrows && <Buttons />}
 
-      {props.dots && <Dots images={images} interval={interval} />}
+      {props.dots && <Dots images={images} autoplay={autoplay} />}
 
-      <Slider.JS rootId={id} interval={interval && interval * 1e3} infinite />
+      <Slider.JS
+        rootId={id}
+        interval={autoplay?.interval && autoplay.interval * 1e3}
+        infinite
+      />
     </div>
   );
 }

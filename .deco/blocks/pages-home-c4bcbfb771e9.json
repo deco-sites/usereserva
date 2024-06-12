@@ -6,44 +6,122 @@
     },
     {
       "__resolveType": "site/sections/Images/Carousel.tsx",
-      "dots": false,
-      "arrows": true,
+      "dots": true,
+      "arrows": false,
       "images": [
         {
-          "alt": "Masculino",
           "action": {
-            "href": "/masculino",
-            "label": "Explore collection",
-            "title": "VTEX Store",
-            "subTitle": "Visit our site and start building now:"
+            "content": {
+              "href": "/",
+              "title": "<p>LOREM IPSUM</p>",
+              "subTitle": "<p>Lorem ipsum amet conse</p>",
+              "description": "<p>Lorem ipsumt amet, consectetur adipiscing.</p>"
+            },
+            "link": {
+              "firstCta": {
+                "label": "CTA1",
+                "href": "/CTA1"
+              },
+              "secondCta": {
+                "href": "/CTA2",
+                "label": "CTA2"
+              },
+              "thirdCta": {
+                "href": "/CTA3",
+                "label": "CTA3"
+              },
+              "fourthCta": {
+                "href": "/CTA4",
+                "label": "CTA4"
+              }
+            },
+            "links": [
+              {
+                "label": "CTA1",
+                "href": "/"
+              },
+              {
+                "label": "CTA2",
+                "href": "/"
+              },
+              {
+                "label": "CTA3",
+                "href": "/"
+              }
+            ]
           },
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/c007e481-b1c6-4122-9761-5c3e554512c1",
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/d057fc10-5616-4f12-8d4c-201bb47a81f5"
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/6237a6b1-71f4-4110-9045-2d41bd7e4f60",
+          "alt": "image",
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/da9dfab1-2a73-4e89-b2f5-824ac5a742a4"
         },
         {
-          "alt": "Feminino",
           "action": {
-            "href": "/feminino",
-            "label": "Explore collection",
-            "title": "VTEX Store",
-            "subTitle": "Visit our site and start building now:"
+            "content": {
+              "description": "<p>Lorem ipsumt amet, consectetur adipiscing.</p>",
+              "href": "/",
+              "title": "<p>LOREM IPSUM</p>",
+              "subTitle": "<p>Lorem ipsum amet conse</p>"
+            },
+            "link": {
+              "firstCta": {
+                "label": "CTA1",
+                "href": "/CTA1"
+              },
+              "secondCta": {
+                "href": "/CTA2",
+                "label": "CTA2"
+              },
+              "thirdCta": {
+                "href": "/CTA3",
+                "label": "CTA3"
+              },
+              "fourthCta": {
+                "href": "/CTA4",
+                "label": "CTA4"
+              }
+            }
           },
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/c007e481-b1c6-4122-9761-5c3e554512c1",
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/17d0a1f4-811f-4e64-ac68-585aa75625f2"
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/69d7898b-3cfe-4a4b-a57d-0063369c6b41",
+          "alt": "image",
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/dd96be39-72ba-4697-a497-3f1df6cd7435"
         },
         {
-          "alt": "Vestidos",
           "action": {
-            "href": "/feminino/roupas/vestidos",
-            "label": "Explore collection",
-            "title": "VTEX Store",
-            "subTitle": "Visit our site and start building now:"
+            "content": {
+              "description": "<p>Lorem ipsumt amet, consectetur adipiscing.</p>",
+              "href": "/",
+              "title": "<p>LOREM IPSUM</p>",
+              "subTitle": "<p>Lorem ipsum amet conse</p>"
+            },
+            "link": {
+              "firstCta": {
+                "label": "CTA1",
+                "href": "/CTA1"
+              },
+              "secondCta": {
+                "href": "/CTA2",
+                "label": "CTA2"
+              },
+              "thirdCta": {
+                "href": "/CTA3",
+                "label": "CTA3"
+              },
+              "fourthCta": {
+                "href": "/CTA4",
+                "label": "CTA4"
+              }
+            }
           },
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/c007e481-b1c6-4122-9761-5c3e554512c1",
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/d057fc10-5616-4f12-8d4c-201bb47a81f5"
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/594b41f7-719c-405c-a67f-48205455c4de",
+          "alt": "image",
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/92e2f6bd-fb73-4ef2-a63f-609ec7a833b3"
         }
       ],
-      "preload": true
+      "preload": true,
+      "autoplay": {
+        "interval": 4,
+        "activate": true
+      }
     },
     {
       "__resolveType": "site/sections/Images/MosaicsDouble.tsx",
@@ -605,6 +683,12 @@
     },
     {
       "__resolveType": "site/sections/Category/CategoryGrid.tsx",
+      "layout": {
+        "categoryCard": {
+          "textPosition": "bottom",
+          "textAlignment": "left"
+        }
+      },
       "list": [
         {
           "href": "/",
@@ -633,12 +717,6 @@
       ],
       "header": {
         "title": "Explore Our Categories"
-      },
-      "layout": {
-        "categoryCard": {
-          "textPosition": "bottom",
-          "textAlignment": "left"
-        }
       }
     },
     {
@@ -767,12 +845,12 @@
     },
     {
       "__resolveType": "site/sections/Newsletter/Newsletter.tsx",
+      "title": "Newsletter",
       "layout": {
         "content": {
           "alignment": "Center"
         }
-      },
-      "title": "Newsletter"
+      }
     },
     {
       "__resolveType": "site/sections/Footer/Footer.tsx",

@@ -58,3 +58,7 @@
     --dot-progress: 100%
   }
 }
+
+.bg-shadow {
+  background: linear-gradient(180.4deg, #000000 1.78%, rgba(0, 0, 0, 0) 50%);
+}
