@@ -124,7 +124,197 @@
       }
     },
     {
+      "__resolveType": "site/sections/Carousel/CategoryNavigation.tsx",
+      "categories": [
+        {
+          "title": "Camisetas",
+          "link": "/",
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ea1be819-e575-48fd-a8ae-c2fb364ac7c0",
+          "alt": "Camiseta",
+          "border": {
+            "colorTop": "#FF0099",
+            "colorBottom": "#FFB321"
+          }
+        },
+        {
+          "title": "Camisetas",
+          "link": "/",
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ea1be819-e575-48fd-a8ae-c2fb364ac7c0",
+          "alt": "Camiseta",
+          "border": {
+            "colorTop": "#22be57"
+          }
+        },
+        {
+          "title": "Camisetas",
+          "link": "/",
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ea1be819-e575-48fd-a8ae-c2fb364ac7c0",
+          "alt": "Camiseta",
+          "border": {
+            "colorBottom": "#ffa92a"
+          }
+        },
+        {
+          "title": "Camisetas",
+          "link": "/",
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ea1be819-e575-48fd-a8ae-c2fb364ac7c0",
+          "alt": "Camiseta"
+        },
+        {
+          "title": "Camisetas",
+          "link": "/",
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ea1be819-e575-48fd-a8ae-c2fb364ac7c0",
+          "alt": "Camiseta"
+        },
+        {
+          "title": "Camisetas",
+          "link": "/",
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ea1be819-e575-48fd-a8ae-c2fb364ac7c0",
+          "alt": "Camiseta"
+        },
+        {
+          "title": "Camisetas",
+          "link": "/",
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ea1be819-e575-48fd-a8ae-c2fb364ac7c0",
+          "alt": "Camiseta"
+        },
+        {
+          "title": "Camisetas",
+          "link": "/",
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ea1be819-e575-48fd-a8ae-c2fb364ac7c0",
+          "alt": "Camiseta"
+        },
+        {
+          "title": "Camisetas",
+          "link": "/",
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ea1be819-e575-48fd-a8ae-c2fb364ac7c0",
+          "alt": "Camiseta"
+        },
+        {
+          "title": "Camisetas",
+          "link": "/",
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ea1be819-e575-48fd-a8ae-c2fb364ac7c0",
+          "alt": "Camiseta"
+        },
+        {
+          "title": "Camisetas",
+          "link": "/",
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ea1be819-e575-48fd-a8ae-c2fb364ac7c0",
+          "alt": "Camiseta"
+        },
+        {
+          "title": "Camisetas",
+          "link": "/",
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ea1be819-e575-48fd-a8ae-c2fb364ac7c0",
+          "alt": "Camiseta"
+        },
+        {
+          "title": "Camisetas",
+          "link": "/",
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ea1be819-e575-48fd-a8ae-c2fb364ac7c0",
+          "alt": "Camiseta"
+        },
+        {
+          "title": "Camisetas",
+          "link": "/",
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ea1be819-e575-48fd-a8ae-c2fb364ac7c0",
+          "alt": "Camiseta"
+        },
+        {
+          "title": "Camisetas",
+          "link": "/",
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ea1be819-e575-48fd-a8ae-c2fb364ac7c0",
+          "alt": "Camiseta"
+        }
+      ],
+      "title": "NAVEGUE POR CATEGORIAS",
+      "autoplay": {
+        "activate": false,
+        "interval": 5
+      }
+    },
+    {
       "__resolveType": "site/sections/Images/MosaicsDouble.tsx",
+      "right": {
+        "content": {
+          "text": {
+            "title": "Image",
+            "description": "Leveza que combina com o azul do céu."
+          },
+          "link": {
+            "firstCta": {
+              "label": "CTA1",
+              "href": "/cta1"
+            },
+            "secondCta": {
+              "label": "CTA2",
+              "href": "/cta2"
+            },
+            "thirdCta": {
+              "label": "CTA3",
+              "href": "/cta3"
+            },
+            "fourthCta": {
+              "label": "CTA4",
+              "href": "/cta4"
+            }
+          },
+          "links": [
+            {
+              "label": "CTA1",
+              "href": "/"
+            },
+            {
+              "label": "CTA2",
+              "href": "/"
+            },
+            {
+              "label": "CTA3",
+              "href": "/"
+            },
+            {
+              "label": "CTA4",
+              "href": "/"
+            }
+          ]
+        },
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/4582f0d6-da79-4352-8768-4dae31a3493c",
+        "link": "/",
+        "title": "title",
+        "alt": "image"
+      },
+      "left": {
+        "content": {
+          "text": {
+            "title": "Video",
+            "description": "Leveza que combina com o azul do céu."
+          },
+          "link": {
+            "firstCta": {
+              "label": "CTA1v",
+              "href": "/"
+            },
+            "secondCta": {
+              "label": "CTA2v",
+              "href": "/"
+            },
+            "thirdCta": {
+              "label": "CTA3v",
+              "href": "/"
+            },
+            "fourthCta": {
+              "label": "CTA4v",
+              "href": "/"
+            }
+          }
+        },
+        "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/40245bd6-70ae-4eaf-8010-fe59aa939adc",
+        "link": "/",
+        "loop": true,
+        "autoplay": true,
+        "controls": false,
+        "description": "video"
+      },
       "firstBanner": {
         "text": {
           "title": "Linho",
@@ -420,86 +610,6 @@
       "sectionWidth": "contentVideo",
       "props": {
         "right": {}
-      },
-      "right": {
-        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/4582f0d6-da79-4352-8768-4dae31a3493c",
-        "link": "/",
-        "title": "title",
-        "alt": "image",
-        "content": {
-          "text": {
-            "title": "Image",
-            "description": "Leveza que combina com o azul do céu."
-          },
-          "link": {
-            "firstCta": {
-              "label": "CTA1",
-              "href": "/cta1"
-            },
-            "secondCta": {
-              "label": "CTA2",
-              "href": "/cta2"
-            },
-            "thirdCta": {
-              "label": "CTA3",
-              "href": "/cta3"
-            },
-            "fourthCta": {
-              "label": "CTA4",
-              "href": "/cta4"
-            }
-          },
-          "links": [
-            {
-              "label": "CTA1",
-              "href": "/"
-            },
-            {
-              "label": "CTA2",
-              "href": "/"
-            },
-            {
-              "label": "CTA3",
-              "href": "/"
-            },
-            {
-              "label": "CTA4",
-              "href": "/"
-            }
-          ]
-        }
-      },
-      "left": {
-        "content": {
-          "text": {
-            "title": "Video",
-            "description": "Leveza que combina com o azul do céu."
-          },
-          "link": {
-            "firstCta": {
-              "label": "CTA1v",
-              "href": "/"
-            },
-            "secondCta": {
-              "label": "CTA2v",
-              "href": "/"
-            },
-            "thirdCta": {
-              "label": "CTA3v",
-              "href": "/"
-            },
-            "fourthCta": {
-              "label": "CTA4v",
-              "href": "/"
-            }
-          }
-        },
-        "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/40245bd6-70ae-4eaf-8010-fe59aa939adc",
-        "link": "/",
-        "loop": true,
-        "autoplay": true,
-        "controls": false,
-        "description": "video"
       },
       "sections": [
         {
@@ -845,12 +955,12 @@
     },
     {
       "__resolveType": "site/sections/Newsletter/Newsletter.tsx",
-      "title": "Newsletter",
       "layout": {
         "content": {
           "alignment": "Center"
         }
-      }
+      },
+      "title": "Newsletter"
     },
     {
       "__resolveType": "site/sections/Footer/Footer.tsx",

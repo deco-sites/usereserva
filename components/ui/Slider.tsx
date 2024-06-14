@@ -208,7 +208,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
         }
       });
     },
-    { threshold: THRESHOLD, root: slider, rootMargin: "100px" },
+    { threshold: THRESHOLD, root: slider },
   );
 
   const fullObserver = new IntersectionObserver((elements) => {
