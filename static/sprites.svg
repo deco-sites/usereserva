@@ -138,4 +138,5 @@
 			</symbol>
 			<symbol id="Next" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.4316 29.9978L26.5691 21.9959L18.4316 13.9941" stroke="currentColor" stroke-width="1.84375" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 			<symbol id="Prev" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M26.5684 29.9978L18.4309 21.9959L26.5684 13.9941" stroke="currentColor" stroke-width="1.84375" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+			<symbol id="X" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.6666 1.33337L1.33331 14.6667" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path><path d="M1.33329 1.33337L14.6666 14.6667" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></symbol>
 </svg>

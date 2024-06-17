@@ -5,6 +5,34 @@
       "__resolveType": "Header - 01"
     },
     {
+      "__resolveType": "site/sections/Links/HelpButton.tsx",
+      "links": [
+        {
+          "link": "/account#orders",
+          "label": "Status do pedido",
+          "icon": "Truck",
+          "isBlank": true
+        },
+        {
+          "link": "/order",
+          "label": "Troca",
+          "isBlank": true
+        },
+        {
+          "link": "https://usereserva.zendesk.com/hc/pt-br",
+          "label": "F.A.Q",
+          "isBlank": true
+        },
+        {
+          "link": "https://api.whatsapp.com/send/?phone=552136092555&text&type=phone_number&app_absent=0",
+          "label": "WhatsApp",
+          "icon": "WhatsApp",
+          "isBlank": true
+        }
+      ],
+      "buttonText": "Ajuda?"
+    },
+    {
       "__resolveType": "site/sections/Images/Carousel.tsx",
       "dots": true,
       "arrows": false,
