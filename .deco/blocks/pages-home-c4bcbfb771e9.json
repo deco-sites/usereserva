@@ -1033,6 +1033,21 @@
           "icon": "EasyExchange"
         }
       ]
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/CookieConsent.tsx",
+      "title": "Utilizamos cookies para uma melhor experiência.",
+      "policy": {
+        "link": "https://s3.amazonaws.com/produtos-digitais.usereserva.com/2022.05.11+-+Ar%26Co+-+Politica+de+Privacidade+U%CC%81nica.pdf",
+        "text": "Política de Privacidade"
+      },
+      "layout": {
+        "position": "Center"
+      },
+      "buttons": {
+        "allowText": "Aceitar"
+      },
+      "text": "Conheça nossa"
     }
   ],
   "__resolveType": "website/pages/Page.tsx",

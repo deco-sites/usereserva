@@ -11,10 +11,11 @@ const script = (id: string) => {
 
     if (consent !== ACCEPTED && elem) {
       const accept = elem.querySelector("[data-button-cc-accept]");
-      accept && accept.addEventListener("click", () => {
-        localStorage.setItem(KEY, ACCEPTED);
-        elem.classList.add(HIDDEN);
-      });
+      accept &&
+        accept.addEventListener("click", () => {
+          localStorage.setItem(KEY, ACCEPTED);
+          elem.classList.add(HIDDEN);
+        });
       const close = elem.querySelector("[data-button-cc-close]");
       close &&
         close.addEventListener("click", () => elem.classList.add(HIDDEN));
@@ -26,15 +27,23 @@ const script = (id: string) => {
 };
 
 export interface Props {
+  /** @title Título */
   title?: string;
-  /** @format html */
+  /** @title Descrição */
+  /** @description Texto de descrição dos cookies */
   text?: string;
+  /** @title Link da política de privacidade */
   policy?: {
+    /** @description Texto que vai renderizar no botão de link */
     text?: string;
+    /** @description URL do link */
     link?: string;
   };
+  /** @title Botões */
   buttons?: {
+    /** @description Texto do botão de aceite */
     allowText: string;
+    /** @description Texto do botão de cancelar */
     cancelText?: string;
   };
   layout?: {
@@ -79,60 +88,67 @@ function CookieConsent(props: Props) {
           ${layout?.position === "Right" ? "lg:justify-end" : ""}
         `}
       >
-        <div
-          class={`
-          p-4 mx-4 my-2 flex flex-col gap-4 shadow bg-base-100 rounded border border-base-200 
+        <div class="m-2 backdrop-blur">
+          <div
+            class={`
+          flex flex-row px-4 py-2 items-center shadow-lg bg-base-100 opacity-85 rounded-lg
           ${
-            !layout?.position || layout?.position === "Expanded"
-              ? "lg:container lg:mx-auto"
-              : `
+              !layout?.position || layout?.position === "Expanded"
+                ? "lg:container lg:mx-auto"
+                : `
             ${layout?.content === "Piled up" ? "lg:w-[480px]" : ""}
             ${
-                !layout?.content || layout?.content === "Tiled"
-                  ? "lg:w-[520px]"
-                  : ""
-              }
+                  !layout?.content || layout?.content === "Tiled"
+                    ? "lg:w-[520px]"
+                    : ""
+                }
           `
-          }
+            }
           ${
-            !layout?.content || layout?.content === "Tiled"
-              ? "lg:flex-row lg:items-end"
-              : ""
-          }
-          
-        `}
-        >
-          <div
-            class={`flex-auto flex flex-col gap-4 ${
-              !layout?.content || layout?.content === "Tiled" ? "lg:gap-2" : ""
-            }`}
-          >
-            <h3 class="text-xl">{title}</h3>
-            {text && (
-              <div
-                class="text-base"
-                dangerouslySetInnerHTML={{ __html: text }}
-              />
-            )}
-
-            <a href={policy.link} class="text-sm link link-secondary">
-              {policy.text}
-            </a>
-          </div>
-
-          <div
-            class={`flex flex-col gap-2 ${
-              !layout?.position || layout?.position === "Expanded"
+              !layout?.content || layout?.content === "Tiled"
                 ? "lg:flex-row"
                 : ""
-            }`}
+            }
+          
+        `}
           >
-            <button class="btn" data-button-cc-accept>
-              {buttons.allowText}
-            </button>
-            <button class="btn btn-outline" data-button-cc-close>
-              {buttons.cancelText}
-            </button>
+            <div
+              class={`flex-auto flex flex-col ${
+                !layout?.content || layout?.content === "Tiled"
+                  ? "lg:gap-2"
+                  : ""
+              }`}
+            >
+              <h3 class="text-xs sm:text-sm">{title}</h3>
+              {text && (
+                <span class="text-xs sm:text-sm">
+                  {text}
+                  <a href={policy.link} class="link ml-1">
+                    {policy.text}
+                  </a>
+                </span>
+              )}
+            </div>
+
+            <div
+              class={`flex flex-col gap-2 ${
+                !layout?.position || layout?.position === "Expanded"
+                  ? "lg:flex-row"
+                  : ""
+              }`}
+            >
+              <button
+                class="py-2 px-6 lg:px-12 text-xs sm:text-sm font-normal text-base-200 bg-black hover:bg-black rounded-full uppercase"
+                data-button-cc-accept
+              >
+                {buttons.allowText}
+              </button>
+              {buttons.cancelText && (
+                <button class="btn btn-outline" data-button-cc-close>
+                  {buttons.cancelText}
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
