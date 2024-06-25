@@ -1,3 +1,4 @@
+import { Cookie } from "std/http/mod.ts";
 import { useId } from "../../sdk/useId.ts";
 
 const script = (id: string) => {
@@ -9,12 +10,25 @@ const script = (id: string) => {
     const consent = localStorage.getItem(KEY);
     const elem = document.getElementById(id);
 
+    const setCookie = ({ name, value, path }: Cookie) => {
+      document.cookie = `${name}=${value};path=${path};`;
+    };
+
     if (consent !== ACCEPTED && elem) {
       const accept = elem.querySelector("[data-button-cc-accept]");
       accept &&
         accept.addEventListener("click", () => {
+          const consentValue = JSON.stringify({
+            action: "accept",
+            categories: "[]",
+          });
           localStorage.setItem(KEY, ACCEPTED);
           elem.classList.add(HIDDEN);
+          setCookie({
+            name: "CookieScriptConsent",
+            value: consentValue,
+            path: "/",
+          });
         });
       const close = elem.querySelector("[data-button-cc-close]");
       close &&
@@ -26,26 +40,38 @@ const script = (id: string) => {
   addEventListener("scroll", callback, { once: true });
 };
 
+export interface PolicyContent {
+  /**
+   * @description Texto que vai renderizar no botão de link.
+   */
+  text?: string;
+  /**
+   * @description URL do link.
+   */
+  link?: string;
+}
+
+export interface PolicyButtons {
+  /**
+   * @description Texto do botão de aceite
+   * */
+  allowText: string;
+  /** @description Texto do botão de cancelar */
+  cancelText?: string;
+}
+
 export interface Props {
   /** @title Título */
+  /** @description Título do bloco dos cookies */
   title?: string;
   /** @title Descrição */
   /** @description Texto de descrição dos cookies */
   text?: string;
   /** @title Link da política de privacidade */
-  policy?: {
-    /** @description Texto que vai renderizar no botão de link */
-    text?: string;
-    /** @description URL do link */
-    link?: string;
-  };
+  policy?: PolicyContent;
   /** @title Botões */
-  buttons?: {
-    /** @description Texto do botão de aceite */
-    allowText: string;
-    /** @description Texto do botão de cancelar */
-    cancelText?: string;
-  };
+  buttons?: PolicyButtons;
+  /** @title Posição do bloco de cookies */
   layout?: {
     position?: "Expanded" | "Left" | "Center" | "Right";
     content?: "Tiled" | "Piled up";
@@ -54,8 +80,7 @@ export interface Props {
 
 const DEFAULT_PROPS = {
   title: "Cookies",
-  text:
-    "Guardamos estatísticas de visitas para melhorar sua experiência de navegação.",
+  text: "Guardamos estatísticas de visitas para melhorar sua experiência de navegação.",
   policy: {
     text: "Saiba mais sobre sobre política de privacidade",
     link: "/politica-de-privacidade",
@@ -93,22 +118,20 @@ function CookieConsent(props: Props) {
             class={`
           flex flex-row px-4 py-2 items-center shadow-lg bg-base-100 opacity-85 rounded-lg
           ${
-              !layout?.position || layout?.position === "Expanded"
-                ? "lg:container lg:mx-auto"
-                : `
+            !layout?.position || layout?.position === "Expanded"
+              ? "lg:container lg:mx-auto"
+              : `
             ${layout?.content === "Piled up" ? "lg:w-[480px]" : ""}
             ${
-                  !layout?.content || layout?.content === "Tiled"
-                    ? "lg:w-[520px]"
-                    : ""
-                }
-          `
-            }
-          ${
               !layout?.content || layout?.content === "Tiled"
-                ? "lg:flex-row"
+                ? "lg:w-[520px]"
                 : ""
             }
+          `
+          }
+          ${
+            !layout?.content || layout?.content === "Tiled" ? "lg:flex-row" : ""
+          }
           
         `}
           >
@@ -144,7 +167,10 @@ function CookieConsent(props: Props) {
                 {buttons.allowText}
               </button>
               {buttons.cancelText && (
-                <button class="btn btn-outline" data-button-cc-close>
+                <button
+                  class="py-2 px-6 lg:px-12 text-xs sm:text-sm font-normal text-base-200 bg-black hover:bg-black rounded-full uppercase"
+                  data-button-cc-close
+                >
                   {buttons.cancelText}
                 </button>
               )}
