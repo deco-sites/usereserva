@@ -709,9 +709,9 @@
         "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
         "props": {
           "sort": "price:desc",
-          "count": 4,
           "query": "camisa",
-          "fuzzy": "automatic"
+          "fuzzy": "automatic",
+          "count": 5
         },
         "crossSelling": "similars"
       },
