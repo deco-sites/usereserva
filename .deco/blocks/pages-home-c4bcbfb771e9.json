@@ -303,7 +303,7 @@
             }
           ]
         },
-        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/4582f0d6-da79-4352-8768-4dae31a3493c",
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/a3005dcd-90b9-462c-a191-f6831ea768ac",
         "link": "/",
         "title": "title",
         "alt": "image"
@@ -311,8 +311,7 @@
       "left": {
         "content": {
           "text": {
-            "title": "Video",
-            "description": "Leveza que combina com o azul do céu."
+            "description": null
           },
           "link": {
             "firstCta": {
@@ -331,14 +330,13 @@
               "label": "CTA4v",
               "href": "/"
             }
-          }
+          },
+          "links": []
         },
-        "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/40245bd6-70ae-4eaf-8010-fe59aa939adc",
-        "link": "/",
         "loop": true,
         "autoplay": true,
         "controls": false,
-        "description": "video"
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/8d1d2f94-fca7-4dbd-a469-d8d5bec25fb7"
       },
       "firstBanner": {
         "text": {
@@ -658,7 +656,7 @@
             "fourthCta": {}
           }
         },
-        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/c457a2e1-9e47-40db-b913-a5895a4de860"
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/8ba4eb02-f8ce-40b3-a03d-e664228a1564"
       },
       "left": {
         "content": {
@@ -670,7 +668,7 @@
             "fourthCta": {}
           }
         },
-        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/8dd40e2f-26a2-440b-b6a6-429f77c12478"
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/bc3bfa72-54e3-448c-9200-e3488cb508c6"
       }
     },
     {
@@ -683,9 +681,10 @@
             "secondCta": {},
             "thirdCta": {},
             "fourthCta": {}
-          }
+          },
+          "links": []
         },
-        "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ef264337-1dc2-4ed7-a644-ecebc8c88180"
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/a21df9c5-24f3-4194-a639-565d826e9bb1"
       },
       "left": {
         "content": {
@@ -695,46 +694,11 @@
             "secondCta": {},
             "thirdCta": {},
             "fourthCta": {}
-          }
+          },
+          "links": []
         },
-        "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/f01bf289-fcf3-4313-8306-94893ca1d979"
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/89ff1992-753e-48c9-85d4-ba116952d122"
       }
-    },
-    {
-      "__resolveType": "site/sections/Images/RangeOfBenefits.tsx",
-      "benefits": [
-        {
-          "icon": "PaymentByPix",
-          "description": "<p>Pagamento via Pix tem compra aprovada em minutos.</p>",
-          "title": "Pagamento por Pix",
-          "label": "PaymentByPix",
-          "strokeWidth": 4
-        },
-        {
-          "icon": "ReceiveCashback",
-          "description": "<p>Compre e receba 20% de cashback nas suas compras.</p>",
-          "title": "Receba Cashback",
-          "label": "ReceiveCashback"
-        },
-        {
-          "icon": "ReservaPrime",
-          "description": "<p>Descontos na Reserva e em marcas parceiras. <a href=\"/\" class=\"underline font-bold text-black\">Saiba mais</a></p>",
-          "title": "Reserva Prime",
-          "label": "ReservaPrime"
-        },
-        {
-          "icon": "SellerCoupon",
-          "description": "<p>Ganhe 15% OFF em produtos sem desconto.</p>",
-          "title": "Cupom do vendedor",
-          "label": "SellerCoupon"
-        },
-        {
-          "icon": "EasyExchange",
-          "description": "<p>Compre no site ou app e troque em uma das lojas em até 7 dias.</p>",
-          "title": "Troca facilitada",
-          "label": "EasyExchange"
-        }
-      ]
     },
     {
       "__resolveType": "site/sections/Product/ProductShelf.tsx",
@@ -778,6 +742,42 @@
         },
         "__resolveType": "site/loaders/Layouts/ProductCard.tsx"
       }
+    },
+    {
+      "__resolveType": "site/sections/Images/RangeOfBenefits.tsx",
+      "benefits": [
+        {
+          "icon": "PaymentByPix",
+          "description": "<p>Pagamento via Pix tem compra aprovada em minutos.</p>",
+          "title": "Pagamento por Pix",
+          "label": "PaymentByPix",
+          "strokeWidth": 4
+        },
+        {
+          "icon": "ReceiveCashback",
+          "description": "<p>Compre e receba 20% de cashback nas suas compras.</p>",
+          "title": "Receba Cashback",
+          "label": "ReceiveCashback"
+        },
+        {
+          "icon": "ReservaPrime",
+          "description": "<p>Descontos na Reserva e em marcas parceiras. <a href=\"/\" class=\"underline font-bold text-black\">Saiba mais</a></p>",
+          "title": "Reserva Prime",
+          "label": "ReservaPrime"
+        },
+        {
+          "icon": "SellerCoupon",
+          "description": "<p>Ganhe 15% OFF em produtos sem desconto.</p>",
+          "title": "Cupom do vendedor",
+          "label": "SellerCoupon"
+        },
+        {
+          "icon": "EasyExchange",
+          "description": "<p>Compre no site ou app e troque em uma das lojas em até 7 dias.</p>",
+          "title": "Troca facilitada",
+          "label": "EasyExchange"
+        }
+      ]
     }
   ],
   "__resolveType": "website/pages/Page.tsx",
