@@ -42,10 +42,12 @@ const script = (id: string) => {
 
 export interface PolicyContent {
   /**
-   * @description Texto que vai renderizar no botão de link.
+   * @title Texto 
+   * @description Texto que vai renderizar no link.
    */
   text?: string;
   /**
+   * @title Link
    * @description URL do link.
    */
   link?: string;
@@ -53,10 +55,14 @@ export interface PolicyContent {
 
 export interface PolicyButtons {
   /**
+   * @title Botão Aceitar
    * @description Texto do botão de aceite
-   * */
+   */
   allowText: string;
-  /** @description Texto do botão de cancelar */
+  /** 
+   * @title Botão Cancelar
+   * @description Texto do botão de cancelar 
+   */
   cancelText?: string;
 }
 
@@ -73,6 +79,7 @@ export interface Props {
   buttons?: PolicyButtons;
   /** @title Posição do bloco de cookies */
   layout?: {
+    /** @title Posição */
     position?: "Expanded" | "Left" | "Center" | "Right";
     content?: "Tiled" | "Piled up";
   };
@@ -80,7 +87,8 @@ export interface Props {
 
 const DEFAULT_PROPS = {
   title: "Cookies",
-  text: "Guardamos estatísticas de visitas para melhorar sua experiência de navegação.",
+  text:
+    "Guardamos estatísticas de visitas para melhorar sua experiência de navegação.",
   policy: {
     text: "Saiba mais sobre sobre política de privacidade",
     link: "/politica-de-privacidade",
@@ -118,20 +126,22 @@ function CookieConsent(props: Props) {
             class={`
           flex flex-row px-4 py-2 items-center shadow-lg bg-base-100 opacity-85 rounded-lg
           ${
-            !layout?.position || layout?.position === "Expanded"
-              ? "lg:container lg:mx-auto"
-              : `
+              !layout?.position || layout?.position === "Expanded"
+                ? "lg:container lg:mx-auto"
+                : `
             ${layout?.content === "Piled up" ? "lg:w-[480px]" : ""}
             ${
+                  !layout?.content || layout?.content === "Tiled"
+                    ? "lg:w-[520px]"
+                    : ""
+                }
+          `
+            }
+          ${
               !layout?.content || layout?.content === "Tiled"
-                ? "lg:w-[520px]"
+                ? "lg:flex-row"
                 : ""
             }
-          `
-          }
-          ${
-            !layout?.content || layout?.content === "Tiled" ? "lg:flex-row" : ""
-          }
           
         `}
           >

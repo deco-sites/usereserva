@@ -1,1 +1,1 @@
-export { default } from "../../components/ui/HelpButton.tsx"
+export { default } from "../../components/ui/HelpButton.tsx";

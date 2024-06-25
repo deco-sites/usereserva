@@ -5,7 +5,7 @@ import Video from "apps/website/components/Video.tsx";
 export interface Text {
   /** @title Título */
   title?: string;
-  /** 
+  /**
    * @title Descrição
    * @format textarea
    */
@@ -14,14 +14,14 @@ export interface Text {
 
 export interface Image {
   link?: string;
-  /** 
+  /**
    * @title Título
    */
   title?: string;
   /** @description Em caso de querer usar videos. Para uma performance melhor, use GIFS para parecer com vídeo. */
   src?: ImageWidget;
   alt?: string;
-  /** 
+  /**
    * @title Conteúdo do Banner.
    * @description (Texto e CTAS que vai ficar em cima).
    */
@@ -34,7 +34,7 @@ export interface Video {
   url?: VideoWidget;
   /** @title Descrição */
   description?: string;
-  /** 
+  /**
    * @title Conteúdo do vídeo.
    * @description (Texto e CTAS que vai ficar em cima).
    */
@@ -69,64 +69,64 @@ function Cta({ href, label }: Cta) {
 }
 
 const ImageOrVideo = ({ content }: { content?: Image | Video }) => {
-  const links = content?.content?.links
-  return <div class="flex flex-col items-center justify-center gap-3">
-    {content && (
-      <>
-        {"src" in content && (
-          <div class="relative m-1">
-            <a href={content.link || ""} aria-label={content.title || ""}>
+  const links = content?.content?.links;
+  return (
+    <div class="flex flex-col items-center justify-center gap-3">
+      {content && (
+        <>
+          {"src" in content && (
+            <div class="relative m-1">
+              <a href={content.link || ""} aria-label={content.title || ""}>
+                <span class="absolute mosaic-bg top-0 left-0 w-full h-full z-10">
+                </span>
+                <Image
+                  src={content.src || ""}
+                  alt={content.alt || ""}
+                  title={content.title || ""}
+                  width={705}
+                  height={500}
+                  class="aspect-[705/500] object-cover"
+                />
+              </a>
+            </div>
+          )}
+          {"url" in content && content.url && (
+            <div class="relative m-1">
+              <a href={content.link} aria-label={content.description}>
+                <Video
+                  width={705}
+                  height={500}
+                  muted
+                  autoPlay
+                  loop
+                  src={content.url}
+                  alt={content.description}
+                  loading="lazy"
+                  class="aspect-[705/500] object-cover"
+                />
+              </a>
               <span class="absolute mosaic-bg top-0 left-0 w-full h-full z-10">
               </span>
-              <Image
-                src={content.src || ""}
-                alt={content.alt || ""}
-                title={content.title || ""}
-                width={705}
-                height={500}
-                class="aspect-[705/500] object-cover"
-              />
-            </a>
-          </div>
-        )}
-        {"url" in content && content.url && (
-          <div class="relative m-1">
-            <a href={content.link} aria-label={content.description}>
-              <Video
-                width={705}
-                height={500}
-                muted
-                autoPlay
-                loop
-                src={content.url}
-                alt={content.description}
-                loading="lazy"
-                class="aspect-[705/500] object-cover"
-              />
-            </a>
-            <span class="absolute mosaic-bg top-0 left-0 w-full h-full z-10">
-            </span>
-          </div>
-        )}
-        {content.content?.text && (
-          <div class="flex flex-col items-center justify-center absolute z-20">
-            <h2 class="text-2xl text-base-200">
-              {content.content.text?.title}
-            </h2>
-            <p class="text-base-200 text-center">
-              {content.content.text?.description}
-            </p>
-          </div>
-        )}
-        <div class="flex items-center justify-center absolute z-20 gap-4 mt-24">
-          {links?.map((cta) =>
-            <Cta {...cta} />
+            </div>
           )}
-        </div>
-      </>
-    )}
-  </div>
-}
+          {content.content?.text && (
+            <div class="flex flex-col items-center justify-center absolute z-20">
+              <h2 class="text-2xl text-base-200">
+                {content.content.text?.title}
+              </h2>
+              <p class="text-base-200 text-center">
+                {content.content.text?.description}
+              </p>
+            </div>
+          )}
+          <div class="flex items-center justify-center absolute z-20 gap-4 mt-24">
+            {links?.map((cta) => <Cta {...cta} />)}
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
 
 export default function Mosaics({ right, left }: MosaicsProps) {
   return (
