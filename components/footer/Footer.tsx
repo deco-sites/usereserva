@@ -10,6 +10,7 @@ import PaymentMethods from "../../components/footer/PaymentMethods.tsx";
 import RegionSelector from "../../components/footer/RegionSelector.tsx";
 import Social from "../../components/footer/Social.tsx";
 import { clx } from "../../sdk/clx.ts";
+import Icon, { AvailableIcons } from "../../components/ui/Icon.tsx";
 
 export type Item = {
   label: string;
@@ -49,7 +50,8 @@ export interface RegionOptions {
 }
 
 export interface NewsletterForm {
-  placeholder?: string;
+  placeholderName?: string;
+  placeholderEmail?: string;
   buttonText?: string;
   /** @format html */
   helpText?: string;
@@ -87,10 +89,12 @@ export interface Props {
     description?: string;
   };
   newsletter?: {
+    icon?: AvailableIcons;
     title?: string;
     /** @format textarea */
     description?: string;
     form?: NewsletterForm;
+    mobileApps?: MobileApps;
   };
   sections?: Section[];
   social?: {
@@ -121,9 +125,11 @@ const LAYOUT = {
 function Footer({
   logo,
   newsletter = {
+    icon: "Deco",
     title: "Newsletter",
     description: "",
-    form: { placeholder: "", buttonText: "", helpText: "" },
+    form: { placeholderName: "", placeholderEmail: "", buttonText: "", helpText: "" },
+    mobileApps: { apple: "/", android: "/" },
   },
   sections = [{
     "label": "Sobre",

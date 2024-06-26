@@ -16,6 +16,11 @@ export default {
           "100%": { transform: "translateX(-50%)" },
         },
       },
+      fontFamily: {
+        "reserva-sans": ["ReservaSans", "sans-serif"],
+        "reserva-serif": ["ReservaSerif", "sans-serif"],
+        "reserva-display": ["ReservaDisplay", "sans-serif"],
+      },
     },
   },
 };
