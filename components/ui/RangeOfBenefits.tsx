@@ -8,16 +8,16 @@ export interface Benefit {
    * @options site/loaders/availableIcons.ts
    */
   icon: AvailableIcons;
-  /** 
+  /**
    * @title Largura do Traço.
    * @description Especifique a largura do traço para o ícone. (O padrão é 1)
    */
   strokeWidth?: number;
   /** @title Título */
   title?: string;
-  /** 
+  /**
    * @title Descrição
-   * @format rich-text 
+   * @format rich-text
    */
   description?: string;
 }
@@ -33,7 +33,14 @@ export default function RangeOfBenefits({ benefits }: Props) {
       {benefits.map(({ icon, title, description, strokeWidth }) => (
         <div class="flex lg:flex-col justify-start sm:items-center w-full sm:gap-3.5 gap-4 lg:max-w-none max-w-[300px] mx-auto">
           {icon &&
-            <Icon class="flex-shrink-0" id={icon} size={36} strokeWidth={strokeWidth || 1} />}
+            (
+              <Icon
+                class="flex-shrink-0"
+                id={icon}
+                size={36}
+                strokeWidth={strokeWidth || 1}
+              />
+            )}
           {title &&
             (
               <div>

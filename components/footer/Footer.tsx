@@ -128,7 +128,12 @@ function Footer({
     icon: "Deco",
     title: "Newsletter",
     description: "",
-    form: { placeholderName: "", placeholderEmail: "", buttonText: "", helpText: "" },
+    form: {
+      placeholderName: "",
+      placeholderEmail: "",
+      buttonText: "",
+      helpText: "",
+    },
     mobileApps: { apple: "/", android: "/" },
   },
   sections = [{

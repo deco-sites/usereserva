@@ -1,7 +1,7 @@
 import Icon, { AvailableIcons } from "../../components/ui/Icon.tsx";
 import { useId } from "../../sdk/useId.ts";
 import { useSection } from "deco/hooks/useSection.ts";
-import { AppContext } from "../../apps/site.ts"
+import { AppContext } from "../../apps/site.ts";
 
 export interface Link {
   link: string;
@@ -30,11 +30,15 @@ export interface Props {
 }
 
 export const loader = async (props: Props, req: Request, _ctx: AppContext) => {
-  const isOpen = await req.formData().catch(() => null)
-  return { ...props, isOpen: isOpen?.get("isOpen") === "on" }
-}
+  const isOpen = await req.formData().catch(() => null);
+  return { ...props, isOpen: isOpen?.get("isOpen") === "on" };
+};
 
-function helpButton({ links, buttonText, hasArrivedEnd, isOpen }: Awaited<ReturnType<typeof loader>>) {
+function helpButton(
+  { links, buttonText, hasArrivedEnd, isOpen }: Awaited<
+    ReturnType<typeof loader>
+  >,
+) {
   const id = useId();
   const style = {
     boxShadow: "0 5px 12px rgba(0, 0, 0, .12)",
@@ -69,7 +73,13 @@ function helpButton({ links, buttonText, hasArrivedEnd, isOpen }: Awaited<Return
   );
   return (
     <div class="group/drop fixed bottom-5 right-5 z-50 flex flex-col gap-3 items-end">
-      <input type="checkbox" class="hidden" id={id} name="isOpen" checked={isOpen} />
+      <input
+        type="checkbox"
+        class="hidden"
+        id={id}
+        name="isOpen"
+        checked={isOpen}
+      />
       <div class=" dropdown dropdown-top dropdown-end group-has-[input:checked]/drop:dropdown-open">
         <label
           htmlFor={id}

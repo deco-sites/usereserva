@@ -9,7 +9,7 @@ const sw = () =>
     () =>
       navigator &&
       navigator.serviceWorker &&
-      navigator.serviceWorker.register("/sw.js")
+      navigator.serviceWorker.register("/sw.js"),
   );
 
 export default defineApp(async (_req, ctx) => {
@@ -37,14 +37,18 @@ export default defineApp(async (_req, ctx) => {
             __html: `
             @font-face {
               font-family: ReservaSans;
-              src: url(${asset("/fonts/ReservaSans-Light.woff")}) format('woff');
+              src: url(${
+              asset("/fonts/ReservaSans-Light.woff")
+            }) format('woff');
               font-weight: 300;
               font-style: normal;
               font-display: swap;
             }
             @font-face {
               font-family: ReservaSans;
-              src: url(${asset("/fonts/ReservaSans-Regular.woff")}) format('woff');
+              src: url(${
+              asset("/fonts/ReservaSans-Regular.woff")
+            }) format('woff');
               font-weight: 400;
               font-style: normal;
               font-display: swap;
@@ -58,20 +62,25 @@ export default defineApp(async (_req, ctx) => {
             }
             @font-face {
               font-family: ReservaSerif;
-              src: url(${asset("/fonts/ReservaSerif-Regular.woff")}) format('woff');
+              src: url(${
+              asset("/fonts/ReservaSerif-Regular.woff")
+            }) format('woff');
               font-weight: 400;
               font-style: normal;
               font-display: swap;
             }
             @font-face {
               font-family: ReservaDisplay;
-              src: url(${asset("/fonts/ReservaDisplay-Regular.woff")}) format('woff');
+              src: url(${
+              asset("/fonts/ReservaDisplay-Regular.woff")
+            }) format('woff');
               font-weight: 400;
               font-style: normal;
               font-display: swap;
             }`,
           }}
-        ></style>
+        >
+        </style>
       </Head>
 
       {/* Rest of Preact tree */}
