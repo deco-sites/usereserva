@@ -31,7 +31,9 @@
     {
       "__resolveType": "vtex/loaders/proxy.ts",
       "includeSiteMap": [],
-      "extraPathsToProxy": [],
+      "extraPathsToProxy": [
+        "/_v/*"
+      ],
       "includeScriptsToHead": {
         "includes": [
           {
@@ -62,5 +64,8 @@
     "includeScriptsToHead": {
       "includes": []
     }
+  },
+  "flavor": {
+    "framework": "fresh"
   }
 }
