@@ -2,6 +2,7 @@ import { useSection } from "deco/hooks/useSection.ts";
 import type {
   Category,
   Department,
+  ExtraLink,
   Menu as MenuProps,
 } from "../../loaders/Header/Menu.ts";
 import { useId } from "../../sdk/useId.ts";
@@ -13,6 +14,7 @@ import {
   NAVBAR_HEIGHT,
   NAVBAR_HEIGHT_MOBILE,
 } from "../../constants.tsx";
+import Image from "apps/website/components/Image.tsx";
 
 export interface Props {
   title: string;
@@ -22,6 +24,9 @@ export interface Props {
   titleClass?: string;
   contentClass?: string;
 }
+
+const IMAGE_WIDTH = 259;
+const IMAGE_HEIGHT = 358;
 
 function Collapse(
   { title, children, class: _class, titleClass, contentClass, hasRotate }:
@@ -95,7 +100,7 @@ const MenuCategory = ({ title, navItems }: Category) => {
   );
 };
 
-const MenuDepartament = ({ title, collums }: Department) => {
+const MenuDepartament = ({ title, collums, image }: Department) => {
   return (
     <Collapse
       title={title}
@@ -106,15 +111,42 @@ const MenuDepartament = ({ title, collums }: Department) => {
       {collums.map(({ categories }) =>
         categories.map((category) => <MenuCategory {...category} />)
       )}
+      {image && image.src && (
+        <Image
+          class="w-full h-full"
+          src={image.src}
+          alt={image.alt}
+          width={IMAGE_WIDTH}
+          height={IMAGE_HEIGHT}
+          href={image.link}
+        />
+      )}
     </Collapse>
   );
 };
 
-function MenuContent({ links }: MenuProps) {
+function MenuExtraLinks({ icon, link, title, isBlank }: ExtraLink) {
   return (
-    <ul class="flex flex-col">
+    <div class="h-14 w-full">
+      <a
+        class="flex items-center justify-start gap-5 h-full w-full"
+        href={link}
+        target={isBlank ? "_blank" : "_self"}
+        rel={isBlank ? "noopener noreferrer" : ""}
+      >
+        <Icon id={icon} width={20} height={20} />
+        <p class="text-sm font-bold">{title}</p>
+      </a>
+    </div>
+  );
+}
+
+function MenuContent({ links, extraLinks }: MenuProps) {
+  return (
+    <div class="flex flex-col carousel-vertical">
       {links.map((department) => <MenuDepartament {...department} />)}
-    </ul>
+      {extraLinks?.map((extraLinks) => <MenuExtraLinks {...extraLinks} />)}
+    </div>
   );
 }
 

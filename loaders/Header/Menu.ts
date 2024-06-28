@@ -1,26 +1,37 @@
 import { ImageWidget } from "apps/admin/widgets.ts";
 import { AppContext } from "../../apps/site.ts";
+import { AvailableIcons } from "../../components/ui/Icon.tsx";
 
 export interface Image {
   src?: ImageWidget;
   alt?: string;
+  /** @title Posição */
   position: "left" | "right";
+  link?: string;
 }
 
+/** @titleBy title */
 export interface NavItem {
+  /** @title Título */
   title: string;
+  /** @title É uma nova aba? */
   isBlank?: boolean;
   link: string;
 }
 
+/** @titleBy title */
 export interface Category {
+  /** @title Título */
   title: string;
   link: string;
+  /** @title É uma nova aba? */
   isBlank?: boolean;
+  /** @title Itens da navegação */
   navItems: NavItem[];
 }
 
 export interface Column {
+  /** @title Categorias */
   categories: Category[];
 }
 
@@ -41,14 +52,28 @@ export interface Department {
   image?: Image;
 }
 
+export interface ExtraLink {
+  /**
+   * @title Ícone
+   * @format icon-select
+   * @options site/loaders/availableIcons.ts
+   */
+  icon: AvailableIcons;
+  /** @title Título */
+  title: string;
+  link: string;
+  /** @title É uma nova aba? */
+  isBlank?: boolean;
+}
 export interface Menu {
   links: Department[];
+  extraLinks?: ExtraLink[];
 }
 
 export default function loader(
-  props: { menu: Department[] },
+  props: { menu: Department[]; extraLinks?: ExtraLink[] },
   _req: Request,
   _ctx: AppContext,
 ): Menu {
-  return { links: props.menu };
+  return { links: props.menu, ...props };
 }
