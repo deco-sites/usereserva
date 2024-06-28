@@ -5,7 +5,7 @@ const script = (id: string) => {
   const callback = () => {
     const KEY = "store-cookie-consent";
     const ACCEPTED = "accepted";
-    const HIDDEN = "translate-y-[200%]";
+    const HIDDEN = ["opacity-0"];
 
     const consent = localStorage.getItem(KEY);
     const elem = document.getElementById(id);
@@ -23,7 +23,7 @@ const script = (id: string) => {
             categories: "[]",
           });
           localStorage.setItem(KEY, ACCEPTED);
-          elem.classList.add(HIDDEN);
+          elem.classList.add(...HIDDEN);
           setCookie({
             name: "CookieScriptConsent",
             value: consentValue,
@@ -32,8 +32,8 @@ const script = (id: string) => {
         });
       const close = elem.querySelector("[data-button-cc-close]");
       close &&
-        close.addEventListener("click", () => elem.classList.add(HIDDEN));
-      elem.classList.remove(HIDDEN);
+        close.addEventListener("click", () => elem.classList.add(...HIDDEN));
+      elem.classList.remove(...HIDDEN);
     }
   };
 
@@ -115,7 +115,7 @@ function CookieConsent(props: Props) {
       <div
         id={id}
         class={`
-          transform-gpu translate-y-[200%] transition fixed bottom-0 lg:bottom-2 w-screen z-50 lg:flex
+          transform-gpu opacity-0 transition-opacity ease-in-out delay-500 duration-200 fixed bottom-0 lg:bottom-2 w-screen z-50 lg:flex
           ${layout?.position === "Left" ? "lg:justify-start" : ""}
           ${layout?.position === "Center" ? "lg:justify-center" : ""}
           ${layout?.position === "Right" ? "lg:justify-end" : ""}
