@@ -72,7 +72,7 @@ function Header({ isTransparent, ...props }: ReturnType<typeof loader>) {
         checked={isTransparent}
       />
       <header
-        class="w-full absolute z-50 max-lg:flex max-lg:flex-col top-0"
+        class="w-full absolute z-50 max-xl:flex max-xl:flex-col top-0"
         id="header"
       >
         <Alert {...props.Alert} />

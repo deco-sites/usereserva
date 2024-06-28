@@ -15,7 +15,10 @@ function NavItem({ title, collums, link, isBlank, image, color }: Department) {
         target={isBlank ? "_blank" : "_self"}
         rel={isBlank ? "noopener noreferrer" : ""}
       >
-        <p class="text-base font-normal group-hover:border-b-2 border-black group-has-[li:hover]/header:text-black group-has-[input:checked]/header:text-white" style={{ color }}>
+        <p
+          class="text-base font-normal group-hover:border-b-2 border-black group-has-[li:hover]/header:text-black group-has-[input:checked]/header:text-white"
+          style={{ color }}
+        >
           {title}
         </p>
       </a>

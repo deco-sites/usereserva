@@ -27,13 +27,13 @@ function NavBar({ logo, menu, searchBar, isDesktop }: NavBar) {
         {/** DESKTOP */}
         {isDesktop && (
           <>
-            <div class="flex items-center gap-16 justify-start h-full w-full max-lg:hidden">
+            <div class="flex items-center gap-16 justify-start h-full w-full max-xl:hidden">
               <Image src={logo} alt="usereserva" width={27} height={32} />
               <ul class="flex flex-start gap-12 h-full">
                 {menu.links.map((department) => <NavItem {...department} />)}
               </ul>
             </div>
-            <div class="flex items-center justify-end h-full w-full gap-16 max-lg:hidden">
+            <div class="flex items-center justify-end h-full w-full gap-16 max-xl:hidden">
               <Search {...searchBar} />
               <div class="flex items-center justify-start gap-5">
                 <Wishlist />
@@ -45,7 +45,7 @@ function NavBar({ logo, menu, searchBar, isDesktop }: NavBar) {
         )}
         <>
           {/** MOBILE */}
-          <div class="flex flex-col w-full lg:hidden gap-[6px]">
+          <div class="flex flex-col w-full xl:hidden gap-[6px]">
             <div class="flex items-center justify-between h-full w-full">
               <MenuButton />
               <Image src={logo} alt="usereserva" width={27} height={32} />
