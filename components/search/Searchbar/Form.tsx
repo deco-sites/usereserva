@@ -30,12 +30,12 @@ export interface SearchbarProps {
   /**
    * @title Placeholder
    * @description Search bar default placeholder message
-   * @default What are you looking for?
+   * @default O que você procura?
    */
   placeholder?: string;
 
-  /** @description Loader to run when suggesting new elements */
-  loader: Resolved<Suggestion | null>;
+  /** @description Loader para rodar sugestões de novos elementos */
+  loader?: Resolved<Suggestion | null>;
 }
 
 const script = (formId: string, name: string, popupId: string) => {
@@ -73,26 +73,27 @@ const script = (formId: string, name: string, popupId: string) => {
 const Suggestions = import.meta.resolve("./Suggestions.tsx");
 
 export default function Searchbar(
-  { placeholder = "What are you looking for?", loader }: SearchbarProps,
+  { placeholder = "O que você procura?", loader }: SearchbarProps,
 ) {
   const slot = useId();
 
   return (
-    <div
-      class="w-full grid gap-8 px-4 py-6"
-      style={{ gridTemplateRows: "min-content auto" }}
-    >
-      <form id={SEARCHBAR_INPUT_FORM_ID} action={ACTION} class="join">
+    <div class="w-full gap-8 lg:max-w-[276px] relative h-8">
+      <form
+        id={SEARCHBAR_INPUT_FORM_ID}
+        action={ACTION}
+        class="join w-full h-full"
+      >
         <button
           type="submit"
-          class="btn join-item btn-square no-animation"
+          class="bg-transparent no-animation absolute right-3 top-1/2 -translate-y-1/2"
           aria-label="Search"
           for={SEARCHBAR_INPUT_FORM_ID}
           tabIndex={-1}
         >
           <span class="loading loading-spinner loading-xs hidden [.htmx-request_&]:inline" />
           <Icon
-            class="inline [.htmx-request_&]:hidden"
+            class="inline [.htmx-request_&]:hidden group-has-[li:hover]/header:text-black group-has-[#menu:checked]/header:text-black group-has-[input:checked]/header:text-white"
             id="MagnifyingGlass"
             size={24}
             strokeWidth={0.01}
@@ -101,7 +102,7 @@ export default function Searchbar(
         <input
           autofocus
           tabIndex={0}
-          class="input input-bordered join-item flex-grow"
+          class="px-3 placeholder:text-sm placeholder:font-light  placeholder:text-black group-has-[li:hover]/header:bg-white group-has-[li:hover]/header:text-black group-has-[li:hover]/header:placeholder:text-black group-has-[#menu:checked]/header:text-black group-has-[#menu:checked]/header:bg-white group-has-[#menu:checked]/header:placeholder:text-black group-has-[input:checked]/header:[background:_hsla(0,_0%,_100%,_.3)] group-has-[input:checked]/header:placeholder:text-white group-has-[input:checked]/header:text-white border-[0.4px] border-[#DEDEDE] focus:outline-none flex-grow rounded-full h-full"
           name={NAME}
           placeholder={placeholder}
           autocomplete="off"
@@ -113,14 +114,16 @@ export default function Searchbar(
           hx-indicator={`#${SEARCHBAR_INPUT_FORM_ID}`}
           hx-swap="innerHTML"
         />
-        <label
+        {
+          /* <label
           type="button"
           class="join-item btn btn-ghost btn-square hidden sm:inline-flex"
           for={SEARCHBAR_POPUP_ID}
           aria-label="Toggle searchbar"
         >
           <Icon id="XMark" size={24} strokeWidth={2} />
-        </label>
+        </label> */
+        }
       </form>
 
       {/* Suggestions slot */}

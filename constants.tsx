@@ -9,8 +9,12 @@ export const SEARCHBAR_DRAWER_ID = "searchbar-drawer";
 export const SEARCHBAR_POPUP_ID = "searchbar-popup";
 export const SEARCHBAR_INPUT_FORM_ID = "searchbar-form";
 
-export const HEADER_HEIGHT = "110px";
-export const NAVBAR_HEIGHT = "75px";
+export const HEADER_HEIGHT = "106px";
+export const HEADER_HEIGHT_MOBILE = "124px";
+export const NAVBAR_HEIGHT = "74px";
+export const NAVBAR_HEIGHT_MOBILE = "92px";
+export const MENU_DRAWER_ID = "menu-drawer";
+export const MENU_INPUT_ID = "menu";
 
 export type Colors =
   | "Transparent"

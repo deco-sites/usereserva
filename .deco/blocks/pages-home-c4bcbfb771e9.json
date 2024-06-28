@@ -2,7 +2,16 @@
   "name": "Home",
   "sections": [
     {
-      "__resolveType": "Header - 01"
+      "__resolveType": "site/sections/Header/Header.tsx",
+      "Alert": {
+        "text": "<p style=\"display: flex; margin-left: auto; margin-right: auto; width: fit-content; font-size: 13px; color: white\"><span style=\"color: #22be57\">Frete Grátis</span>&nbsp;em compras acima de R$699</p>"
+      },
+      "navBar": {
+        "menu": {
+          "__resolveType": "Header's menu"
+        },
+        "logo": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/296af084-5fd5-4021-99c4-04fd9cef635f"
+      }
     },
     {
       "__resolveType": "site/sections/Links/HelpButton.tsx",
@@ -34,6 +43,10 @@
     },
     {
       "__resolveType": "site/sections/Images/Carousel.tsx",
+      "autoplay": {
+        "interval": 4,
+        "activate": true
+      },
       "dots": true,
       "arrows": false,
       "images": [
@@ -145,14 +158,14 @@
           "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/92e2f6bd-fb73-4ef2-a63f-609ec7a833b3"
         }
       ],
-      "preload": true,
-      "autoplay": {
-        "interval": 4,
-        "activate": true
-      }
+      "preload": true
     },
     {
       "__resolveType": "site/sections/Carousel/CategoryNavigation.tsx",
+      "autoplay": {
+        "interval": 5,
+        "activate": false
+      },
       "categories": [
         {
           "title": "Camisetas",
@@ -255,11 +268,7 @@
           "alt": "Camiseta"
         }
       ],
-      "title": "NAVEGUE POR CATEGORIAS",
-      "autoplay": {
-        "activate": false,
-        "interval": 5
-      }
+      "title": "NAVEGUE POR CATEGORIAS"
     },
     {
       "__resolveType": "site/sections/Images/MosaicsDouble.tsx",
@@ -679,7 +688,6 @@
     {
       "__resolveType": "site/sections/Images/MosaicsDouble.tsx",
       "right": {
-        "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ef264337-1dc2-4ed7-a644-ecebc8c88180",
         "content": {
           "text": {},
           "link": {
@@ -688,10 +696,10 @@
             "thirdCta": {},
             "fourthCta": {}
           }
-        }
+        },
+        "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/ef264337-1dc2-4ed7-a644-ecebc8c88180"
       },
       "left": {
-        "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/f01bf289-fcf3-4313-8306-94893ca1d979",
         "content": {
           "text": {},
           "link": {
@@ -700,7 +708,8 @@
             "thirdCta": {},
             "fourthCta": {}
           }
-        }
+        },
+        "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/f01bf289-fcf3-4313-8306-94893ca1d979"
       }
     },
     {

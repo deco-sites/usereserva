@@ -1,0 +1,12 @@
+{
+  "__resolveType": "site/sections/Header/Header.tsx",
+  "navBar": {
+    "menu": {
+      "__resolveType": "Header's menu"
+    },
+    "logo": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10528/296af084-5fd5-4021-99c4-04fd9cef635f"
+  },
+  "Alert": {
+    "text": "<p style=\"display: flex; margin-left: auto; margin-right: auto; width: fit-content\">Frete Grátis em compras acima de R$699</p>"
+  }
+}

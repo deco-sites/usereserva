@@ -1,0 +1,58 @@
+{
+  "__resolveType": "site/loaders/Header/Menu.ts",
+  "menu": [
+    {
+      "collums": [
+        {
+          "categories": [
+            {
+              "navItems": [
+                {
+                  "title": "Inverno 2024",
+                  "link": "/#"
+                },
+                {
+                  "title": "Até 60% + 25% OFF",
+                  "link": "/#"
+                },
+                {
+                  "title": "Leve 3 Camisetas por R$249",
+                  "link": "/#"
+                },
+                {
+                  "title": "Mês do Consumidor: Tudo com 60% OFF",
+                  "link": "/#"
+                },
+                {
+                  "title": "Looks para Festival",
+                  "link": "/#"
+                }
+              ],
+              "title": "Novidades",
+              "link": "/#"
+            },
+            {
+              "navItems": [
+                {
+                  "title": "Tênis",
+                  "link": "/#"
+                },
+                {
+                  "title": "Chinelos",
+                  "link": "/#"
+                }
+              ],
+              "title": "Calçados",
+              "link": "/#"
+            }
+          ]
+        }
+      ],
+      "image": {
+        "position": "left"
+      },
+      "title": "Masculino",
+      "link": "/#"
+    }
+  ]
+}

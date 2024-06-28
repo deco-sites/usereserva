@@ -15,19 +15,19 @@ export interface contentCta {
 
   /**
    *  @title Título
-   *  @description Título da imagem 
+   *  @description Título da imagem
    *  @format rich-text
    */
   title?: string;
   /**
-   * @title Sub-Título 
+   * @title Sub-Título
    * @description Sub-Título da imagem
    * @format rich-text
    */
   subTitle?: string;
   /**
-   * @title Descrição 
-   * @description Image text description 
+   * @title Descrição
+   * @description Image text description
    * @format rich-text
    */
   description?: string;
@@ -65,7 +65,7 @@ export interface Autoplay {
   /** @title Ativar */
   activate?: boolean;
   /**
-   * @title Intervalo autoplay 
+   * @title Intervalo autoplay
    * @description Tempo (em segundos) para trocar de item no carousel autômaticamente.
    */
   interval?: number;
@@ -124,53 +124,55 @@ const DEFAULT_PROPS = {
 
 function Action({ action }: { action: Banner["action"] }) {
   const content = action?.content;
-  const links = action?.links
-  return <div class="flex items-center justify-center absolute z-20 w-full h-full">
-    {content && (
-      <div class="items-center mx-auto max-w-[465px] flex flex-col justify-center px-8 py-12 w-full">
-        {content?.title && (
-          <span
-            class="text-xs text-base-200 mb-2.5 text-center"
-            dangerouslySetInnerHTML={{ __html: content.title }}
-          >
-          </span>
-        )}
-        {content?.subTitle && (
-          <span
-            class="text-5xl text-base-200 mb-3 leading-none text-center"
-            dangerouslySetInnerHTML={{ __html: content.subTitle }}
-          >
-          </span>
-        )}
-        {content?.description && (
-          <span
-            class="text-base text-base-200 mb-5 text-center"
-            dangerouslySetInnerHTML={{ __html: content.description }}
-          >
-          </span>
-        )}
-        {links && (
-          <div class="flex items-center gap-4">
-            {links?.map(({ href, label }, index) => (
-              links && href && (
-                <Button
-                  key={index}
-                  as={"a"}
-                  href={href}
-                  class="text-base-200 flex border-0 p-0 bg-transparent text-sm hover:bg-transparent shadow-transparent h-4 gap-0 min-h-0 group"
-                  aria-label={label}
-                >
-                  {label}
-                  <span class="block h-0.5 bg-base-200 w-full transition-transform duration-300 transform group-hover:translate-y-[-2px]">
-                  </span>
-                </Button>
-              )
-            ))}
-          </div>
-        )}
-      </div>
-    )}
-  </div>
+  const links = action?.links;
+  return (
+    <div class="flex items-center justify-center absolute z-20 w-full h-full">
+      {content && (
+        <div class="items-center mx-auto max-w-[465px] flex flex-col justify-center px-8 py-12 w-full">
+          {content?.title && (
+            <span
+              class="text-xs text-base-200 mb-2.5 text-center"
+              dangerouslySetInnerHTML={{ __html: content.title }}
+            >
+            </span>
+          )}
+          {content?.subTitle && (
+            <span
+              class="text-5xl text-base-200 mb-3 leading-none text-center"
+              dangerouslySetInnerHTML={{ __html: content.subTitle }}
+            >
+            </span>
+          )}
+          {content?.description && (
+            <span
+              class="text-base text-base-200 mb-5 text-center"
+              dangerouslySetInnerHTML={{ __html: content.description }}
+            >
+            </span>
+          )}
+          {links && (
+            <div class="flex items-center gap-4">
+              {links?.map(({ href, label }, index) => (
+                links && href && (
+                  <Button
+                    key={index}
+                    as={"a"}
+                    href={href}
+                    class="text-base-200 flex border-0 p-0 bg-transparent text-sm hover:bg-transparent shadow-transparent h-4 gap-0 min-h-0 group"
+                    aria-label={label}
+                  >
+                    {label}
+                    <span class="block h-0.5 bg-base-200 w-full transition-transform duration-300 transform group-hover:translate-y-[-2px]">
+                    </span>
+                  </Button>
+                )
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
 }
 function BannerItem(
   { image, lcp, id }: { image: Banner; lcp?: boolean; id: string },
@@ -217,7 +219,6 @@ function BannerItem(
     </a>
   );
 }
-
 
 function Dots({ images, autoplay }: Props) {
   return (

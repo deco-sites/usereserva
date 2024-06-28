@@ -1,82 +1,153 @@
-import Icon from "../../components/ui/Icon.tsx";
-import type { SiteNavigationElement } from "apps/commerce/types.ts";
+import { useSection } from "deco/hooks/useSection.ts";
+import type {
+  Category,
+  Department,
+  Menu as MenuProps,
+} from "../../loaders/Header/Menu.ts";
+import { useId } from "../../sdk/useId.ts";
+import { ComponentChildren } from "preact";
+import Icon from "../ui/Icon.tsx";
+import {
+  MENU_DRAWER_ID,
+  MENU_INPUT_ID,
+  NAVBAR_HEIGHT,
+  NAVBAR_HEIGHT_MOBILE,
+} from "../../constants.tsx";
 
 export interface Props {
-  navItems: SiteNavigationElement[];
+  title: string;
+  children: ComponentChildren;
+  hasRotate?: boolean;
+  class?: string;
+  titleClass?: string;
+  contentClass?: string;
 }
 
-function MenuItem({ item }: { item: SiteNavigationElement }) {
+function Collapse(
+  { title, children, class: _class, titleClass, contentClass, hasRotate }:
+    Props,
+) {
+  const id = useId();
   return (
-    <div class="collapse collapse-plus">
-      <input type="checkbox" />
-      <div class="collapse-title">{item.name}</div>
-      <div class="collapse-content">
-        <ul>
-          <li>
-            <a class="underline text-sm" href={item.url}>Ver todos</a>
-          </li>
-          {item.children?.map((node) => (
-            <li>
-              <MenuItem item={node} />
-            </li>
-          ))}
-        </ul>
+    <div
+      class={`collapse rounded-none ${_class}`}
+    >
+      <input class="hidden" type="checkbox" id={id} />
+      <label htmlFor={id}>
+        <div class="collapse-title min-h-0 p-6 h-14">
+          <div class="flex items-center justify-between h-full w-full">
+            <p class={titleClass}>{title}</p>
+            <style
+              dangerouslySetInnerHTML={{
+                __html: ` #${id}:checked ~ label  .arrow {color: #e4022b; }
+                            
+            #${id}:checked ~ label .rotate { transform: rotate(180deg);
+            transition: transform 0.4s ease; }
+
+            #${id}:not(:checked) ~ label .rotate { transform: rotate(0deg);
+            transition: transform 0.4s ease; }
+            `,
+              }}
+            />
+            <Icon
+              id="ChevronDown"
+              width={24}
+              height={24}
+              class={`ml-auto text-black arrow pointer-events-none ${
+                hasRotate ? "rotate" : ""
+              }`}
+            />
+          </div>
+        </div>
+      </label>
+      <div
+        class={`collapse-content !p-0 font-normal text-base ${contentClass}`}
+      >
+        {children}
       </div>
     </div>
   );
 }
 
-function Menu({ navItems }: Props) {
+const MenuCategory = ({ title, navItems }: Category) => {
   return (
-    <div class="flex flex-col h-full">
-      <ul class="px-4 flex-grow flex flex-col divide-y divide-base-200">
-        {navItems.map((item) => (
-          <li>
-            <MenuItem item={item} />
+    <Collapse
+      title={title}
+      class="border-none bg-[#f6f6f6]"
+      titleClass="text-sm font-semibold"
+      hasRotate
+    >
+      <ul class="bg-[#E6E6E6]">
+        {navItems.map(({ title, link, isBlank }) => (
+          <li class="text-sm px-12 h-14">
+            <a
+              href={link}
+              target={isBlank ? "_blank" : "_self"}
+              rel={isBlank ? "noopener noreferrer" : ""}
+              class="flex items-center w-full h-full"
+            >
+              {title}
+            </a>
           </li>
         ))}
       </ul>
+    </Collapse>
+  );
+};
 
-      <ul class="flex flex-col py-2 bg-base-200">
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="/wishlist"
-          >
-            <Icon id="Heart" size={24} strokeWidth={2} />
-            <span class="text-sm">Lista de desejos</span>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="MapPin" size={24} strokeWidth={2} />
-            <span class="text-sm">Nossas lojas</span>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="Phone" size={24} strokeWidth={2} />
-            <span class="text-sm">Fale conosco</span>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="User" size={24} strokeWidth={2} />
-            <span class="text-sm">Minha conta</span>
-          </a>
-        </li>
-      </ul>
+const MenuDepartament = ({ title, collums }: Department) => {
+  return (
+    <Collapse
+      title={title}
+      class="bg-white border-b border-[#D8D9DA]"
+      titleClass="text-sm font-bold uppercase"
+      contentClass="border-t border-[#D8D9DA]"
+    >
+      {collums.map(({ categories }) =>
+        categories.map((category) => <MenuCategory {...category} />)
+      )}
+    </Collapse>
+  );
+};
+
+function MenuContent({ links }: MenuProps) {
+  return (
+    <ul class="flex flex-col">
+      {links.map((department) => <MenuDepartament {...department} />)}
+    </ul>
+  );
+}
+
+function Menu({ isDesktop }: { isDesktop?: boolean }) {
+  return (
+    <div id="menu-container">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `#menu-container section { display: contents; }`,
+        }}
+      />
+      <input id={MENU_INPUT_ID} type="checkbox" class="hidden peer" />
+      <aside
+        id={MENU_DRAWER_ID}
+        class="absolute right-0 bottom-0 w-screen bg-white z-50 text-sm peer-checked:translate-x-0 -translate-x-full transition-all shadow-md duration-300 flex flex-col"
+        style={{
+          height: `calc(100vh - 100%)`,
+          top: `${isDesktop ? NAVBAR_HEIGHT : NAVBAR_HEIGHT_MOBILE}`,
+        }}
+      >
+        <div
+          class="flex w-full h-full justify-center items-center flex-grow"
+          hx-trigger="intersect once"
+          hx-target={`#${MENU_DRAWER_ID}`}
+          hx-get={useSection({ props: { displayMenuContents: true } })}
+        >
+          <span class="loading loading-spinner" />
+        </div>
+      </aside>
     </div>
   );
 }
+
+Menu.content = MenuContent;
 
 export default Menu;

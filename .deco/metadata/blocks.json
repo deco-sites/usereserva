@@ -316,5 +316,14 @@
   "/.deco/blocks/Reserva%20Theme.json": {
     "blockType": "sections",
     "__resolveType": "site/sections/Theme/Theme.tsx"
+  },
+  "/.deco/blocks/Preview%20site%2Floaders%2FHeader%2FMenu.ts.json": {
+    "blockType": "loaders",
+    "__resolveType": "site/loaders/Header/Menu.ts"
+  },
+  "/.deco/blocks/Header%20Menu.json": null,
+  "/.deco/blocks/Header's%20menu.json": {
+    "blockType": "loaders",
+    "__resolveType": "site/loaders/Header/Menu.ts"
   }
 }

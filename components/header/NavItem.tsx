@@ -1,56 +1,52 @@
-import type { SiteNavigationElement } from "apps/commerce/types.ts";
 import Image from "apps/website/components/Image.tsx";
-import { headerHeight } from "./constants.ts";
+import type { Department } from "../../loaders/Header/Menu.ts";
+import { NAVBAR_HEIGHT } from "../../constants.tsx";
+import Column from "./Column.tsx";
 
-function NavItem({ item }: { item: SiteNavigationElement }) {
-  const { url, name, children } = item;
-  const image = item?.image?.[0];
+const IMAGE_WIDTH = 259;
+const IMAGE_HEIGHT = 358;
 
+function NavItem({ title, collums, link, isBlank, image }: Department) {
+  const isLeft = image?.position === "left";
   return (
-    <li class="group flex items-center">
-      <a href={url} class="py-6">
-        <span class="group-hover:underline text-xs font-thin">
-          {name}
-        </span>
+    <li class="group flex items-center h-full">
+      <a
+        href={link}
+        target={isBlank ? "_blank" : "_self"}
+        rel={isBlank ? "noopener noreferrer" : ""}
+      >
+        <p class="text-base font-normal group-hover:border-b-2 border-black group-has-[li:hover]/header:text-black group-has-[input:checked]/header:text-white">
+          {title}
+        </p>
       </a>
-
-      {children && children.length > 0 &&
-        (
-          <div
-            class="fixed hidden hover:flex group-hover:flex bg-base-100 z-40 items-start justify-center gap-6 border-t border-b-2 border-base-200 w-screen"
-            style={{ top: "0px", left: "0px", marginTop: headerHeight }}
-          >
-            {image?.url && (
-              <Image
-                class="p-6"
-                src={image.url}
-                alt={image.alternateName}
-                width={300}
-                height={332}
-                loading="lazy"
-              />
-            )}
-            <ul class="flex items-start justify-center gap-6">
-              {children.map((node) => (
-                <li class="p-6">
-                  <a class="hover:underline" href={node.url}>
-                    <span>{node.name}</span>
-                  </a>
-
-                  <ul class="flex flex-col gap-1 mt-4">
-                    {node.children?.map((leaf) => (
-                      <li>
-                        <a class="hover:underline" href={leaf.url}>
-                          <span class="text-xs">{leaf.name}</span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+      <div
+        class="absolute group-hover:opacity-100 group-hover:pointer-events-auto group-has-[input:checked]/header:transition-opacity group-has-[input:checked]/header:duration-500 shadow-sm pointer-events-none opacity-0 w-full border-t border-[#DEDEDE] bg-white z-50"
+        style={{ top: NAVBAR_HEIGHT, left: 0 }}
+      >
+        <div class="container flex justify-start gap-16 py-8">
+          {isLeft && image?.src && (
+            <Image
+              class="flex-shrink-0"
+              src={image.src}
+              alt={image.alt}
+              width={IMAGE_WIDTH}
+              height={IMAGE_HEIGHT}
+            />
+          )}
+          <ul class="flex items-start gap-12 w-full">
+            {collums.map((column) => <Column {...column} />)}
+          </ul>
+          {!isLeft && image?.src && (
+            <Image
+              class="flex-shrink-0"
+              src={image.src}
+              alt={image.alt}
+              width={IMAGE_WIDTH}
+              height={IMAGE_HEIGHT}
+            />
+          )}
+        </div>
+      </div>
     </li>
   );
 }
