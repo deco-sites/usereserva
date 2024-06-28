@@ -52,6 +52,7 @@ export interface Department {
   image?: Image;
 }
 
+/** @titleBy title */
 export interface ExtraLink {
   /**
    * @title Ícone

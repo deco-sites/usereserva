@@ -6,7 +6,7 @@ import Column from "./Column.tsx";
 const IMAGE_WIDTH = 259;
 const IMAGE_HEIGHT = 358;
 
-function NavItem({ title, collums, link, isBlank, image }: Department) {
+function NavItem({ title, collums, link, isBlank, image, color }: Department) {
   const isLeft = image?.position === "left";
   return (
     <li class="group flex items-center h-full">
@@ -15,7 +15,7 @@ function NavItem({ title, collums, link, isBlank, image }: Department) {
         target={isBlank ? "_blank" : "_self"}
         rel={isBlank ? "noopener noreferrer" : ""}
       >
-        <p class="text-base font-normal group-hover:border-b-2 border-black group-has-[li:hover]/header:text-black group-has-[input:checked]/header:text-white">
+        <p class="text-base font-normal group-hover:border-b-2 border-black group-has-[li:hover]/header:text-black group-has-[input:checked]/header:text-white" style={{ color }}>
           {title}
         </p>
       </a>
