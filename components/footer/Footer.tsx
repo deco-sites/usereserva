@@ -14,7 +14,7 @@ export type FooterImage = {
   image: ImageWidget;
   title: string;
   description: string;
-}
+};
 export type Item = {
   label: string;
   href: string;
@@ -25,11 +25,11 @@ export type ContactItem = {
   href: string;
   icon: AvailableIcons;
   description: string;
-}
+};
 
 export type ItemContact = {
-label: string;
-items: ContactItem[]
+  label: string;
+  items: ContactItem[];
 };
 
 export type Section = {
@@ -57,7 +57,7 @@ export interface SocialItem {
   placeholderEmail?: string;
   buttonText?: string;
   /** @format html */
-  /* helpText?: string;/*  */
+/* helpText?: string;/*  */
 /* } */
 
 export interface Layout {
@@ -75,10 +75,10 @@ export interface Layout {
     | "Variation 5";
   hide?: {
     logo?: boolean;
-   /*  newsletter?: boolean; */
+    /*  newsletter?: boolean; */
     sectionLinks?: boolean;
     socialLinks?: boolean;
-/*     mobileApps?: boolean; */
+    /*     mobileApps?: boolean; */
     extraLinks?: boolean;
     contact?: boolean;
     backToTheTop?: boolean;
@@ -90,25 +90,25 @@ export interface Props {
     image: ImageWidget;
     description?: string;
   };
-/*   newsletter?: {
+  /*   newsletter?: {
     icon?: AvailableIcons;
     title?: string;
     /** @format textarea */
-/*     description?: string;
+  /*     description?: string;
     form?: NewsletterForm;
     mobileApps?: MobileApps;
-  }; */ 
+  }; */
   sections?: Section[];
- social?: {
+  social?: {
     title?: string;
     items: SocialItem[];
-  }; 
+  };
   extraLinks?: Item[];
   contact?: ItemContact[];
   backToTheTop?: {
     text?: string;
   };
-  footerImage?: FooterImage[]
+  footerImage?: FooterImage[];
   layout?: Layout;
 }
 
@@ -122,7 +122,7 @@ const LAYOUT = {
 
 function Footer({
   logo,
-/*   newsletter = {
+  /*   newsletter = {
     icon: "Deco",
     title: "Newsletter",
     description: "",
@@ -174,8 +174,7 @@ function Footer({
         "label": "Trabalhe Conosco",
       },
     ],
-  },
-  {
+  }, {
     "label": "Minha Conta",
     "items": [
       {
@@ -195,8 +194,7 @@ function Footer({
         "label": "Meu Cartão Presente",
       },
     ],
-  },
-  {
+  }, {
     "label": "Suporte",
     "items": [
       {
@@ -231,7 +229,13 @@ function Footer({
   }],
   social = {
     title: "",
-    items: [{ label: "Facebook", link: "/" }, { label: "Instagram", link: "/" }, { label: "Tiktok", link: "/" }, { label: "Twitter", link: "/" }, { label: "Linkedin", link: "/" }],
+    items: [
+      { label: "Facebook", link: "/" },
+      { label: "Instagram", link: "/" },
+      { label: "Tiktok", link: "/" },
+      { label: "Twitter", link: "/" },
+      { label: "Linkedin", link: "/" },
+    ],
   },
   extraLinks = [],
   contact = [{
@@ -241,34 +245,31 @@ function Footer({
       "label": "WhatsApp Reserva",
       "icon": "FooterWhatsapp",
       "description": "Segunda a Sexta: 08h às 20h Sábados: 08h às 18h",
-    },
-    {
+    }, {
       "href": "/",
       "label": "Atendimento em libras",
       "icon": "Libra",
       "description": "",
-    },
-    {
+    }, {
       "href": "/",
       "label": "Solicite sua troca aqui",
       "icon": "Exchange",
       "description": "",
-    }
-  ]
-  
+    }],
   }],
   footerImage = [{
-    image: "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2753/b2278d2d-2270-482b-98d4-f09d5f05ba97",
+    image:
+      "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2753/b2278d2d-2270-482b-98d4-f09d5f05ba97",
     title: "Enrega Internacional",
     description: "Entrega para mais de 40 países de forma rápida e segura.",
-  },
-  {
-    image: "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2753/b2278d2d-2270-482b-98d4-f09d5f05ba97",
+  }, {
+    image:
+      "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2753/b2278d2d-2270-482b-98d4-f09d5f05ba97",
     title: "Enrega Internacional",
     description: "Entrega para mais de 40 países de forma rápida e segura.",
-  },
-  {
-    image: "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2753/b2278d2d-2270-482b-98d4-f09d5f05ba97",
+  }, {
+    image:
+      "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2753/b2278d2d-2270-482b-98d4-f09d5f05ba97",
     title: "Enrega Internacional",
     description: "Entrega para mais de 40 países de forma rápida e segura.",
   }],
@@ -281,7 +282,7 @@ function Footer({
       /* newsletter: false, */
       sectionLinks: false,
       socialLinks: false,
-/*       mobileApps: false, */
+      /*       mobileApps: false, */
       extraLinks: false,
       contact: false,
       backToTheTop: false,
@@ -302,7 +303,7 @@ function Footer({
   const _links = layout?.hide?.extraLinks
     ? <></>
     : <ExtraLinks content={extraLinks} />;
-    const _contact = layout?.hide?.contact
+  const _contact = layout?.hide?.contact
     ? <></>
     : <Contact content={contact} />;
 
@@ -324,7 +325,7 @@ function Footer({
               <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 lg:items-end">
               </div>
             </div>
-          {/*   <Divider /> */}
+            {/*   <Divider /> */}
             <div class="flex flex-col-reverse md:flex-row md:justify-between gap-10">
               {_links}
             </div>
@@ -340,7 +341,7 @@ function Footer({
                 {_sectionLinks}
               </div>
             </div>
-       {/*      <Divider /> */}
+            {/*      <Divider /> */}
             <div class="flex flex-col-reverse md:flex-row md:justify-between gap-10">
               {_links}
             </div>
@@ -350,33 +351,35 @@ function Footer({
           <div class="flex flex-col">
             {_logo}
             <div class="flex flex-col xl:flex-row xl:justify-between">
-                <div class="order-2 xl:order-none flex flex-col xl:flex-row">
-                  {_sectionLinks}
-                </div>
-                <div class="order-1 xl:order-none pb-5 xl:pb-0">
-                  {_contact}
-                  {_social}
-                </div>
+              <div class="order-2 xl:order-none flex flex-col xl:flex-row">
+                {_sectionLinks}
+              </div>
+              <div class="order-1 xl:order-none pb-5 xl:pb-0">
+                {_contact}
+                {_social}
+              </div>
             </div>
             <div class="grid grid-cols-1 xl:grid-cols-3 gap-10 py-12">
-            {footerImage.map((image, index) => (
-        <div class="flex flex-col items-center" key={index}>
-          <figure>
-          <Image
-              class="card"
-              src={image.image}
-              alt={image.title}
-              width={60}
-              height={60}
-              loading="lazy"
-            />
-          </figure>
-          <p class="text-lg font-reserva-sans text-accent">
-            {image.title}
-          </p>
-          <span class="text-sm font-reserva-sans text-accent font-light">{image.description}</span>
-        </div>
-      ))}
+              {footerImage.map((image, index) => (
+                <div class="flex flex-col items-center" key={index}>
+                  <figure>
+                    <Image
+                      class="card"
+                      src={image.image}
+                      alt={image.title}
+                      width={60}
+                      height={60}
+                      loading="lazy"
+                    />
+                  </figure>
+                  <p class="text-lg font-reserva-sans text-accent">
+                    {image.title}
+                  </p>
+                  <span class="text-sm font-reserva-sans text-accent font-light">
+                    {image.description}
+                  </span>
+                </div>
+              ))}
             </div>
             <div class="flex flex-col-reverse md:flex-row md:justify-between">
               teste
@@ -386,20 +389,22 @@ function Footer({
         )}
         {layout?.variation == "Variation 4" && (
           <div class="flex flex-col gap-10">
-           {/*  {layout?.hide?.newsletter ? <></> : <Divider />} */}
+            {/*  {layout?.hide?.newsletter ? <></> : <Divider />} */}
             <div class="flex flex-col lg:flex-row gap-10 lg:gap-20 lg:justify-between">
               {_sectionLinks}
               <div class="flex flex-col md:flex-row lg:flex-col gap-10 lg:gap-10 lg:w-2/5 lg:pl-10">
                 <div class="flex flex-col md:flex-row gap-10 lg:gap-20">
-{/*                   <div class="lg:flex-auto">
+                  {
+                    /*                   <div class="lg:flex-auto">
                     {_payments}
-                  </div> */}
+                  </div> */
+                  }
                   <div class="lg:flex-auto">
-                {/*     {_social} */}
+                    {/*     {_social} */}
                   </div>
                 </div>
                 <div class="flex flex-col gap-10 lg:gap-10">
-                 {/*  {_region} */}
+                  {/*  {_region} */}
                   {/* {_apps} */}
                 </div>
               </div>
@@ -407,26 +412,26 @@ function Footer({
             {/* <Divider /> */}
             <div class="flex flex-col md:flex-row md:justify-between gap-10 md:items-center">
               {_logo}
-            {/*   <PoweredByDeco /> */}
+              {/*   <PoweredByDeco /> */}
             </div>
           </div>
         )}
         {layout?.variation == "Variation 5" && (
           <div class="flex flex-col gap-10">
-           {/*  {layout?.hide?.newsletter ? <></> : <Divider />} */}
+            {/*  {layout?.hide?.newsletter ? <></> : <Divider />} */}
             {_logo}
             <div class="flex flex-col md:flex-row gap-10 lg:gap-20 md:justify-between">
               {_sectionLinks}
               <div class="flex flex-col gap-10 md:w-2/5 lg:pl-10">
-               {/*  {_social} */}
+                {/*  {_social} */}
               </div>
             </div>
-           {/*  <Divider /> */}
+            {/*  <Divider /> */}
             <div class="flex flex-col-reverse md:flex-row md:justify-between gap-10 md:items-center">
               {/* <PoweredByDeco /> */}
               <div class="flex flex-col md:flex-row gap-10 md:items-center">
                 {_links}
-               {/*  {_region} */}
+                {/*  {_region} */}
               </div>
             </div>
           </div>
