@@ -86,11 +86,10 @@ export interface Props {
 }
 
 const DEFAULT_PROPS = {
-  title: "Cookies",
-  text:
-    "Guardamos estatísticas de visitas para melhorar sua experiência de navegação.",
+  title: "Utilizamos cookies para uma melhor experiência.",
+  text: "Conheça nossa ",
   policy: {
-    text: "Saiba mais sobre sobre política de privacidade",
+    text: "política de privacidade.",
     link: "/politica-de-privacidade",
   },
   buttons: {
@@ -98,7 +97,7 @@ const DEFAULT_PROPS = {
     cancelText: "Fechar",
   },
   layout: {
-    position: "Expanded",
+    position: "Cancelar",
     content: "Tiled",
   },
 };
