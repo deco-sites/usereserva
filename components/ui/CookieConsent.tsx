@@ -42,7 +42,7 @@ const script = (id: string) => {
 
 export interface PolicyContent {
   /**
-   * @title Texto 
+   * @title Texto
    * @description Texto que vai renderizar no link.
    */
   text?: string;
@@ -59,9 +59,9 @@ export interface PolicyButtons {
    * @description Texto do botão de aceite
    */
   allowText: string;
-  /** 
+  /**
    * @title Botão Cancelar
-   * @description Texto do botão de cancelar 
+   * @description Texto do botão de cancelar
    */
   cancelText?: string;
 }
