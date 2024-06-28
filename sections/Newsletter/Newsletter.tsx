@@ -123,17 +123,20 @@ export default function Newsletter({
       <section class="container flex flex-col sm:flex-row justify-between items-center sm:items-start py-8 px-4">
         <div class="order-2 xl:order-none mt-5 sm:mt-0">
           <div class="flex flex-wrap items-center justify-center lg:justify-between">
-            <Icon
-              id={icon}
-              width={18}
-              height={23}
-              strokeWidth={0.01}
-            />
-            {title && (
-              <h4 class="text-2xl lg:text-3xl text-center sm:text-justify font-reserva-display">
-                {title}
-              </h4>
-            )}
+            <div class="flex items-center">
+              <Icon
+                id={icon}
+                width={18}
+                height={23}
+                strokeWidth={0.01}
+                class="lg:mr-2.5"
+              />
+              {title && (
+                <h4 class="text-2xl lg:text-3xl text-center sm:text-justify font-reserva-display">
+                  {title}
+                </h4>
+              )}
+            </div>
             {description && (
               <div class="text-sm text-center lg:text-justify font-reserva-sans my-2.5 w-64">
                 {description}
@@ -157,7 +160,7 @@ export default function Newsletter({
               />
               <input
                 name="email"
-                type="text"
+                type="email"
                 class="flex-auto input input-bordered border-[#B0B0B0] text-secondary text-sm focus:outline-none focus:border-[#b0b0b0] rounded-lg font-reserva-sans font-light"
                 placeholder={form.placeholderEmail}
               />

@@ -255,12 +255,6 @@
     "blockType": "pages",
     "__resolveType": "website/pages/Page.tsx"
   },
-  "/.deco/blocks/pages-home-c4bcbfb771e9.json": {
-    "name": "Home",
-    "path": "/",
-    "blockType": "pages",
-    "__resolveType": "website/pages/Page.tsx"
-  },
   "/.deco/blocks/pages-offline-b9c52de8c7b3.json": {
     "name": "Offline",
     "path": "/offline",
@@ -316,5 +310,11 @@
   "/.deco/blocks/Reserva%20Theme.json": {
     "blockType": "sections",
     "__resolveType": "site/sections/Theme/Theme.tsx"
+  },
+  "/.deco/blocks/pages-Home-530454.json": {
+    "name": "Home",
+    "path": "/",
+    "blockType": "pages",
+    "__resolveType": "website/pages/Page.tsx"
   }
 }

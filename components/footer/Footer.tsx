@@ -1,20 +1,35 @@
 import type { ImageWidget } from "apps/admin/widgets.ts";
-import PoweredByDeco from "apps/website/components/PoweredByDeco.tsx";
+import Image from "apps/website/components/Image.tsx";
 import BackToTop from "../../components/footer/BackToTop.tsx";
-import Divider from "../../components/footer/Divider.tsx";
 import ExtraLinks from "../../components/footer/ExtraLinks.tsx";
 import FooterItems from "../../components/footer/FooterItems.tsx";
+import Contact from "../../components/footer/Contact.tsx";
 import Logo from "../../components/footer/Logo.tsx";
-import MobileApps from "../../components/footer/MobileApps.tsx";
-import PaymentMethods from "../../components/footer/PaymentMethods.tsx";
-import RegionSelector from "../../components/footer/RegionSelector.tsx";
+import { AvailableIcons } from "../../components/ui/Icon.tsx";
+/* import MobileApps from "../../components/footer/MobileApps.tsx"; */
 import Social from "../../components/footer/Social.tsx";
 import { clx } from "../../sdk/clx.ts";
-import Icon, { AvailableIcons } from "../../components/ui/Icon.tsx";
 
+export type FooterImage = {
+  image: ImageWidget;
+  title: string;
+  description: string;
+}
 export type Item = {
   label: string;
   href: string;
+};
+
+export type ContactItem = {
+  label: string;
+  href: string;
+  icon: AvailableIcons;
+  description: string;
+}
+
+export type ItemContact = {
+label: string;
+items: ContactItem[]
 };
 
 export type Section = {
@@ -24,38 +39,26 @@ export type Section = {
 
 export interface SocialItem {
   label:
-    | "Discord"
     | "Facebook"
     | "Instagram"
-    | "Linkedin"
     | "Tiktok"
-    | "Twitter";
+    | "Twitter"
+    | "Linkedin";
   link: string;
 }
 
-export interface PaymentItem {
-  label: "Diners" | "Elo" | "Mastercard" | "Pix" | "Visa";
-}
-
-export interface MobileApps {
-  /** @description Link to the app */
+/* export interface MobileApps {
   apple?: string;
-  /** @description Link to the app */
   android?: string;
-}
+} */
 
-export interface RegionOptions {
-  currency?: Item[];
-  language?: Item[];
-}
-
-export interface NewsletterForm {
+/* export interface NewsletterForm {
   placeholderName?: string;
   placeholderEmail?: string;
   buttonText?: string;
   /** @format html */
-  helpText?: string;
-}
+  /* helpText?: string;/*  */
+/* } */
 
 export interface Layout {
   backgroundColor?:
@@ -72,13 +75,12 @@ export interface Layout {
     | "Variation 5";
   hide?: {
     logo?: boolean;
-    newsletter?: boolean;
+   /*  newsletter?: boolean; */
     sectionLinks?: boolean;
     socialLinks?: boolean;
-    paymentMethods?: boolean;
-    mobileApps?: boolean;
-    regionOptions?: boolean;
+/*     mobileApps?: boolean; */
     extraLinks?: boolean;
+    contact?: boolean;
     backToTheTop?: boolean;
   };
 }
@@ -88,29 +90,25 @@ export interface Props {
     image: ImageWidget;
     description?: string;
   };
-  newsletter?: {
+/*   newsletter?: {
     icon?: AvailableIcons;
     title?: string;
     /** @format textarea */
-    description?: string;
+/*     description?: string;
     form?: NewsletterForm;
     mobileApps?: MobileApps;
-  };
+  }; */ 
   sections?: Section[];
-  social?: {
+ social?: {
     title?: string;
     items: SocialItem[];
-  };
-  payments?: {
-    title?: string;
-    items: PaymentItem[];
-  };
-  mobileApps?: MobileApps;
-  regionOptions?: RegionOptions;
+  }; 
   extraLinks?: Item[];
+  contact?: ItemContact[];
   backToTheTop?: {
     text?: string;
   };
+  footerImage?: FooterImage[]
   layout?: Layout;
 }
 
@@ -124,7 +122,7 @@ const LAYOUT = {
 
 function Footer({
   logo,
-  newsletter = {
+/*   newsletter = {
     icon: "Deco",
     title: "Newsletter",
     description: "",
@@ -135,64 +133,157 @@ function Footer({
       helpText: "",
     },
     mobileApps: { apple: "/", android: "/" },
-  },
+  }, */
   sections = [{
-    "label": "Sobre",
+    "label": "Sobre a Reserva",
     "items": [
       {
-        "href": "/quem-somos",
-        "label": "Quem somos",
+        "href": "/",
+        "label": "1P=5P",
       },
       {
-        "href": "/termos-de-uso",
-        "label": "Termos de uso",
+        "href": "/",
+        "label": "Cultura",
       },
       {
-        "href": "/trabalhe-conosco",
-        "label": "Trabalhe conosco",
+        "href": "/",
+        "label": "Sustentabilidade",
+      },
+      {
+        "href": "/",
+        "label": "Quem Faz",
+      },
+      {
+        "href": "/",
+        "label": "Mapa de Categorias",
       },
     ],
   }, {
-    "label": "Atendimento",
+    "label": "Vem pra Reserva",
     "items": [
       {
-        "href": "/centraldeatendimento",
-        "label": "Central de atendimento",
+        "href": "/",
+        "label": "Seja um Franqueado",
       },
       {
-        "href": "/whatsapp",
-        "label": "Fale conosco pelo WhatsApp",
+        "href": "/",
+        "label": "Nossas Lojas",
       },
       {
-        "href": "/trocaedevolucao",
-        "label": "Troca e devolução",
+        "href": "/",
+        "label": "Trabalhe Conosco",
+      },
+    ],
+  },
+  {
+    "label": "Minha Conta",
+    "items": [
+      {
+        "href": "/",
+        "label": "Favoritos",
+      },
+      {
+        "href": "/",
+        "label": "Meus Pedidos",
+      },
+      {
+        "href": "/",
+        "label": "Minha Carteira",
+      },
+      {
+        "href": "/",
+        "label": "Meu Cartão Presente",
+      },
+    ],
+  },
+  {
+    "label": "Suporte",
+    "items": [
+      {
+        "href": "/",
+        "label": "Política de Privacidade",
+      },
+      {
+        "href": "/",
+        "label": "Termos de Uso",
+      },
+      {
+        "href": "/",
+        "label": "Dúvidas Frequentes",
+      },
+      {
+        "href": "/",
+        "label": "Compromisso Best Friday",
+      },
+      {
+        "href": "/",
+        "label": "Regulamento ação 1 ano de Reserva",
+      },
+      {
+        "href": "/",
+        "label": "Troca e Devolução",
+      },
+      {
+        "href": "/",
+        "label": "Regulamento Roleta Premiada",
       },
     ],
   }],
   social = {
-    title: "Redes sociais",
-    items: [{ label: "Instagram", link: "/" }, { label: "Tiktok", link: "/" }],
+    title: "",
+    items: [{ label: "Facebook", link: "/" }, { label: "Instagram", link: "/" }, { label: "Tiktok", link: "/" }, { label: "Twitter", link: "/" }, { label: "Linkedin", link: "/" }],
   },
-  payments = {
-    title: "Formas de pagamento",
-    items: [{ label: "Mastercard" }, { label: "Visa" }, { label: "Pix" }],
-  },
-  mobileApps = { apple: "/", android: "/" },
-  regionOptions = { currency: [], language: [] },
   extraLinks = [],
+  contact = [{
+    "label": "Atendimento",
+    "items": [{
+      "href": "/",
+      "label": "WhatsApp Reserva",
+      "icon": "FooterWhatsapp",
+      "description": "Segunda a Sexta: 08h às 20h Sábados: 08h às 18h",
+    },
+    {
+      "href": "/",
+      "label": "Atendimento em libras",
+      "icon": "Libra",
+      "description": "",
+    },
+    {
+      "href": "/",
+      "label": "Solicite sua troca aqui",
+      "icon": "Exchange",
+      "description": "",
+    }
+  ]
+  
+  }],
+  footerImage = [{
+    image: "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2753/b2278d2d-2270-482b-98d4-f09d5f05ba97",
+    title: "Enrega Internacional",
+    description: "Entrega para mais de 40 países de forma rápida e segura.",
+  },
+  {
+    image: "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2753/b2278d2d-2270-482b-98d4-f09d5f05ba97",
+    title: "Enrega Internacional",
+    description: "Entrega para mais de 40 países de forma rápida e segura.",
+  },
+  {
+    image: "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2753/b2278d2d-2270-482b-98d4-f09d5f05ba97",
+    title: "Enrega Internacional",
+    description: "Entrega para mais de 40 países de forma rápida e segura.",
+  }],
   backToTheTop,
   layout = {
     backgroundColor: "Primary",
-    variation: "Variation 1",
+    variation: "Variation 5",
     hide: {
       logo: false,
-      newsletter: false,
+      /* newsletter: false, */
       sectionLinks: false,
       socialLinks: false,
-      paymentMethods: false,
-      mobileApps: false,
-      regionOptions: false,
+/*       mobileApps: false, */
       extraLinks: false,
+      contact: false,
       backToTheTop: false,
     },
   },
@@ -208,45 +299,33 @@ function Footer({
   const _social = layout?.hide?.socialLinks
     ? <></>
     : <Social content={social} vertical={layout?.variation == "Variation 3"} />;
-  const _payments = layout?.hide?.paymentMethods
-    ? <></>
-    : <PaymentMethods content={payments} />;
-  const _apps = layout?.hide?.mobileApps
-    ? <></>
-    : <MobileApps content={mobileApps} />;
-  const _region = layout?.hide?.regionOptions
-    ? <></>
-    : <RegionSelector content={regionOptions} />;
   const _links = layout?.hide?.extraLinks
     ? <></>
     : <ExtraLinks content={extraLinks} />;
+    const _contact = layout?.hide?.contact
+    ? <></>
+    : <Contact content={contact} />;
 
   return (
     <footer
       class={clx(
-        "w-full flex flex-col pt-10 pb-2 md:pb-10 gap-10",
+        "w-full flex flex-col p-8 font-reserva-sans",
         LAYOUT[layout?.backgroundColor ?? "Primary"],
       )}
     >
-      <div class="lg:container mx-6 lg:mx-auto">
+      <div class="xl:container">
         {(!layout?.variation || layout?.variation == "Variation 1") && (
-          <div class="flex flex-col gap-10">
+          <div class="flex flex-col">
             <div class="flex flex-col md:flex-row md:justify-between md:flex-wrap lg:flex-nowrap gap-8 lg:gap-12">
               {_logo}
               {_sectionLinks}
             </div>
-            <Divider />
             <div class="flex flex-col md:flex-row gap-10 md:gap-14 md:items-end">
-              {_payments}
-              {_social}
               <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 lg:items-end">
-                {_apps}
-                {_region}
               </div>
             </div>
-            <Divider />
+          {/*   <Divider /> */}
             <div class="flex flex-col-reverse md:flex-row md:justify-between gap-10">
-              <PoweredByDeco />
               {_links}
             </div>
           </div>
@@ -256,92 +335,98 @@ function Footer({
             <div class="flex flex-col md:flex-row gap-10">
               <div class="flex flex-col gap-10 lg:w-1/2">
                 {_logo}
-                {_social}
-                {_payments}
-                {_apps}
-                {_region}
               </div>
               <div class="flex flex-col gap-10 lg:gap-20 lg:w-1/2 lg:pr-10">
                 {_sectionLinks}
               </div>
             </div>
-            <Divider />
+       {/*      <Divider /> */}
             <div class="flex flex-col-reverse md:flex-row md:justify-between gap-10">
-              <PoweredByDeco />
               {_links}
             </div>
           </div>
         )}
         {layout?.variation == "Variation 3" && (
-          <div class="flex flex-col gap-10">
+          <div class="flex flex-col">
             {_logo}
-            <div class="flex flex-col lg:flex-row gap-14">
-              <div class="flex flex-col md:flex-row lg:flex-col md:justify-between lg:justify-normal gap-10 lg:w-2/5">
-                <div class="flex flex-col gap-10">
-                  {_payments}
-                  {_apps}
-                </div>
-              </div>
-              <div class="flex flex-col gap-10 lg:gap-20 lg:w-3/5 lg:items-end">
-                <div class="flex flex-col md:flex-row gap-10">
+            <div class="flex flex-col xl:flex-row xl:justify-between">
+                <div class="order-2 xl:order-none flex flex-col xl:flex-row">
                   {_sectionLinks}
+                </div>
+                <div class="order-1 xl:order-none pb-5 xl:pb-0">
+                  {_contact}
                   {_social}
                 </div>
-                {_region}
-              </div>
             </div>
-            <Divider />
-            <div class="flex flex-col-reverse md:flex-row md:justify-between gap-10">
-              <PoweredByDeco />
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-10 py-12">
+            {footerImage.map((image, index) => (
+        <div class="flex flex-col items-center" key={index}>
+          <figure>
+          <Image
+              class="card"
+              src={image.image}
+              alt={image.title}
+              width={60}
+              height={60}
+              loading="lazy"
+            />
+          </figure>
+          <p class="text-lg font-reserva-sans text-accent">
+            {image.title}
+          </p>
+          <span class="text-sm font-reserva-sans text-accent font-light">{image.description}</span>
+        </div>
+      ))}
+            </div>
+            <div class="flex flex-col-reverse md:flex-row md:justify-between">
+              teste
               {_links}
             </div>
           </div>
         )}
         {layout?.variation == "Variation 4" && (
           <div class="flex flex-col gap-10">
-            {layout?.hide?.newsletter ? <></> : <Divider />}
+           {/*  {layout?.hide?.newsletter ? <></> : <Divider />} */}
             <div class="flex flex-col lg:flex-row gap-10 lg:gap-20 lg:justify-between">
               {_sectionLinks}
               <div class="flex flex-col md:flex-row lg:flex-col gap-10 lg:gap-10 lg:w-2/5 lg:pl-10">
                 <div class="flex flex-col md:flex-row gap-10 lg:gap-20">
-                  <div class="lg:flex-auto">
+{/*                   <div class="lg:flex-auto">
                     {_payments}
-                  </div>
+                  </div> */}
                   <div class="lg:flex-auto">
-                    {_social}
+                {/*     {_social} */}
                   </div>
                 </div>
                 <div class="flex flex-col gap-10 lg:gap-10">
-                  {_region}
-                  {_apps}
+                 {/*  {_region} */}
+                  {/* {_apps} */}
                 </div>
               </div>
             </div>
-            <Divider />
+            {/* <Divider /> */}
             <div class="flex flex-col md:flex-row md:justify-between gap-10 md:items-center">
               {_logo}
-              <PoweredByDeco />
+            {/*   <PoweredByDeco /> */}
             </div>
           </div>
         )}
         {layout?.variation == "Variation 5" && (
           <div class="flex flex-col gap-10">
-            {layout?.hide?.newsletter ? <></> : <Divider />}
+           {/*  {layout?.hide?.newsletter ? <></> : <Divider />} */}
             {_logo}
             <div class="flex flex-col md:flex-row gap-10 lg:gap-20 md:justify-between">
               {_sectionLinks}
               <div class="flex flex-col gap-10 md:w-2/5 lg:pl-10">
-                {_payments}
-                {_social}
-                {_apps}
+               {/*  {_social} */}
               </div>
             </div>
-            <Divider />
+           {/*  <Divider /> */}
             <div class="flex flex-col-reverse md:flex-row md:justify-between gap-10 md:items-center">
-              <PoweredByDeco />
+              {/* <PoweredByDeco /> */}
               <div class="flex flex-col md:flex-row gap-10 md:items-center">
                 {_links}
-                {_region}
+               {/*  {_region} */}
               </div>
             </div>
           </div>

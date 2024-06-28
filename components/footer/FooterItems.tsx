@@ -1,5 +1,3 @@
-import Icon, { AvailableIcons } from "../../components/ui/Icon.tsx";
-
 export type Item = {
   label: string;
   href: string;
@@ -19,20 +17,20 @@ export default function FooterItems(
         <>
           {/* Tablet and Desktop view */}
           <ul
-            class={`hidden md:flex flex-row gap-6 lg:gap-10 ${
-              justify && "lg:justify-between"
+            class={`hidden xl:flex flex-row gap-6 xl:gap-10 ${
+              justify && "xl:justify-between"
             }`}
           >
             {sections.map((section) => (
               <li>
                 <div class="flex flex-col gap-2">
-                  <span class="font-medium text-lg">
+                  <span class="text-lg font-reserva-serif font-black">
                     {section.label}
                   </span>
                   <ul class={`flex flex-col gap-2 flex-wrap text-sm`}>
                     {section.items?.map((item) => (
                       <li>
-                        <a href={item.href} class="block py-1 link link-hover">
+                        <a href={item.href} class="block link link-hover font-reserva-sans text-accent">
                           {item.label}
                         </a>
                       </li>
@@ -44,16 +42,16 @@ export default function FooterItems(
           </ul>
 
           {/* Mobile view */}
-          <ul class="flex flex-col md:hidden gap-4">
+          <ul class="flex flex-col xl:hidden">
             {sections.map((section) => (
               <li>
                 <div class="collapse collapse-arrow ">
-                  <input id={section.label} type="checkbox" class="min-h-[0]" />
+                  <input id={section.label} type="checkbox" class="" />
                   <label
                     htmlFor={section.label}
-                    class="collapse-title min-h-[0] !p-0 flex gap-2"
+                    class="collapse-title flex gap-2 border-b border-[#f5f5f5]"
                   >
-                    <span>{section.label}</span>
+                    <span class="font-reserva-serif font-black text-accent text-base">{section.label}</span>
                   </label>
                   <div class="collapse-content">
                     <ul
@@ -63,7 +61,7 @@ export default function FooterItems(
                         <li>
                           <a
                             href={item.href}
-                            class="block py-1 link link-hover"
+                            class="block py-1 link link-hover font-reserva-sans text-accent text-sm"
                           >
                             {item.label}
                           </a>
