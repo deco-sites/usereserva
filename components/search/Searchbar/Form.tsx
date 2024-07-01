@@ -93,7 +93,7 @@ export default function Searchbar(
         >
           <span class="loading loading-spinner loading-xs hidden [.htmx-request_&]:inline" />
           <Icon
-            class="inline [.htmx-request_&]:hidden group-has-[li:hover]/header:text-black group-has-[#menu:checked]/header:text-black group-has-[input:checked]/header:text-white"
+            class="inline [.htmx-request_&]:hidden group-has-[li:hover]/header:text-black group-has-[#menu:checked]/header:text-black group-has-[#header-transparent:checked]/header:text-white"
             id="MagnifyingGlass"
             size={24}
             strokeWidth={0.01}
@@ -102,7 +102,7 @@ export default function Searchbar(
         <input
           autofocus
           tabIndex={0}
-          class="px-3 placeholder:text-sm placeholder:font-light  placeholder:text-black group-has-[li:hover]/header:bg-white group-has-[li:hover]/header:text-black group-has-[li:hover]/header:placeholder:text-black group-has-[#menu:checked]/header:text-black group-has-[#menu:checked]/header:bg-white group-has-[#menu:checked]/header:placeholder:text-black group-has-[input:checked]/header:[background:_hsla(0,_0%,_100%,_.3)] group-has-[input:checked]/header:placeholder:text-white group-has-[input:checked]/header:text-white border-[0.4px] border-[#DEDEDE] focus:outline-none flex-grow rounded-full h-full"
+          class="px-3 placeholder:text-sm placeholder:font-light  placeholder:text-black group-has-[li:hover]/header:bg-white group-has-[li:hover]/header:text-black group-has-[li:hover]/header:placeholder:text-black group-has-[#menu:checked]/header:text-black group-has-[#menu:checked]/header:bg-white group-has-[#menu:checked]/header:placeholder:text-black group-has-[#header-transparent:checked]/header:[background:_hsla(0,_0%,_100%,_.3)] group-has-[#header-transparent:checked]/header:placeholder:text-white group-has-[#header-transparent:checked]/header:text-white border-[0.4px] border-[#DEDEDE] focus:outline-none flex-grow rounded-full h-full"
           name={NAME}
           placeholder={placeholder}
           autocomplete="off"

@@ -24,7 +24,7 @@ export interface NavBar {
 function NavBar({ logo, menu, searchBar, isDesktop }: NavBar) {
   return (
     <div
-      class="flex items-center gap-16 justify-between bg-white group-has-[li:hover]/header:bg-white group-has-[#menu:checked]/header:!bg-white group-has-[input:checked]/header:bg-transparent transition-colors duration-500 relative"
+      class="flex items-center gap-16 justify-between bg-white group-has-[li:hover]/header:bg-white group-has-[#menu:checked]/header:!bg-white group-has-[#header-transparent:checked]/header:bg-transparent transition-colors duration-500 relative"
       style={{ height: isDesktop ? NAVBAR_HEIGHT : NAVBAR_HEIGHT_MOBILE }}
     >
       <div class="flex items-center justify-between h-full container">

@@ -16,14 +16,14 @@ function NavItem({ title, collums, link, isBlank, image, color }: Department) {
         rel={isBlank ? "noopener noreferrer" : ""}
       >
         <p
-          class="text-base font-normal group-hover:border-b-2 border-black group-has-[li:hover]/header:text-black group-has-[input:checked]/header:text-white"
+          class="text-base font-normal group-hover:border-b-2 border-black group-has-[li:hover]/header:text-black group-has-[#header-transparent:checked]/header:text-white"
           style={{ color }}
         >
           {title}
         </p>
       </a>
       <div
-        class="absolute group-hover:opacity-100 group-hover:pointer-events-auto group-has-[input:checked]/header:transition-opacity group-has-[input:checked]/header:duration-500 shadow-sm pointer-events-none opacity-0 w-full border-t border-[#DEDEDE] bg-white z-50"
+        class="absolute group-hover:opacity-100 group-hover:pointer-events-auto group-has-[#header-transparent:checked]/header:transition-opacity group-has-[#header-transparent:checked]/header:duration-500 shadow-sm pointer-events-none opacity-0 w-full border-t border-[#DEDEDE] bg-white z-50"
         style={{ top: NAVBAR_HEIGHT, left: 0 }}
       >
         <div class="container flex justify-start gap-16 py-8">
