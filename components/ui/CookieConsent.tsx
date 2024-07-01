@@ -131,7 +131,7 @@ function CookieConsent(props: Props) {
             ${layout?.content === "Piled up" ? "lg:w-[480px]" : ""}
             ${
                   !layout?.content || layout?.content === "Tiled"
-                    ? "lg:w-[520px]"
+                    ? "lg:w-[500px] h-[70px]"
                     : ""
                 }
           `
@@ -147,13 +147,13 @@ function CookieConsent(props: Props) {
             <div
               class={`flex-auto flex flex-col ${
                 !layout?.content || layout?.content === "Tiled"
-                  ? "lg:gap-2"
+                  ? "lg:gap-1"
                   : ""
               }`}
             >
-              <h3 class="text-xs sm:text-sm">{title}</h3>
+              <h3 class="text-xs sm:text-sm sm:font-normal font-extralight tracking-[-0.30px] sm:tracking-[-0.3px]">{title}</h3>
               {text && (
-                <span class="text-xs sm:text-sm">
+                <span class="text-xs sm:text-sm sm:font-normal font-extralight tracking-[-0.30px] sm:tracking-[-0.3px]">
                   {text}
                   <a href={policy.link} class="link ml-1">
                     {policy.text}
@@ -170,7 +170,7 @@ function CookieConsent(props: Props) {
               }`}
             >
               <button
-                class="py-2 px-6 lg:px-12 text-xs sm:text-sm font-normal text-base-200 bg-black hover:bg-black rounded-full uppercase"
+                class="py-2 px-6 lg:px-12 text-[10px] sm:text-sm font-normal text-base-200 bg-black hover:bg-black rounded-full uppercase"
                 data-button-cc-accept
               >
                 {buttons.allowText}
