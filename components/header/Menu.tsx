@@ -39,7 +39,7 @@ function Collapse(
     >
       <input class="hidden" type="checkbox" id={id} />
       <label htmlFor={id}>
-        <div class="collapse-title min-h-0 p-6 h-14">
+        <div class="collapse-title min-h-0 py-6 px-0 container h-14">
           <div class="flex items-center justify-between h-full w-full">
             <p class={titleClass}>{title}</p>
             <style
@@ -83,14 +83,16 @@ const MenuCategory = ({ title, navItems }: Category) => {
     >
       <ul class="bg-[#E6E6E6]">
         {navItems.map(({ title, link, isBlank }) => (
-          <li class="text-sm px-12 h-14">
+          <li class="text-sm w-full h-14">
             <a
               href={link}
               target={isBlank ? "_blank" : "_self"}
               rel={isBlank ? "noopener noreferrer" : ""}
               class="flex items-center w-full h-full"
             >
-              {title}
+              <p class="container px-6" >
+                {title}
+              </p>
             </a>
           </li>
         ))}
@@ -127,23 +129,22 @@ const MenuDepartament = ({ title, collums, image }: Department) => {
 
 function MenuExtraLinks({ icon, link, title, isBlank }: ExtraLink) {
   return (
-    <div class="h-14 w-full">
-      <a
-        class="flex items-center justify-start gap-5 h-full w-full"
-        href={link}
-        target={isBlank ? "_blank" : "_self"}
-        rel={isBlank ? "noopener noreferrer" : ""}
+    <a class="h-14 w-full block"
+      href={link}
+      target={isBlank ? "_blank" : "_self"}
+      rel={isBlank ? "noopener noreferrer" : ""}>
+      <div class="flex items-center justify-start gap-5 h-full container"
       >
         <Icon id={icon} width={20} height={20} />
         <p class="text-sm font-bold">{title}</p>
-      </a>
-    </div>
+      </div>
+    </a>
   );
 }
 
 function MenuContent({ links, extraLinks }: MenuProps) {
   return (
-    <div class="flex flex-col carousel-vertical">
+    <div class="carousel-vertical">
       {links.map((department) => <MenuDepartament {...department} />)}
       {extraLinks?.map((extraLinks) => <MenuExtraLinks {...extraLinks} />)}
     </div>
