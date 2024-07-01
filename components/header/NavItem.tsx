@@ -34,6 +34,8 @@ function NavItem({ title, collums, link, isBlank, image, color }: Department) {
               alt={image.alt}
               width={IMAGE_WIDTH}
               height={IMAGE_HEIGHT}
+              href={image.link}
+              loading={"lazy"}
             />
           )}
           <ul class="flex items-start gap-12 w-full">
@@ -46,6 +48,8 @@ function NavItem({ title, collums, link, isBlank, image, color }: Department) {
               alt={image.alt}
               width={IMAGE_WIDTH}
               height={IMAGE_HEIGHT}
+              href={image.link}
+              loading={"lazy"}
             />
           )}
         </div>

@@ -1,5 +1,8 @@
 export interface Alert {
-  /** @format rich-text */
+  /** 
+   * @title text
+   * @format rich-text 
+   */
   text: string;
 }
 

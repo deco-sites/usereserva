@@ -8,6 +8,10 @@ import { useScriptAsDataURI } from "deco/hooks/useScript.ts";
 export interface Props {
   /** @title Alerta */
   Alert: IAlert;
+  /** 
+   * @title Barra de navegação
+   * @description Aqui você vai encontrar tudo correlacionado a navegação do site. Desde uma barra de busca até mesmo links.
+   */
   navBar: INavBar;
   /** @title É Transparente? */
   isTransparent?: boolean;
@@ -51,7 +55,7 @@ export const ScrollJS = ({ isTransparent }: { isTransparent?: boolean }) => {
     addEventListener("scroll", changeHeader);
   };
 
-  return <script src={useScriptAsDataURI(setup, { isTransparent })} />;
+  return <script defer src={useScriptAsDataURI(setup, { isTransparent })} />;
 };
 
 function Header({ isTransparent, ...props }: ReturnType<typeof loader>) {

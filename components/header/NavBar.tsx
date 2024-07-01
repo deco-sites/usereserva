@@ -13,7 +13,11 @@ import MenuDrawer from "./Menu.tsx";
 export interface NavBar {
   logo: ImageWidget;
   menu: Menu;
+  /** @title Barra de pesquisa */
   searchBar?: SearchbarProps;
+  /** 
+   * @hide 
+   */
   isDesktop?: boolean;
 }
 
@@ -48,7 +52,7 @@ function NavBar({ logo, menu, searchBar, isDesktop }: NavBar) {
           <div class="flex flex-col w-full xl:hidden gap-[6px]">
             <div class="flex items-center justify-between h-full w-full">
               <MenuButton />
-              <Image src={logo} alt="usereserva" width={27} height={32} />
+              <Image src={logo} alt="usereserva" width={27} height={32} loading={"lazy"} />
               <Cart />
             </div>
             <Search {...searchBar} />

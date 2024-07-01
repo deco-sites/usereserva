@@ -58,9 +58,8 @@ function Collapse(
               id="ChevronDown"
               width={24}
               height={24}
-              class={`ml-auto text-black arrow pointer-events-none ${
-                hasRotate ? "rotate" : ""
-              }`}
+              class={`ml-auto text-black arrow pointer-events-none ${hasRotate ? "rotate" : ""
+                }`}
             />
           </div>
         </div>
@@ -119,6 +118,7 @@ const MenuDepartament = ({ title, collums, image }: Department) => {
           width={IMAGE_WIDTH}
           height={IMAGE_HEIGHT}
           href={image.link}
+          loading={"lazy"}
         />
       )}
     </Collapse>
