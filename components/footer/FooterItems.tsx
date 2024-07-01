@@ -24,7 +24,7 @@ export default function FooterItems(
             {sections.map((section) => (
               <li>
                 <div class="flex flex-col gap-2">
-                  <span class="text-lg font-reserva-serif font-black">
+                  <span class="text-lg font-reserva-serif xl:font-black">
                     {section.label}
                   </span>
                   <ul class={`flex flex-col gap-2 flex-wrap text-sm`}>
@@ -32,7 +32,7 @@ export default function FooterItems(
                       <li>
                         <a
                           href={item.href}
-                          class="block link link-hover font-reserva-sans text-accent"
+                          class="block link link-hover font-reserva-sans text-[#8a8c8e]"
                         >
                           {item.label}
                         </a>
@@ -48,25 +48,25 @@ export default function FooterItems(
           <ul class="flex flex-col xl:hidden">
             {sections.map((section) => (
               <li>
-                <div class="collapse collapse-arrow ">
-                  <input id={section.label} type="checkbox" class="" />
+                <div class="collapse collapse-arrow rounded-none">
+                  <input id={section.label} type="checkbox" class="!min-h-12" />
                   <label
                     htmlFor={section.label}
-                    class="collapse-title flex gap-2 border-b border-[#f5f5f5]"
+                    class="collapse-title flex gap-2 !min-h-12 py-4 px-0 border-b border-[#f5f5f5] h-0"
                   >
-                    <span class="font-reserva-serif font-black text-accent text-base">
+                    <span class="font-reserva-sans text-accent text-base">
                       {section.label}
                     </span>
                   </label>
                   <div class="collapse-content">
                     <ul
-                      class={`flex flex-col gap-1 pl-5 pt-2`}
+                      class={`flex flex-col gap-1 pt-2`}
                     >
                       {section.items?.map((item) => (
                         <li>
                           <a
                             href={item.href}
-                            class="block py-1 link link-hover font-reserva-sans text-accent text-sm"
+                            class="block py-1 link link-hover font-reserva-sans text-[#8a8c8e] text-sm font-light"
                           >
                             {item.label}
                           </a>

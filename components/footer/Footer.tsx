@@ -27,8 +27,8 @@ export type ContactItem = {
   description: string;
 };
 
-export type ItemContact = {
-  label: string;
+export type Contact = {
+  title: string;
   items: ContactItem[];
 };
 
@@ -104,7 +104,7 @@ export interface Props {
     items: SocialItem[];
   };
   extraLinks?: Item[];
-  contact?: ItemContact[];
+  contact?: Contact[];
   backToTheTop?: {
     text?: string;
   };
@@ -239,17 +239,17 @@ function Footer({
   },
   extraLinks = [],
   contact = [{
-    "label": "Atendimento",
+    "title": "Atendimento",
     "items": [{
-      "href": "/",
-      "label": "WhatsApp Reserva",
-      "icon": "FooterWhatsapp",
-      "description": "Segunda a Sexta: 08h às 20h Sábados: 08h às 18h",
-    }, {
       "href": "/",
       "label": "Atendimento em libras",
       "icon": "Libra",
       "description": "",
+    }, {
+      "href": "/",
+      "label": "WhatsApp Reserva",
+      "icon": "FooterWhatsapp",
+      "description": "Segunda a Sexta: 08h às 20h Sábados: 08h às 18h",
     }, {
       "href": "/",
       "label": "Solicite sua troca aqui",
@@ -259,19 +259,19 @@ function Footer({
   }],
   footerImage = [{
     image:
-      "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2753/b2278d2d-2270-482b-98d4-f09d5f05ba97",
-    title: "Enrega Internacional",
+      "https://lojausereserva.vtexassets.com/arquivos/entr3x.png",
+    title: "Entrega Internacional",
     description: "Entrega para mais de 40 países de forma rápida e segura.",
   }, {
     image:
-      "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2753/b2278d2d-2270-482b-98d4-f09d5f05ba97",
-    title: "Enrega Internacional",
-    description: "Entrega para mais de 40 países de forma rápida e segura.",
+      "https://lojausereserva.vtexassets.com/arquivos/1p5px2.png",
+    title: "1P=5P",
+    description: "A cada peça vendida, 5 pratos de comida são viabilizados para quem tem fome.",
   }, {
     image:
-      "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2753/b2278d2d-2270-482b-98d4-f09d5f05ba97",
-    title: "Enrega Internacional",
-    description: "Entrega para mais de 40 países de forma rápida e segura.",
+      "https://lojausereserva.vtexassets.com/arquivos/trocax2.png",
+    title: "Troca Facilitada",
+    description: "Compre no site ou app e troque em uma das lojas em até 7 dias.",
   }],
   backToTheTop,
   layout = {
@@ -315,38 +315,6 @@ function Footer({
       )}
     >
       <div class="xl:container">
-        {(!layout?.variation || layout?.variation == "Variation 1") && (
-          <div class="flex flex-col">
-            <div class="flex flex-col md:flex-row md:justify-between md:flex-wrap lg:flex-nowrap gap-8 lg:gap-12">
-              {_logo}
-              {_sectionLinks}
-            </div>
-            <div class="flex flex-col md:flex-row gap-10 md:gap-14 md:items-end">
-              <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 lg:items-end">
-              </div>
-            </div>
-            {/*   <Divider /> */}
-            <div class="flex flex-col-reverse md:flex-row md:justify-between gap-10">
-              {_links}
-            </div>
-          </div>
-        )}
-        {layout?.variation == "Variation 2" && (
-          <div class="flex flex-col gap-10">
-            <div class="flex flex-col md:flex-row gap-10">
-              <div class="flex flex-col gap-10 lg:w-1/2">
-                {_logo}
-              </div>
-              <div class="flex flex-col gap-10 lg:gap-20 lg:w-1/2 lg:pr-10">
-                {_sectionLinks}
-              </div>
-            </div>
-            {/*      <Divider /> */}
-            <div class="flex flex-col-reverse md:flex-row md:justify-between gap-10">
-              {_links}
-            </div>
-          </div>
-        )}
         {layout?.variation == "Variation 3" && (
           <div class="flex flex-col">
             {_logo}
@@ -354,85 +322,35 @@ function Footer({
               <div class="order-2 xl:order-none flex flex-col xl:flex-row">
                 {_sectionLinks}
               </div>
-              <div class="order-1 xl:order-none pb-5 xl:pb-0">
+              <div class="order-1 xl:order-none pb-5 xl:pb-0 xl:max-w-md">
                 {_contact}
                 {_social}
               </div>
             </div>
-            <div class="grid grid-cols-1 xl:grid-cols-3 gap-10 py-12">
+            <div class="flex flex-col lg:flex-row gap-10 py-12 max-w-3xl mx-auto">
               {footerImage.map((image, index) => (
                 <div class="flex flex-col items-center" key={index}>
                   <figure>
                     <Image
-                      class="card"
+                      class="object-contain"
                       src={image.image}
                       alt={image.title}
-                      width={60}
-                      height={60}
+                      width={70}
+                      height={70}
                       loading="lazy"
                     />
                   </figure>
-                  <p class="text-lg font-reserva-sans text-accent">
+                  <p class="text-lg font-reserva-sans font-bold text-accent opacity-[.5]">
                     {image.title}
                   </p>
-                  <span class="text-sm font-reserva-sans text-accent font-light">
+                  <span class="text-[13px] font-reserva-sans text-[#8a8c8e] font-light text-center">
                     {image.description}
                   </span>
                 </div>
               ))}
             </div>
             <div class="flex flex-col-reverse md:flex-row md:justify-between">
-              teste
               {_links}
-            </div>
-          </div>
-        )}
-        {layout?.variation == "Variation 4" && (
-          <div class="flex flex-col gap-10">
-            {/*  {layout?.hide?.newsletter ? <></> : <Divider />} */}
-            <div class="flex flex-col lg:flex-row gap-10 lg:gap-20 lg:justify-between">
-              {_sectionLinks}
-              <div class="flex flex-col md:flex-row lg:flex-col gap-10 lg:gap-10 lg:w-2/5 lg:pl-10">
-                <div class="flex flex-col md:flex-row gap-10 lg:gap-20">
-                  {
-                    /*                   <div class="lg:flex-auto">
-                    {_payments}
-                  </div> */
-                  }
-                  <div class="lg:flex-auto">
-                    {/*     {_social} */}
-                  </div>
-                </div>
-                <div class="flex flex-col gap-10 lg:gap-10">
-                  {/*  {_region} */}
-                  {/* {_apps} */}
-                </div>
-              </div>
-            </div>
-            {/* <Divider /> */}
-            <div class="flex flex-col md:flex-row md:justify-between gap-10 md:items-center">
-              {_logo}
-              {/*   <PoweredByDeco /> */}
-            </div>
-          </div>
-        )}
-        {layout?.variation == "Variation 5" && (
-          <div class="flex flex-col gap-10">
-            {/*  {layout?.hide?.newsletter ? <></> : <Divider />} */}
-            {_logo}
-            <div class="flex flex-col md:flex-row gap-10 lg:gap-20 md:justify-between">
-              {_sectionLinks}
-              <div class="flex flex-col gap-10 md:w-2/5 lg:pl-10">
-                {/*  {_social} */}
-              </div>
-            </div>
-            {/*  <Divider /> */}
-            <div class="flex flex-col-reverse md:flex-row md:justify-between gap-10 md:items-center">
-              {/* <PoweredByDeco /> */}
-              <div class="flex flex-col md:flex-row gap-10 md:items-center">
-                {_links}
-                {/*  {_region} */}
-              </div>
             </div>
           </div>
         )}

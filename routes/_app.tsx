@@ -53,19 +53,33 @@ export default defineApp(async (_req, ctx) => {
               font-style: normal;
               font-display: swap;
             }
-            @font-face {
+              @font-face {
               font-family: ReservaSans;
               src: url(${asset("/fonts/ReservaSans-Bold.woff")}) format('woff');
               font-weight: 700;
               font-style: normal;
               font-display: swap;
             }
+              @font-face {
+              font-family: ReservaSerif;
+              src: url(${asset("/fonts/ReservaSerif-Light.woff")}) format('woff');
+              font-weight: 300;
+              font-style: normal;
+              font-display: swap;
+            }
+            @font-face {
+              font-family: ReservaSerif;
+              src: url(${asset("/fonts/ReservaSerif-Regular.woff")}) format('woff');
+              font-weight: 400;
+              font-style: normal;
+              font-display: swap;
+            }
             @font-face {
               font-family: ReservaSerif;
               src: url(${
-              asset("/fonts/ReservaSerif-Regular.woff")
+              asset("/fonts/ReservaSerif-Bold.woff")
             }) format('woff');
-              font-weight: 400;
+              font-weight: 900;
               font-style: normal;
               font-display: swap;
             }

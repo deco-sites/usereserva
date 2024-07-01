@@ -120,25 +120,25 @@ export default function Newsletter({
 }: Props) {
   return (
     <div class="bg-[#f9f9f9]">
-      <section class="container flex flex-col sm:flex-row justify-between items-center sm:items-start py-8 px-4">
-        <div class="order-2 xl:order-none mt-5 sm:mt-0">
-          <div class="flex flex-wrap items-center justify-center lg:justify-between">
+      <section class="container flex flex-col justify-center p-8 md:gap-10 md:flex-row xl:justify-between">
+        <div class="order-2 xl:order-none mt-5 md:mt-0 ">
+          <div class="flex flex-col items-center justify-center xl:flex-row xl:justify-evenly">
             <div class="flex items-center">
               <Icon
                 id={icon}
                 width={18}
                 height={23}
                 strokeWidth={0.01}
-                class="lg:mr-2.5"
+                class="mr-2.5"
               />
               {title && (
-                <h4 class="text-2xl lg:text-3xl text-center sm:text-justify font-reserva-display">
+                <h4 class="text-[23px] xl:text-[32px] tracking-tighter font-reserva-display text-center leading-tight">
                   {title}
                 </h4>
               )}
             </div>
             {description && (
-              <div class="text-sm text-center lg:text-justify font-reserva-sans my-2.5 w-64">
+              <div class="text-sm text-center font-reserva-sans my-2.5 w-64 xl:text-justify">
                 {description}
               </div>
             )}
@@ -148,24 +148,24 @@ export default function Newsletter({
             hx-target="closest section"
             hx-swap="outerHTML"
             hx-post={useComponent(import.meta.url)}
-            class="flex flex-col gap-4"
+            class="flex flex-col"
           >
             <div class="flex flex-col xl:flex-row gap-3">
               <input
+                name="email"
+                type="email"
+                class="flex-auto input input-bordered bg-white border-[#B0B0B0] text-secondary text-sm focus:outline-none focus:border-[#b0b0b0] rounded-lg font-reserva-sans font-light h-[42px] xl:w-[257px]"
+                placeholder={form.placeholderEmail}
+              />
+              <input
                 name="name"
                 type="text"
-                class="flex-auto input input-bordered border-[#B0B0B0] text-secondary text-sm focus:outline-none focus:border-[#b0b0b0] rounded-lg font-reserva-sans font-light"
+                class="flex-auto input input-bordered bg-white border-[#B0B0B0] text-secondary text-sm focus:outline-none focus:border-[#b0b0b0] rounded-lg font-reserva-sans font-light h-[42px] xl:w-[257px]"
                 required
                 placeholder={form?.placeholderName}
               />
-              <input
-                name="email"
-                type="email"
-                class="flex-auto input input-bordered border-[#B0B0B0] text-secondary text-sm focus:outline-none focus:border-[#b0b0b0] rounded-lg font-reserva-sans font-light"
-                placeholder={form.placeholderEmail}
-              />
               <button
-                class="text-sm rounded-lg uppercase text-white bg-black px-7 py-3.5 w-full font-reserva-sans font-light"
+                class="text-sm rounded-lg uppercase text-white bg-black py-3 w-full font-reserva-sans font-light tracking-widest xl:w-[149px]"
                 type="submit"
               >
                 <span class="[.htmx-request_&]:hidden inline">
@@ -184,15 +184,15 @@ export default function Newsletter({
           </form>
         </div>
 
-        <div class="order-1 xl:order-none">
-          <div class="xl:flex xl:items-center">
+        <div class="order-1 xl:order-none ">
+          <div class="flex flex-col items-center justify-center xl:flex-row xl:justify-between">
             {appsContent.title && (
-              <h4 class="text-2xl lg:text-3xl font-reserva-display text-center">
+              <h4 class="text-[23px] xl:text-[32px] tracking-tighter font-reserva-display text-center">
                 {appsContent.title}
               </h4>
             )}
             {appsContent.description && (
-              <div class="text-sm text-center lg:text-justify font-reserva-sans my-2.5 w-72 xl:ml-5">
+              <div class="text-sm text-center font-reserva-sans my-2.5 w-72 xl:text-justify xl:ml-2.5">
                 {appsContent.description}
               </div>
             )}
