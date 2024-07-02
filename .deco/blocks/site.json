@@ -62,5 +62,8 @@
     "includeScriptsToHead": {
       "includes": []
     }
+  },
+  "flavor": {
+    "framework": "htmx"
   }
 }

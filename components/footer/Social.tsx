@@ -1,4 +1,4 @@
-import Icon, { AvailableIcons } from "../../components/ui/Icon.tsx";
+import Icon from "../../components/ui/Icon.tsx";
 
 export interface SocialItem {
   label:
@@ -12,9 +12,8 @@ export interface SocialItem {
 }
 
 export default function Social(
-  { content, vertical = false }: {
+  { content }: {
     content?: { title?: string; items?: SocialItem[] };
-    vertical?: boolean;
   },
 ) {
   return (
@@ -23,13 +22,11 @@ export default function Social(
         <div>
           {content.title && <h3 class="text-lg">{content.title}</h3>}
           <ul
-            class={`flex gap-4 mt-4 ${
-              vertical ? "items-start" : "flex-wrap items-center"
-            }`}
+            class={"flex gap-4 mt-4"}
           >
             {content.items.map((item) => {
               return (
-                <li>
+                <li class="opacity-[.3] transition duration-300 hover:opacity-100">
                   <a
                     href={item.link}
                     target="_blank"

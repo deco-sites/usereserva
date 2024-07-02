@@ -22,12 +22,12 @@ export type ContactItem = {
 
 export type Contact = {
   /**
-  * @title Título
-  */
+   * @title Título
+   */
   title: string;
   /**
-  * @title Itens de link
-  */
+   * @title Itens de link
+   */
   items: ContactItem[];
 };
 
@@ -41,7 +41,9 @@ export default function Contact({ content }: { content?: Contact[] }) {
               <span class="font-reserva-serif text-lg font-black">
                 {contact.title}
               </span>
-              <ul class={`flex flex-col gap-4 sm:grid sm:grid-cols-2 xl:gap-y-8 text-sm`}>
+              <ul
+                class={`flex flex-col gap-4 sm:grid sm:grid-cols-2 xl:gap-y-8 text-sm`}
+              >
                 {contact.items.map((items) => (
                   <li class="flex col-span-1">
                     <Icon

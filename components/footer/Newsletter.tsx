@@ -1,8 +1,8 @@
-import { AppContext } from "../../apps/site.ts";
-import { usePlatform } from "../../sdk/usePlatform.tsx";
-import { useComponent } from "../Component.tsx";
-import Icon, { AvailableIcons } from "../../components/ui/Icon.tsx";
-import MobileApps from "../../components/footer/MobileApps.tsx";
+/* import { AppContext } from "../../apps/site.ts";
+import { usePlatform } from "../../sdk/usePlatform.tsx"; */
+import Icon, { AvailableIcons } from "../ui/Icon.tsx";
+import MobileApps from "./MobileApps.tsx";
+import { useSection } from "deco/hooks/useSection.ts";
 
 export interface Form {
   /**
@@ -20,12 +20,6 @@ export interface Form {
    * @description Texto do botão do formulário.
    */
   buttonText?: string;
-  /**
-   * @title Texto após submit do formulário
-   * @description Texto renderizado após submeter o formulário.
-   */
-  /** @format html */
-  helpText?: string;
 }
 
 export interface MobileApps {
@@ -78,38 +72,22 @@ export interface Props {
    * @title Conteúdo Aplicativo
    */
   appsContent?: AppsContent;
-}
-
-export async function action(props: Props, req: Request, ctx: AppContext) {
-  const platform = usePlatform();
-
-  const form = await req.formData();
-  const email = `${form.get("email") ?? ""}`;
-
-  if (platform === "vtex") {
-    // deno-lint-ignore no-explicit-any
-    await (ctx as any).invoke("vtex/actions/newsletter/subscribe.ts", {
-      email,
-    });
-  }
-
-  return props;
-}
-
-export function loader(props: Props) {
-  return props;
+  /** @ignore */
+  invalidEmail?: boolean;
+  /** @ignore */
+  newsletterSuccess?: boolean;
+  /** @ignore */
+  invalidName?: boolean;
 }
 
 export default function Newsletter({
   icon = "ReservaBird",
   title = "Assine nossa newsletter",
-  description =
-    "Cadastre-se e receba promoções exclusivas e saiba tudo antes de todo mundo!",
+  description = "Cadastre-se e receba promoções exclusivas e saiba tudo antes de todo mundo!",
   form = {
     placeholderEmail: "Digite seu e-mail",
     placeholderName: "Digite seu nome",
     buttonText: "Cadastrar",
-    helpText: "Obrigado por se cadastrar.",
   },
   mobileApps = { apple: "/", android: "/" },
   appsContent = {
@@ -117,10 +95,14 @@ export default function Newsletter({
     description:
       "A Reserva todinha na palma da sua mão, baixe agora mesmo na loja do seu smartphone.",
   },
+  invalidEmail,
+  invalidName,
+  newsletterSuccess,
 }: Props) {
+
   return (
     <div class="bg-[#f9f9f9]">
-      <section class="container flex flex-col justify-center p-8 md:gap-10 md:flex-row xl:justify-between">
+      <div class="container flex flex-col justify-center p-8 md:gap-10 md:flex-row xl:justify-between">
         <div class="order-2 xl:order-none mt-5 md:mt-0 ">
           <div class="flex flex-col items-center justify-center xl:flex-row xl:justify-evenly">
             <div class="flex items-center">
@@ -145,28 +127,43 @@ export default function Newsletter({
           </div>
 
           <form
-            hx-target="closest section"
-            hx-swap="outerHTML"
-            hx-post={useComponent(import.meta.url)}
             class="flex flex-col"
+            hx-post={useSection()}
+            hx-swap="outerHTML"
+            hx-target="closest section"
+            hx-indicator="#submitButton"
           >
             <div class="flex flex-col xl:flex-row gap-3">
-              <input
-                name="email"
-                type="email"
-                class="flex-auto input input-bordered bg-white border-[#B0B0B0] text-secondary text-sm focus:outline-none focus:border-[#b0b0b0] rounded-lg font-reserva-sans font-light h-[42px] xl:w-[257px]"
-                placeholder={form.placeholderEmail}
-              />
-              <input
-                name="name"
-                type="text"
-                class="flex-auto input input-bordered bg-white border-[#B0B0B0] text-secondary text-sm focus:outline-none focus:border-[#b0b0b0] rounded-lg font-reserva-sans font-light h-[42px] xl:w-[257px]"
-                required
-                placeholder={form?.placeholderName}
-              />
+              <div class="flex flex-col">
+                <input
+                  name="email"
+                  type="text"
+                  class={`flex-auto input input-bordered bg-white text-secondary text-sm focus:outline-none border-[#B0B0B0] focus:border-[#b0b0b0] rounded-lg font-reserva-sans font-light max-h-[42px] xl:w-[257px] ${invalidEmail ? "border-[#ff4c4c]" : "border-[#B0B0B0]"}`}
+                  placeholder={form.placeholderEmail}
+                />
+                {invalidEmail && (
+                  <span class="text-[#ff4c4c] text-[13px] font-reserva-sans">
+                    E-mail inválido
+                  </span>
+                )}
+              </div>
+              <div class="flex flex-col">
+                <input
+                  name="name"
+                  type="text"
+                  class={`flex-auto input input-bordered bg-white text-secondary text-sm focus:outline-none border-[#B0B0B0] focus:border-[#b0b0b0] rounded-lg font-reserva-sans font-light max-h-[42px] xl:w-[257px] ${invalidName ? "border-[#ff4c4c]" : "border-[#B0B0B0]"}`}
+                  placeholder={form?.placeholderName}
+                />
+                {invalidName && (
+                  <span class="text-[#ff4c4c] text-[13px] font-reserva-sans">
+                    O Nome é obrigatório
+                  </span>
+                )}
+              </div>
               <button
-                class="text-sm rounded-lg uppercase text-white bg-black py-3 w-full font-reserva-sans font-light tracking-widest xl:w-[149px]"
+                id="submitButton"
                 type="submit"
+                class="text-sm rounded-lg uppercase text-white bg-black py-3 w-full font-reserva-sans font-light tracking-widest xl:w-[149px]"
               >
                 <span class="[.htmx-request_&]:hidden inline">
                   {form.buttonText}
@@ -176,11 +173,13 @@ export default function Newsletter({
                 </span>
               </button>
             </div>
-
-            <div
-              class="text-xs font-reserva-sans text-center"
-              dangerouslySetInnerHTML={{ __html: form.helpText ?? "" }}
-            />
+            {newsletterSuccess && (
+              <div class="flex justify-end">
+                <p class="text-xs font-reserva-sans mt-2.5">
+                  Obrigado por se cadastrar!
+                </p>
+              </div>
+            )}
           </form>
         </div>
 
@@ -199,7 +198,7 @@ export default function Newsletter({
           </div>
           <MobileApps content={mobileApps} />
         </div>
-      </section>
+      </div>
     </div>
   );
 }

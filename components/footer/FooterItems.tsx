@@ -9,7 +9,7 @@ export type Section = {
 };
 
 export default function FooterItems(
-  { sections, justify = false }: { sections: Section[]; justify: boolean },
+  { sections }: { sections: Section[] },
 ) {
   return (
     <>
@@ -17,9 +17,7 @@ export default function FooterItems(
         <>
           {/* Tablet and Desktop view */}
           <ul
-            class={`hidden xl:flex flex-row gap-6 xl:gap-10 ${
-              justify && "xl:justify-between"
-            }`}
+            class={"hidden xl:flex flex-row gap-6 xl:gap-10"}
           >
             {sections.map((section) => (
               <li>
